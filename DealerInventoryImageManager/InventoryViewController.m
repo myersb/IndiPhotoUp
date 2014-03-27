@@ -35,6 +35,7 @@
 {
     [super viewDidLoad];
     NSLog(@"InventoryViewController : viewDidLoad");
+	NSLog(@"CDN: %@", _chosenDealerNumber);
     
 
 	id delegate = [[UIApplication sharedApplication]delegate];
@@ -58,22 +59,14 @@
 	}
 	else{
 		_dealerNumber = _chosenDealerNumber;
+		NSLog(@"CDN2: %@", _dealerNumber);
 		Dealer *savedDealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
 		savedDealer.dealerNumber = _chosenDealerNumber;
 		dealer.dealerNumber = _chosenDealerNumber;
-		_btnChangeDealer.hidden = NO;
-	}
-	
-	if (![savedDealer.userName isEqualToString:@"Admin"]) {
-		DealerModel *dealer = [[DealerModel alloc]init];
-		[dealer getDealerNumber];
-		_dealerNumber = dealer.dealerNumber;
-	}
-	else{
-		_btnChangeDealer.hidden = NO;
 	}
 	
 	if (_isConnected == TRUE) {
+		NSLog(@"CDN3: %@", _dealerNumber);
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
 	}

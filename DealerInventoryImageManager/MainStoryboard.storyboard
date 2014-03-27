@@ -103,7 +103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="IlC-t8-HSh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15C096C4-BFCC-484B-ADC5-58D02A222E18" translatesAutoresizingMaskIntoConstraints="NO" id="IlC-t8-HSh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="53" id="cUv-ww-jAL"/>
                                 </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
                                 <rect key="frame" x="108" y="515" width="105" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -835,10 +835,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dealerSelect.png" translatesAutoresizingMaskIntoConstraints="NO" id="wLw-WR-DVZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-Qf-Fkq">
                                 <rect key="frame" x="0.0" y="515" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -847,30 +843,6 @@
                                     <constraint firstAttribute="width" constant="320" id="BUL-wS-swf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a dealer number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHw-zx-jjD">
-                                <rect key="frame" x="28" y="76" width="170" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XxZ-JH-Dts">
-                                <rect key="frame" x="33" y="112" width="252" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uh-LU-8ar">
-                                <rect key="frame" x="28" y="157" width="161" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="getInventoryBtn.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="jG9-tX-G0C"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
                                 <rect key="frame" x="212" y="515" width="108" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -886,6 +858,44 @@
                                     <segue destination="uAE-a2-xjx" kind="modal" identifier="segueToLoginFromDealerSelect" id="yYU-7B-a5w"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-Ch-J5h">
+                                <rect key="frame" x="0.0" y="60" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Vqp-dh-Nrz" detailTextLabel="7Bz-yN-NBj" rowHeight="95" style="IBUITableViewCellStyleSubtitle" id="gvC-2y-ufR">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="95"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gvC-2y-ufR" id="9jb-S0-fVX">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="34" id="Vqp-dh-Nrz">
+                                                    <rect key="frame" x="15" y="29" width="34" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Bz-yN-NBj">
+                                                    <rect key="frame" x="15" y="51" width="43" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iEF-6x-NNF" kind="push" identifier="segueFromDealerSelectToIventoryView" id="cix-BV-ct0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vo6-7G-XIw" id="8dY-ce-NED"/>
+                                    <outlet property="delegate" destination="vo6-7G-XIw" id="7Gf-gA-YHR"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -896,7 +906,7 @@
                     <navigationItem key="navigationItem" title="Dealer Select" id="XV2-bv-Yja"/>
                     <connections>
                         <outlet property="btnLogout" destination="bhp-z6-QHV" id="ria-Dc-2Sz"/>
-                        <outlet property="tfDealerNumber" destination="XxZ-JH-Dts" id="LVV-Tp-EfT"/>
+                        <outlet property="lotTableView" destination="8Mb-Ch-J5h" id="L0U-bz-hQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TpW-m3-FXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -942,14 +952,28 @@
         </scene>
     </scenes>
     <resources>
+        <image name="15C096C4-BFCC-484B-ADC5-58D02A222E18" width="640" height="1136">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKW3s2NDAsIDExMzZ90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoY
+ohscgAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfENdmaWxlOi8vL0FwcGxp
+Y2F0aW9ucy9YY29kZS5hcHAvQ29udGVudHMvRGV2ZWxvcGVyL1BsYXRmb3Jtcy9pUGhvbmVTaW11bGF0
+b3IucGxhdGZvcm0vRGV2ZWxvcGVyL0xpYnJhcnkvWGNvZGUvUHJpdmF0ZVBsdWdJbnMvSURFSW50ZXJm
+YWNlQnVpbGRlckNvY29hVG91Y2hJbnRlZ3JhdGlvbi5pZGVwbHVnaW4vQ29udGVudHMvUmVzb3VyY2Vz
+L0lCVUlNaXNzaW5nSW1hZ2UudGlmZtInKCkqWiRjbGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiKyxVTlNV
+UkxYTlNPYmplY3TSJyguL1dOU0FycmF5oi4s0zEyCjM0NVdOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAA
+EAOAC9InKDc4V05TQ29sb3KiNyzSJyg6O1dOU0ltYWdlojosXxAPTlNLZXllZEFyY2hpdmVy0T4/VHJv
+b3SAAQAIABEAGgAjAC0AMgA3AEUASwBWAF0AZABxAHgAgACCAIQAiQCLAI0AmQCeAKkAqwCtAK8AtAC3
+ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
+AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
+</mutableData>
+        </image>
         <image name="Done_btn.png" width="210" height="92"/>
-        <image name="background.png" width="640" height="1136"/>
         <image name="bottomGrayBar.png" width="640" height="106"/>
-        <image name="dealerSelect.png" width="640" height="1136"/>
         <image name="dealerSelectLogoutBtn.png" width="216" height="106"/>
         <image name="doneEditingBtn.png" width="91" height="72"/>
         <image name="editImageBtn.png" width="173" height="72"/>
-        <image name="getInventoryBtn.png" width="321" height="72"/>
         <image name="imageDetailsSaveBtn.png" width="216" height="106"/>
         <image name="inputBG.png" width="562" height="72"/>
         <image name="inventoryListChangeDealerBtn.png" width="210" height="106"/>
@@ -969,12 +993,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VBY-Wv-O0o"/>
-        <segue reference="kgZ-Z3-I4F"/>
-        <segue reference="BF5-Bq-G8l"/>
-        <segue reference="FLP-ej-MJ0"/>
-        <segue reference="dje-3c-QTt"/>
         <segue reference="yYU-7B-a5w"/>
+        <segue reference="dje-3c-QTt"/>
+        <segue reference="cix-BV-ct0"/>
+        <segue reference="yVG-si-1YU"/>
+        <segue reference="FLP-ej-MJ0"/>
+        <segue reference="5yM-gN-tF0"/>
         <segue reference="3jc-5l-dmt"/>
     </inferredMetricsTieBreakers>
 </document>

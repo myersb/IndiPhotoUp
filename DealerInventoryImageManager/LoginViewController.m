@@ -10,7 +10,9 @@
 #import "InventoryViewController.h"
 #import "Reachability.h"
 #import "DealerModel.h"
+#import "LotInfo.h"
 
+#define multiLotInfoURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentSingleOwnerMultiDealersRead&key=Ly9VUThFNSJBU0VHN14rWy5LNEUuCg%3D%3D&UserID="
 
 
 @interface Displaying_Alerts_with_UIAlertViewViewController : UIViewController <UIAlertViewDelegate>
@@ -92,6 +94,11 @@
             
             [alertView show];
         });
+    };
+	
+	internetReachable.reachableBlock = ^(Reachability*reach)
+    {
+		_isConnected = TRUE;
     };
     
     [internetReachable startNotifier];
@@ -216,14 +223,12 @@
         // Was the dealer login successful?
         //
         if (_isDealerSuccess == YES){
-            // Go to the Inventory View
-			if ([_dealerNumber isEqualToString:@"999999"] ) {
+            [self getLotInfo:_dealerNumber];
+			if ([_lotArray count] > 1) {
 				[self performSegueWithIdentifier:@"segueToDealerSelectFromLogin" sender:self];
-			}
-			else{
+			}else{
 				[self performSegueWithIdentifier:@"segueToInventoryViewController" sender:self];
 			}
-            
         }
 		else {
             // Show an error if login was not correct.
@@ -238,6 +243,50 @@
         
         
     }
+}
+
+- (void)getLotInfo:(NSString *)dealerNumber
+{
+	[self loadLotInfo];
+	
+	if (_isConnected == 1 && [_lotArray count] > 0) {
+		[self clearEntity:@"LotInfo" withFetchRequest:_fetchRequest];
+	}
+	
+	NSString *urlString = [NSString stringWithFormat:@"%@%@", multiLotInfoURL, dealerNumber];
+	NSURL *lotInfoURL = [NSURL URLWithString:urlString];
+	NSData *data = [NSData dataWithContentsOfURL:lotInfoURL];
+	
+	// Sticks all of the jSON data inside of a dictionary
+    _jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+	
+	// Creates a dictionary that goes inside the first data object eg. {data:[
+	_dataDictionary = [_jSON objectForKey:@"data"];
+	
+	// Check for other dictionaries inside of the dataDictionary
+	for (NSDictionary *lotDictionary in _dataDictionary) {
+		
+		LotInfo *lotInfo = [NSEntityDescription insertNewObjectForEntityForName:@"LotInfo" inManagedObjectContext:[self managedObjectContext]];
+		
+		lotInfo.address = NSLocalizedString([lotDictionary objectForKey:@"address1"], nil);
+		lotInfo.city = NSLocalizedString([lotDictionary objectForKey:@"city"], nil);
+		lotInfo.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"dealernumber"] unsignedIntegerValue]];
+		lotInfo.name = NSLocalizedString([lotDictionary objectForKey:@"name"], nil);
+		lotInfo.state = NSLocalizedString([lotDictionary objectForKey:@"stateprovince"], nil);
+		lotInfo.phone = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"telephonenumber"] unsignedIntegerValue]];
+	}
+	[self loadLotInfo];
+}
+
+- (void)loadLotInfo
+{
+	_fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:@"LotInfo" inManagedObjectContext:[self managedObjectContext]];
+	
+	[_fetchRequest setEntity:_entity];
+	
+	NSError *error = nil;
+	_lotArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
 }
 
 - (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest

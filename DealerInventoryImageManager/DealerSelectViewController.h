@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DealerSelectViewController : UIViewController <UIAlertViewDelegate>
+@interface DealerSelectViewController : UIViewController <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchRequest *fetchRequest;
 @property (nonatomic, strong) NSEntityDescription *entity;
+@property (nonatomic, strong) NSSortDescriptor *dealerNumberSort;
+@property (nonatomic, strong) NSArray *sortDescriptors;
 
 @property (strong, nonatomic) IBOutlet UITextField *tfDealerNumber;
 @property (strong, nonatomic) UIAlertView *alert;
 @property (strong, nonatomic) IBOutlet UIButton *btnLogout;
+@property (strong, nonatomic) IBOutlet UITableView *lotTableView;
+
+@property (nonatomic, strong) NSArray *lotArray;
 
 @property (nonatomic) BOOL logoutSegue;
 
