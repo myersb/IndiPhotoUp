@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CDF68011-8D81-4CEC-AA7A-AECED089774E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Indi PhotoUp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E48CD66A-6A64-4D31-9482-6715CF68D520</key>
+		<string>https://github.com/myersb/IndiPhotoUp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Indi PhotoUp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E48CD66A-6A64-4D31-9482-6715CF68D520</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/myersb/IndiPhotoUp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E48CD66A-6A64-4D31-9482-6715CF68D520</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E48CD66A-6A64-4D31-9482-6715CF68D520</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IndiPhotoUp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
