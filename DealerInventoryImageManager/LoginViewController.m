@@ -276,6 +276,7 @@
 		lotInfo.phone = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"telephonenumber"] unsignedIntegerValue]];
 	}
 	[self loadLotInfo];
+	[_managedObjectContext save:nil];
 }
 
 - (void)loadLotInfo

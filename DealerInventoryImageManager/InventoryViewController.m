@@ -171,6 +171,7 @@
         home.inventoryPackageID = NSLocalizedString([modelDictionary objectForKey:@"inventorypackageid"], nil);
 	}
 	[self loadInventory];
+	[_managedObjectContext save:nil];
 }
 
 - (void)downloadImages:(NSString *)dealerNumber
@@ -205,6 +206,7 @@
         image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
 	}
 	[self loadImages];
+	[_managedObjectContext save:nil];
 }
 
 - (void)loadInventory
