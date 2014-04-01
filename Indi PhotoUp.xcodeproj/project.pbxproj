@@ -45,6 +45,8 @@
 		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
+		81F6C9E118E471D500495C17 /* LeadsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6C9E018E471D500495C17 /* LeadsModel.m */; };
+		81F6C9E718E5FF8900495C17 /* Leads.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6C9E618E5FF8900495C17 /* Leads.m */; };
 		B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */; };
 		B5006AB918D0E9710024A94B /* inputBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB618D0E9710024A94B /* inputBG.png */; };
@@ -192,6 +194,10 @@
 		81CA9CA017EA331E00E6E1CC /* Dealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dealer.h; sourceTree = "<group>"; };
 		81CA9CA117EA331E00E6E1CC /* Dealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dealer.m; sourceTree = "<group>"; };
 		81D7A7D41887374400F561DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		81F6C9DF18E471D500495C17 /* LeadsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsModel.h; sourceTree = "<group>"; };
+		81F6C9E018E471D500495C17 /* LeadsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsModel.m; sourceTree = "<group>"; };
+		81F6C9E518E5FF8900495C17 /* Leads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leads.h; sourceTree = "<group>"; };
+		81F6C9E618E5FF8900495C17 /* Leads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leads.m; sourceTree = "<group>"; };
 		B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageDetailsSaveBtn.png; sourceTree = "<group>"; };
 		B5006AB618D0E9710024A94B /* inputBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputBG.png; sourceTree = "<group>"; };
 		B5006AB718D0E9710024A94B /* photoDetailsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDetailsBackground.png; sourceTree = "<group>"; };
@@ -335,6 +341,8 @@
 				B5659AED18034256009C4E38 /* InventoryImage.m */,
 				81CA9CA017EA331E00E6E1CC /* Dealer.h */,
 				81CA9CA117EA331E00E6E1CC /* Dealer.m */,
+				81F6C9E518E5FF8900495C17 /* Leads.h */,
+				81F6C9E618E5FF8900495C17 /* Leads.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -488,6 +496,8 @@
 				811B9C41183D22930075EB20 /* ImageTypesModel.m */,
 				811B9C43183D22A30075EB20 /* ImageTagsModel.h */,
 				811B9C44183D22A30075EB20 /* ImageTagsModel.m */,
+				81F6C9DF18E471D500495C17 /* LeadsModel.h */,
+				81F6C9E018E471D500495C17 /* LeadsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -778,6 +788,7 @@
 				B5691B6E18B2AFFD00FE34AE /* ImageTypes.m in Sources */,
 				B5691B6F18B2AFFD00FE34AE /* ImageTags.m in Sources */,
 				B5691B7018B2AFFD00FE34AE /* HB_CoreDataManager.m in Sources */,
+				81F6C9E718E5FF8900495C17 /* Leads.m in Sources */,
 				B5691B7118B2AFFD00FE34AE /* JSONToArray.m in Sources */,
 				B5691B7218B2AFFD00FE34AE /* InventoryHome.m in Sources */,
 				B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */,
@@ -800,6 +811,7 @@
 				B5691B8018B2AFFD00FE34AE /* UIDevice-Hardware.m in Sources */,
 				B5691B8118B2AFFD00FE34AE /* UIDevice-Reachability.m in Sources */,
 				B5691B6D18B2AFB900FE34AE /* LaunchViewController.m in Sources */,
+				81F6C9E118E471D500495C17 /* LeadsModel.m in Sources */,
 				B5691B6C18B2AF7E00FE34AE /* CameraOverlay.xib in Sources */,
 				B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */,
 				B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */,

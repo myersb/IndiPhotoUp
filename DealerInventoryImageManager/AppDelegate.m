@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
 
+#import "LeadsModel.h"
+
 // Added as it will be needed to setup and use the MainView
 
 @implementation AppDelegate
@@ -22,6 +24,11 @@
     //[BugSenseController sharedControllerWithBugSenseAPIKey:@"378d659d"];
 	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
 
+    //test
+    LeadsModel *leadsModel = [[LeadsModel alloc]init];
+    BOOL getResult = [leadsModel refreshLeadData];
+
+    NSLog(@"%@",  (getResult ? @"YES" : @"NO"));
     
 	return YES;
     

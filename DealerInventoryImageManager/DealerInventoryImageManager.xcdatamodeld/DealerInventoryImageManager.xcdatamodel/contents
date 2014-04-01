@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Dealer" representedClassName="Dealer" syncable="YES">
         <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastAuthorizationDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -52,11 +52,25 @@
         <attribute name="sourceURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryHome" inverseName="images" inverseEntity="InventoryHome" syncable="YES"/>
     </entity>
+    <entity name="Leads" representedClassName="Leads" syncable="YES">
+        <attribute name="changed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dayPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="independentLeadId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leadDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leadDateOnPhone" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Dealer" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ImageTags" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ImageTypes" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="InventoryHome" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="InventoryImage" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Dealer" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ImageTags" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ImageTypes" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="InventoryHome" positionX="0" positionY="0" width="128" height="300"/>
+        <element name="InventoryImage" positionX="0" positionY="0" width="128" height="285"/>
+        <element name="Leads" positionX="9" positionY="135" width="128" height="208"/>
     </elements>
 </model>
