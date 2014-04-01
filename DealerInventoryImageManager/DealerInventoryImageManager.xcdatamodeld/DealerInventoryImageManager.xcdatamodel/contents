@@ -52,7 +52,6 @@
         <attribute name="sourceURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryHome" inverseName="images" inverseEntity="InventoryHome" syncable="YES"/>
     </entity>
-
     <entity name="Leads" representedClassName="Leads" syncable="YES">
         <attribute name="changed" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
