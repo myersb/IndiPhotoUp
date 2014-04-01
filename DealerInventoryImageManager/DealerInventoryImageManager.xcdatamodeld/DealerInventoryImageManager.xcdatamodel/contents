@@ -52,6 +52,7 @@
         <attribute name="sourceURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="home" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryHome" inverseName="images" inverseEntity="InventoryHome" syncable="YES"/>
     </entity>
+
     <entity name="Leads" representedClassName="Leads" syncable="YES">
         <attribute name="changed" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
@@ -65,6 +66,14 @@
         <attribute name="leadDateOnPhone" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="LotInfo" representedClassName="LotInfo" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dealerNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Dealer" positionX="0" positionY="0" width="128" height="90"/>
         <element name="ImageTags" positionX="0" positionY="0" width="128" height="90"/>
@@ -72,5 +81,6 @@
         <element name="InventoryHome" positionX="0" positionY="0" width="128" height="300"/>
         <element name="InventoryImage" positionX="0" positionY="0" width="128" height="285"/>
         <element name="Leads" positionX="9" positionY="135" width="128" height="208"/>
+        <element name="LotInfo" positionX="9" positionY="135" width="128" height="133"/>
     </elements>
 </model>

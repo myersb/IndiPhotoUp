@@ -8,6 +8,7 @@
 
 #import "DealerSelectViewController.h"
 #import "InventoryViewController.h"
+#import "LotInfo.h"
 
 
 @interface DealerSelectViewController ()
@@ -31,6 +32,8 @@
 
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
+	
+	[self loadLotInfo];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,37 +42,56 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    if ([_tfDealerNumber isFirstResponder] && [touch view] != _tfDealerNumber) {
-        [_tfDealerNumber resignFirstResponder];
-    }
-    [super touchesBegan:touches withEvent:event];
+- (void)loadLotInfo
+{
+	_fetchRequest = [[NSFetchRequest alloc]init];
+	_entity = [NSEntityDescription entityForName:@"LotInfo" inManagedObjectContext:[self managedObjectContext]];
+	_dealerNumberSort = [NSSortDescriptor sortDescriptorWithKey:@"dealerNumber" ascending:YES];
+	
+	_sortDescriptors = [[NSArray alloc] initWithObjects:_dealerNumberSort, nil];
+	
+	[_fetchRequest setEntity:_entity];
+	[_fetchRequest setSortDescriptors:_sortDescriptors];
+	
+	NSError *error = nil;
+	_lotArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-	if (sender != _btnLogout) {
-		if (_tfDealerNumber.text.length > 0) {
-			return YES;
-		}
-		else{
-			_alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input" message:@"Please enter a valid dealer or lot number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
-			[_alert show];
-			return NO;
-		}
-	}
-	else if (_logoutSegue == NO){
-		return NO;
-	}
-	else{
-		return YES;
-	}
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_lotArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if ( cell == nil ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+
+	LotInfo	*lotInfo = [_lotArray objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = lotInfo.name;
+	cell.detailTextLabel.text = lotInfo.dealerNumber;
+	
+    return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	
 	if ([[segue identifier] isEqualToString:@"segueFromDealerSelectToIventoryView"]) {
 		InventoryViewController *ivc = [segue destinationViewController];
-		ivc.chosenDealerNumber = _tfDealerNumber.text;
+		NSIndexPath *indexPath = [_lotTableView indexPathForSelectedRow];
+		LotInfo *lot = [_lotArray objectAtIndex:indexPath.row];
+		ivc.chosenDealerNumber = lot.dealerNumber;
 		
 		UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
 									   initWithTitle:@"Select"

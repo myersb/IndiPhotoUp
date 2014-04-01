@@ -115,6 +115,9 @@
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
+		B5970E8518E4832C0096F6A3 /* LotInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5970E8418E4832C0096F6A3 /* LotInfo.m */; };
+		B5970E8B18E9B9D10096F6A3 /* inventoryBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5970E8A18E9B9D10096F6A3 /* inventoryBtn.png */; };
+		B5970E8D18E9BAA00096F6A3 /* leadsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5970E8C18E9BAA00096F6A3 /* leadsBtn.png */; };
 		B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
 /* End PBXBuildFile section */
 
@@ -279,6 +282,10 @@
 		B591F064189BFB3B003AB1D9 /* blankThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankThumbnail.png; sourceTree = "<group>"; };
 		B5922EBD18181C9D000B15DF /* HomeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailsViewController.h; sourceTree = "<group>"; };
 		B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailsViewController.m; sourceTree = "<group>"; };
+		B5970E8318E4832C0096F6A3 /* LotInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LotInfo.h; path = ../LotInfo.h; sourceTree = "<group>"; };
+		B5970E8418E4832C0096F6A3 /* LotInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LotInfo.m; path = ../LotInfo.m; sourceTree = "<group>"; };
+		B5970E8A18E9B9D10096F6A3 /* inventoryBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryBtn.png; sourceTree = "<group>"; };
+		B5970E8C18E9BAA00096F6A3 /* leadsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leadsBtn.png; sourceTree = "<group>"; };
 		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = DealerInventoryImageManager/CameraOverlay.xib; sourceTree = "<group>"; };
 		B5CDF8FC18C77EE60063CC0F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
@@ -327,6 +334,8 @@
 		813B81C317FB5DBA0011A2DD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B5970E8318E4832C0096F6A3 /* LotInfo.h */,
+				B5970E8418E4832C0096F6A3 /* LotInfo.m */,
 				811B9C3D183D223C0075EB20 /* ImageTypes.h */,
 				811B9C3E183D223C0075EB20 /* ImageTypes.m */,
 				811B9C3A183D223B0075EB20 /* ImageTags.h */,
@@ -420,6 +429,8 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5970E8C18E9BAA00096F6A3 /* leadsBtn.png */,
+				B5970E8A18E9B9D10096F6A3 /* inventoryBtn.png */,
 				810CBC7C18D204920091AB24 /* Done_btn.png */,
 				B53A527018D233E5007CBDB1 /* doneEditingBtn.png */,
 				B53A527118D233E5007CBDB1 /* editImageBtn.png */,
@@ -692,6 +703,7 @@
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */,
 				B53A527318D233E5007CBDB1 /* editImageBtn.png in Resources */,
+				B5970E8D18E9BAA00096F6A3 /* leadsBtn.png in Resources */,
 				B5163CF518D0C1EE00DDBFD4 /* bottomGrayBar.png in Resources */,
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
 				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
@@ -707,6 +719,7 @@
 				B5163CF918D0C1EE00DDBFD4 /* titleScreen.png in Resources */,
 				B5006ACA18D2129A0024A94B /* icon80x80.png in Resources */,
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
+				B5970E8B18E9B9D10096F6A3 /* inventoryBtn.png in Resources */,
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
 				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
 				B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */,
@@ -816,6 +829,7 @@
 				B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */,
 				B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */,
 				B5691B6718B2AF0200FE34AE /* main.m in Sources */,
+				B5970E8518E4832C0096F6A3 /* LotInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

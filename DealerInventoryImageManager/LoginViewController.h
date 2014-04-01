@@ -23,6 +23,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (assign, nonatomic) BOOL isDealerSuccess;
+@property (nonatomic, assign) BOOL isConnected;
+
+@property (nonatomic, strong) NSArray *lotArray;
+@property (nonatomic, strong) NSDictionary *dataDictionary;
+@property (nonatomic, strong) NSDictionary *jSON;
 
 @property (strong, nonatomic) NSArray *dealer;
 
