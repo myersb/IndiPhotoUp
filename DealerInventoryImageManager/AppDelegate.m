@@ -29,6 +29,9 @@
     BOOL getResult = [leadsModel refreshLeadData];
     NSLog(@"Leads Refreshed ? %@",  (getResult ? @"YES" : @"NO"));
     
+    BOOL leadupdate = [leadsModel claimLeadUpdate:@"58986fd8-5ea5-4209-8af5-6568dc3755a5"];
+    NSLog(@"Lead Claimed Success ? %@",  (leadupdate ? @"YES" : @"NO"));
+    
 	return YES;
     
 }

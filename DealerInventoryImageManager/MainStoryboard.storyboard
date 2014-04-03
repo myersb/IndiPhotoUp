@@ -103,7 +103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="D24254C1-8968-4EDF-8A65-2E9576352EBC" translatesAutoresizingMaskIntoConstraints="NO" id="IlC-t8-HSh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="F2F9369C-AF5F-4EF7-89A9-04296771B3F7" translatesAutoresizingMaskIntoConstraints="NO" id="IlC-t8-HSh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -999,7 +999,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D24254C1-8968-4EDF-8A65-2E9576352EBC" width="640" height="1136">
+        <image name="Done_btn.png" width="210" height="92"/>
+        <image name="F2F9369C-AF5F-4EF7-89A9-04296771B3F7" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -1016,7 +1017,6 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-        <image name="Done_btn.png" width="210" height="92"/>
         <image name="bottomGrayBar.png" width="640" height="106"/>
         <image name="dealerSelectLogoutBtn.png" width="216" height="106"/>
         <image name="doneEditingBtn.png" width="91" height="72"/>
