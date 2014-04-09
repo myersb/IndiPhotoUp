@@ -15,11 +15,13 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) UIImage *imageToSave;
 @property (strong, nonatomic) UIImage *selectedImage;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbnail;
 @property (strong, nonatomic) IBOutlet UIButton *selectPhotoBtn;
 @property (strong, nonatomic) IBOutlet UIButton *takePhotoBtn;
 @property (strong, nonatomic) IBOutlet UIButton *saveBtn;
 @property (strong, nonatomic) IBOutlet UIButton *editImageBtn;
 @property (strong, nonatomic) IBOutlet UIButton *doneEditingImageBtn;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectPhoto;
 @property (strong, nonatomic) UIImagePickerController *picker;
 
 // Image filtering properties
@@ -44,7 +46,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblSerialNumber;
 
 - (IBAction)savePhoto;
-- (IBAction)presentCameraView:(id)sender;
+- (IBAction)presentCameraView;
 - (IBAction)selectPhoto:(id)sender;
 - (IBAction)takePhoto:(UIButton *)sender;
 - (IBAction)dismissCameraView:(UIButton *)sender;

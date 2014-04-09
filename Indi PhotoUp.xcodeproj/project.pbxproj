@@ -60,14 +60,18 @@
 		B5006ACA18D2129A0024A94B /* icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AC418D2129A0024A94B /* icon80x80.png */; };
 		B5006ACB18D2129A0024A94B /* icon114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AC518D2129A0024A94B /* icon114x114.png */; };
 		B5006ACC18D2129A0024A94B /* icon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AC618D2129A0024A94B /* icon120x120.png */; };
+		B50B248E18F2F4F6006FC005 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50B248D18F2F4F6006FC005 /* AssetsLibrary.framework */; };
+		B50B249018F58E0C006FC005 /* titleScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B50B248F18F58E0C006FC005 /* titleScreen.png */; };
+		B50B249218F58E45006FC005 /* loginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B50B249118F58E45006FC005 /* loginScreen.png */; };
+		B50B249618F5940E006FC005 /* changeDealerBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B50B249318F5940E006FC005 /* changeDealerBtn.png */; };
+		B50B249718F5940E006FC005 /* inventoryBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B50B249418F5940E006FC005 /* inventoryBtn.png */; };
+		B50B249818F5940E006FC005 /* leadsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B50B249518F5940E006FC005 /* leadsBtn.png */; };
+		B50B249A18F59498006FC005 /* bottomBlueBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B50B249918F59498006FC005 /* bottomBlueBar.png */; };
 		B5163CF518D0C1EE00DDBFD4 /* bottomGrayBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF018D0C1EE00DDBFD4 /* bottomGrayBar.png */; };
 		B5163CF618D0C1EE00DDBFD4 /* dealerSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF118D0C1EE00DDBFD4 /* dealerSelect.png */; };
 		B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF218D0C1EE00DDBFD4 /* loginBtn.png */; };
-		B5163CF818D0C1EE00DDBFD4 /* loginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF318D0C1EE00DDBFD4 /* loginScreen.png */; };
-		B5163CF918D0C1EE00DDBFD4 /* titleScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CF418D0C1EE00DDBFD4 /* titleScreen.png */; };
 		B5163CFD18D0C32700DDBFD4 /* dealerSelectLogoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CFC18D0C32700DDBFD4 /* dealerSelectLogoutBtn.png */; };
 		B5163CFF18D0C3B100DDBFD4 /* getInventoryBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163CFE18D0C3B100DDBFD4 /* getInventoryBtn.png */; };
-		B5163D0218D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163D0018D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png */; };
 		B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5163D0118D0C72F00DDBFD4 /* inventoryListLogoutBtn.png */; };
 		B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B525AB6217FDCC0000619E3D /* qrCode@2x.png */; };
 		B525AB9117FF34A600619E3D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9017FF34A600619E3D /* AVFoundation.framework */; };
@@ -116,8 +120,6 @@
 		B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070BB18ABEAC100E15B2C /* shutterBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
 		B5970E8518E4832C0096F6A3 /* LotInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5970E8418E4832C0096F6A3 /* LotInfo.m */; };
-		B5970E8B18E9B9D10096F6A3 /* inventoryBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5970E8A18E9B9D10096F6A3 /* inventoryBtn.png */; };
-		B5970E8D18E9BAA00096F6A3 /* leadsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5970E8C18E9BAA00096F6A3 /* leadsBtn.png */; };
 		B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
 /* End PBXBuildFile section */
 
@@ -213,14 +215,18 @@
 		B5006AC418D2129A0024A94B /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
 		B5006AC518D2129A0024A94B /* icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114.png; sourceTree = "<group>"; };
 		B5006AC618D2129A0024A94B /* icon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120x120.png; sourceTree = "<group>"; };
+		B50B248D18F2F4F6006FC005 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B50B248F18F58E0C006FC005 /* titleScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleScreen.png; sourceTree = "<group>"; };
+		B50B249118F58E45006FC005 /* loginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginScreen.png; sourceTree = "<group>"; };
+		B50B249318F5940E006FC005 /* changeDealerBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeDealerBtn.png; sourceTree = "<group>"; };
+		B50B249418F5940E006FC005 /* inventoryBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryBtn.png; sourceTree = "<group>"; };
+		B50B249518F5940E006FC005 /* leadsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leadsBtn.png; sourceTree = "<group>"; };
+		B50B249918F59498006FC005 /* bottomBlueBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomBlueBar.png; sourceTree = "<group>"; };
 		B5163CF018D0C1EE00DDBFD4 /* bottomGrayBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomGrayBar.png; sourceTree = "<group>"; };
 		B5163CF118D0C1EE00DDBFD4 /* dealerSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealerSelect.png; sourceTree = "<group>"; };
 		B5163CF218D0C1EE00DDBFD4 /* loginBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBtn.png; sourceTree = "<group>"; };
-		B5163CF318D0C1EE00DDBFD4 /* loginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginScreen.png; sourceTree = "<group>"; };
-		B5163CF418D0C1EE00DDBFD4 /* titleScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleScreen.png; sourceTree = "<group>"; };
 		B5163CFC18D0C32700DDBFD4 /* dealerSelectLogoutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealerSelectLogoutBtn.png; sourceTree = "<group>"; };
 		B5163CFE18D0C3B100DDBFD4 /* getInventoryBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = getInventoryBtn.png; sourceTree = "<group>"; };
-		B5163D0018D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryListChangeDealerBtn.png; sourceTree = "<group>"; };
 		B5163D0118D0C72F00DDBFD4 /* inventoryListLogoutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryListLogoutBtn.png; sourceTree = "<group>"; };
 		B525AB6217FDCC0000619E3D /* qrCode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrCode@2x.png"; sourceTree = "<group>"; };
 		B525AB9017FF34A600619E3D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -284,8 +290,6 @@
 		B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailsViewController.m; sourceTree = "<group>"; };
 		B5970E8318E4832C0096F6A3 /* LotInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LotInfo.h; path = ../LotInfo.h; sourceTree = "<group>"; };
 		B5970E8418E4832C0096F6A3 /* LotInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LotInfo.m; path = ../LotInfo.m; sourceTree = "<group>"; };
-		B5970E8A18E9B9D10096F6A3 /* inventoryBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryBtn.png; sourceTree = "<group>"; };
-		B5970E8C18E9BAA00096F6A3 /* leadsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leadsBtn.png; sourceTree = "<group>"; };
 		B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = DealerInventoryImageManager/CameraOverlay.xib; sourceTree = "<group>"; };
 		B5CDF8FC18C77EE60063CC0F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50B248E18F2F4F6006FC005 /* AssetsLibrary.framework in Frameworks */,
 				B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */,
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
 				81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */,
@@ -382,6 +387,7 @@
 		8198421F17E0D40900B619C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B50B248D18F2F4F6006FC005 /* AssetsLibrary.framework */,
 				B58F819E18CFA354003822FD /* CoreImage.framework */,
 				B5CDF8FC18C77EE60063CC0F /* iAd.framework */,
 				811870D118BBD9B4002FFBA6 /* Crashlytics.framework */,
@@ -429,8 +435,11 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B5970E8C18E9BAA00096F6A3 /* leadsBtn.png */,
-				B5970E8A18E9B9D10096F6A3 /* inventoryBtn.png */,
+				B50B249918F59498006FC005 /* bottomBlueBar.png */,
+				B50B249318F5940E006FC005 /* changeDealerBtn.png */,
+				B50B249418F5940E006FC005 /* inventoryBtn.png */,
+				B50B249518F5940E006FC005 /* leadsBtn.png */,
+				B50B249118F58E45006FC005 /* loginScreen.png */,
 				810CBC7C18D204920091AB24 /* Done_btn.png */,
 				B53A527018D233E5007CBDB1 /* doneEditingBtn.png */,
 				B53A527118D233E5007CBDB1 /* editImageBtn.png */,
@@ -440,21 +449,19 @@
 				B5006AC418D2129A0024A94B /* icon80x80.png */,
 				B5006AC518D2129A0024A94B /* icon114x114.png */,
 				B5006AC618D2129A0024A94B /* icon120x120.png */,
+				B50B248F18F58E0C006FC005 /* titleScreen.png */,
 				B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */,
 				B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */,
 				B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */,
 				B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */,
 				B5006AB618D0E9710024A94B /* inputBG.png */,
 				B5006AB718D0E9710024A94B /* photoDetailsBackground.png */,
-				B5163D0018D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png */,
 				B5163D0118D0C72F00DDBFD4 /* inventoryListLogoutBtn.png */,
 				B5163CFE18D0C3B100DDBFD4 /* getInventoryBtn.png */,
 				B5163CFC18D0C32700DDBFD4 /* dealerSelectLogoutBtn.png */,
 				B5163CF018D0C1EE00DDBFD4 /* bottomGrayBar.png */,
 				B5163CF118D0C1EE00DDBFD4 /* dealerSelect.png */,
 				B5163CF218D0C1EE00DDBFD4 /* loginBtn.png */,
-				B5163CF318D0C1EE00DDBFD4 /* loginScreen.png */,
-				B5163CF418D0C1EE00DDBFD4 /* titleScreen.png */,
 				B591F064189BFB3B003AB1D9 /* blankThumbnail.png */,
 				B59070B718ABC70E00E15B2C /* cancelBtn.png */,
 				8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */,
@@ -699,15 +706,17 @@
 			files = (
 				B5163CF618D0C1EE00DDBFD4 /* dealerSelect.png in Resources */,
 				B5006AB918D0E9710024A94B /* inputBG.png in Resources */,
-				B5163D0218D0C72F00DDBFD4 /* inventoryListChangeDealerBtn.png in Resources */,
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
+				B50B249618F5940E006FC005 /* changeDealerBtn.png in Resources */,
 				B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */,
+				B50B249718F5940E006FC005 /* inventoryBtn.png in Resources */,
+				B50B249818F5940E006FC005 /* leadsBtn.png in Resources */,
 				B53A527318D233E5007CBDB1 /* editImageBtn.png in Resources */,
-				B5970E8D18E9BAA00096F6A3 /* leadsBtn.png in Resources */,
 				B5163CF518D0C1EE00DDBFD4 /* bottomGrayBar.png in Resources */,
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
 				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
 				B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */,
+				B50B249018F58E0C006FC005 /* titleScreen.png in Resources */,
 				8198423517E0D40900B619C7 /* Default.png in Resources */,
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
 				B5006ACB18D2129A0024A94B /* icon114x114.png in Resources */,
@@ -716,10 +725,8 @@
 				B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */,
 				B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,
-				B5163CF918D0C1EE00DDBFD4 /* titleScreen.png in Resources */,
 				B5006ACA18D2129A0024A94B /* icon80x80.png in Resources */,
 				B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */,
-				B5970E8B18E9B9D10096F6A3 /* inventoryBtn.png in Resources */,
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
 				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
 				B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */,
@@ -729,6 +736,7 @@
 				B5006ABE18D0EDE80024A94B /* newPhotoSaveBtn.png in Resources */,
 				8198426617E0DA6700B619C7 /* MainStoryboard.storyboard in Resources */,
 				B59070BC18ABEAC100E15B2C /* shutterBtn.png in Resources */,
+				B50B249218F58E45006FC005 /* loginScreen.png in Resources */,
 				8198426B17E0E28A00B619C7 /* bgUpper.jpg in Resources */,
 				B5163CFD18D0C32700DDBFD4 /* dealerSelectLogoutBtn.png in Resources */,
 				B5691BAB18B3E42800FE34AE /* zbar-helpicons.png in Resources */,
@@ -742,7 +750,7 @@
 				B5006ABA18D0E9710024A94B /* photoDetailsBackground.png in Resources */,
 				8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 				B5163CFF18D0C3B100DDBFD4 /* getInventoryBtn.png in Resources */,
-				B5163CF818D0C1EE00DDBFD4 /* loginScreen.png in Resources */,
+				B50B249A18F59498006FC005 /* bottomBlueBar.png in Resources */,
 				B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */,
 				B5006AC718D2129A0024A94B /* icon29x29.png in Resources */,
 				B5006ACC18D2129A0024A94B /* icon120x120.png in Resources */,

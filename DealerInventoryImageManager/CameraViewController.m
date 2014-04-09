@@ -8,6 +8,7 @@
 
 #import "CameraViewController.h"
 #import "ImageDetailsViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface CameraViewController ()
 
@@ -30,6 +31,7 @@
 	_lblSerialNumber.text = _selectedSerialNumber;
 	[self prefersStatusBarHidden];
 	_alert.delegate = self;
+	[self presentCameraView];
 	if (_imageView.image) {
 		_saveBtn.hidden = NO;
 	}
@@ -49,6 +51,12 @@
 	
 	// Creat orientation object
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+	if (orientation == UIDeviceOrientationLandscapeLeft) {
+		_thumbnail.transform = CGAffineTransformMakeRotation(M_PI_2);
+	}
+	if (orientation == UIDeviceOrientationLandscapeRight) {
+		_thumbnail.transform = CGAffineTransformMakeRotation(-M_PI_2);
+	}
 	// If orientation is landscape remove alert but if user rotates back to portrait show alert
 	if (_endAlerts != YES) {
 		if((orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight) && _alertIsShowing == YES)
@@ -74,7 +82,7 @@
 	[alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
-- (IBAction)presentCameraView:(id)sender {
+- (IBAction)presentCameraView {
 	
 	_editingControlerView.hidden = TRUE;
 	_doneEditingImageBtn.hidden = TRUE;
@@ -92,7 +100,7 @@
 	_picker.allowsEditing = NO;
 	_picker.cameraOverlayView = _overlay;
 	_picker.showsCameraControls = NO;
-	CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 0.0); //This slots the preview exactly in the middle of the screen by moving it down 71 points
+	CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 52.0); //This slots the preview exactly in the middle of the screen by moving it down 71 points
     CGAffineTransform scale = CGAffineTransformScale(translate, 0.8888889, 1);
     _picker.cameraViewTransform = scale;
 	[self presentViewController:_picker animated:YES completion:NULL];
@@ -107,20 +115,26 @@
 		_alertIsShowing = YES;
 		_showAlert = NO;
 	}
+	[self getThumbnail];
 }
 
 - (IBAction)selectPhoto:(id)sender {
 	[_spinner startAnimating];
 	_spinner.hidden = FALSE;
 	_editingControlerView.hidden = TRUE;
-	_doneEditingImageBtn.hidden = TRUE;
+	_doneEditingImageBtn.hidden = TRUE; 
 	
 	_picker = [[UIImagePickerController alloc]init];
 	_picker.delegate = self;
 	_picker.allowsEditing = NO;
-	_picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	
+	[self dismissViewControllerAnimated:YES completion:^{;
+		_showAlert = NO;
+		_endAlerts = YES;
+		_picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 
-	[self presentViewController:_picker animated:YES completion:NULL];
+		[self presentViewController:_picker animated:YES completion:NULL];
+	}];
 }
 
 - (IBAction)takePhoto:(UIButton *)sender {
@@ -194,6 +208,35 @@
 - (IBAction)savePhoto {
 	//UIImageWriteToSavedPhotosAlbum([_imageView image], nil, nil, nil);
 	_endAlerts = YES;
+}
+- (void)getThumbnail{
+ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
+[assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
+                             usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                                 if (nil != group) {
+                                     // be sure to filter the group so you only get photos
+                                     [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+									 
+									 
+                                     [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:group.numberOfAssets - 1]
+                                                             options:0
+                                                          usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                                                              if (nil != result) {
+                                                                  ALAssetRepresentation *repr = [result defaultRepresentation];
+                                                                  // this is the most recent saved photo
+                                                                  UIImage *img = [UIImage imageWithCGImage:[repr fullResolutionImage]];
+																  NSLog(@"%@",img);
+                                                                  // we only need the first (most recent) photo -- stop the enumeration
+																  _thumbnail.image = img;
+                                                                  *stop = YES;
+                                                              }
+                                                          }];
+                                 }
+								 
+                                 *stop = NO;
+                             } failureBlock:^(NSError *error) {
+                                 NSLog(@"error: %@", error);
+                             }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

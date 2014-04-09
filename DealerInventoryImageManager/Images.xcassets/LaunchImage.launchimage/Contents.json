@@ -21,21 +21,21 @@
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
-      "filename" : "Default.png",
+      "filename" : "titleScreen-4.png",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
-      "filename" : "Default@2x.png",
+      "filename" : "titleScreen-3.png",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
-      "filename" : "Default-568h@2x.png",
+      "filename" : "titleScreen-2.png",
       "subtype" : "retina4",
       "scale" : "2x"
     }
