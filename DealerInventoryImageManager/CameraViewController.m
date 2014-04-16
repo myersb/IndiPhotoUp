@@ -31,6 +31,7 @@
     [super viewDidLoad];
 	_lblSerialNumber.text = _selectedSerialNumber;
 	_alert.delegate = self;
+	_shouldShowCameraOverlay = TRUE;
 	if (_imageView.image) {
 		_saveBtn.hidden = NO;
 	}
@@ -43,6 +44,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	if (_shouldShowCameraOverlay) {
+		[self presentCameraView];
+	}
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -139,6 +147,7 @@
 - (IBAction)takePhoto:(UIButton *)sender {
 	[_picker takePicture];
 	
+	_shouldShowCameraOverlay = FALSE;
 	
 	_beginImage = [CIImage imageWithCGImage:_imageView.image.CGImage];
 	
@@ -152,9 +161,11 @@
 }
 
 - (IBAction)dismissCameraView:(UIButton *)sender {
-	[_picker dismissViewControllerAnimated:YES completion:nil];
 	_endAlerts = YES;
-	[self performSegueWithIdentifier:@"segueFromCameraToDetails" sender:self];
+	_shouldShowCameraOverlay = FALSE;
+	[_picker dismissViewControllerAnimated:YES completion:^{
+		[self performSegueWithIdentifier:@"segueFromCameraToDetails" sender:self];
+	}];
 }
 
 //- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
@@ -199,34 +210,31 @@
 	//UIImageWriteToSavedPhotosAlbum([_imageView image], nil, nil, nil);
 	_endAlerts = YES;
 }
+
 - (void)getThumbnail{
-ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
-[assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos
-                             usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-                                 if (nil != group) {
-                                     // be sure to filter the group so you only get photos
-                                     [group setAssetsFilter:[ALAssetsFilter allPhotos]];
-									 
-									 
-                                     [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:group.numberOfAssets - 1]
-                                                             options:0
-                                                          usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                                                              if (nil != result) {
-                                                                  ALAssetRepresentation *repr = [result defaultRepresentation];
-                                                                  // this is the most recent saved photo
-                                                                  UIImage *img = [UIImage imageWithCGImage:[repr fullResolutionImage]];
-																  NSLog(@"%@",img);
-                                                                  // we only need the first (most recent) photo -- stop the enumeration
-																  _thumbnail.image = img;
-                                                                  *stop = YES;
-                                                              }
-                                                          }];
-                                 }
-								 
-                                 *stop = NO;
-                             } failureBlock:^(NSError *error) {
-                                 NSLog(@"error: %@", error);
-                             }];
+	ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
+	[assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+		if (nil != group) {
+			// be sure to filter the group so you only get photos
+			[group setAssetsFilter:[ALAssetsFilter allPhotos]];
+			
+			[group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:group.numberOfAssets - 1] options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+				if (nil != result) {
+					ALAssetRepresentation *repr = [result defaultRepresentation];
+					// this is the most recent saved photo
+					UIImage *img = [UIImage imageWithCGImage:[repr fullResolutionImage]];
+					NSLog(@"%@",img);
+					// we only need the first (most recent) photo -- stop the enumeration
+					_thumbnail.image = img;
+					*stop = YES;
+				}
+			}];
+		}
+		
+		*stop = NO;
+	} failureBlock:^(NSError *error) {
+		NSLog(@"error: %@", error);
+	}];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
