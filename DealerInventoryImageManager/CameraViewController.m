@@ -8,6 +8,7 @@
 
 #import "CameraViewController.h"
 #import "ImageDetailsViewController.h"
+#import "HomeDetailsViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @interface CameraViewController ()
@@ -29,9 +30,7 @@
 {
     [super viewDidLoad];
 	_lblSerialNumber.text = _selectedSerialNumber;
-	[self prefersStatusBarHidden];
 	_alert.delegate = self;
-	[self presentCameraView];
 	if (_imageView.image) {
 		_saveBtn.hidden = NO;
 	}
@@ -46,16 +45,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
+}
+
 - (void)orientationChanged
 {
 	
 	// Creat orientation object
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
 	if (orientation == UIDeviceOrientationLandscapeLeft) {
-		_thumbnail.transform = CGAffineTransformMakeRotation(M_PI_2);
+		_thumbnail.transform = CGAffineTransformMakeRotation(-M_PI_2);
 	}
 	if (orientation == UIDeviceOrientationLandscapeRight) {
-		_thumbnail.transform = CGAffineTransformMakeRotation(-M_PI_2);
+		_thumbnail.transform = CGAffineTransformMakeRotation(M_PI_2);
 	}
 	// If orientation is landscape remove alert but if user rotates back to portrait show alert
 	if (_endAlerts != YES) {
@@ -82,10 +86,8 @@
 	[alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
-- (IBAction)presentCameraView {
+- (void)presentCameraView {
 	
-	_editingControlerView.hidden = TRUE;
-	_doneEditingImageBtn.hidden = TRUE;
 	_picker = [[UIImagePickerController alloc] init];
 	_picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	
@@ -95,7 +97,6 @@
 	
 	_overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
 	_overlay.frame = _picker.cameraOverlayView.frame;
-	[self prefersStatusBarHidden];
 	_picker.delegate = self;
 	_picker.allowsEditing = NO;
 	_picker.cameraOverlayView = _overlay;
@@ -121,8 +122,6 @@
 - (IBAction)selectPhoto:(id)sender {
 	[_spinner startAnimating];
 	_spinner.hidden = FALSE;
-	_editingControlerView.hidden = TRUE;
-	_doneEditingImageBtn.hidden = TRUE; 
 	
 	_picker = [[UIImagePickerController alloc]init];
 	_picker.delegate = self;
@@ -139,19 +138,8 @@
 
 - (IBAction)takePhoto:(UIButton *)sender {
 	[_picker takePicture];
-	_endAlerts = YES;
-}
-
-- (IBAction)dismissCameraView:(UIButton *)sender {
-	[_picker dismissViewControllerAnimated:YES completion:nil];
-	_endAlerts = YES;
-}
-
-- (IBAction)editImage:(id)sender {
 	
-	_editingControlerView.hidden = FALSE;
-	_doneEditingImageBtn.hidden = FALSE;
-	_editImageBtn.hidden = TRUE;
+	
 	_beginImage = [CIImage imageWithCGImage:_imageView.image.CGImage];
 	
 	_coreImageContext = [CIContext contextWithOptions:nil];
@@ -159,12 +147,14 @@
 	//_gammaFilter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputPower", @0.75, nil];
 	
 	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputEV", @0.5, nil];
+	
+	_endAlerts = YES;
 }
 
-- (IBAction)stopEditingImage:(id)sender {
-	_editingControlerView.hidden = TRUE;
-	_doneEditingImageBtn.hidden = TRUE;
-	_editImageBtn.hidden = FALSE;
+- (IBAction)dismissCameraView:(UIButton *)sender {
+	[_picker dismissViewControllerAnimated:YES completion:nil];
+	_endAlerts = YES;
+	[self performSegueWithIdentifier:@"segueFromCameraToDetails" sender:self];
 }
 
 //- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
@@ -241,7 +231,6 @@ ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	_editImageBtn.hidden = FALSE;
 	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	
@@ -294,6 +283,11 @@ ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
 		idvc.selectedImage = _imageView.image;
 		idvc.selectedSerialNumber = _selectedSerialNumber;
 		
+	}
+	
+	if ([[segue identifier] isEqualToString:@"segueFromCameraToDetails"]) {
+		HomeDetailsViewController *hdvc = (HomeDetailsViewController *)[segue destinationViewController];
+		hdvc.selectedSerialNumber = _selectedSerialNumber;
 	}
 }
 

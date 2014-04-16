@@ -81,6 +81,7 @@
 		B525AB9517FF34B500619E3D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9317FF34B500619E3D /* CoreVideo.framework */; };
 		B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9617FF34BD00619E3D /* QuartzCore.framework */; };
 		B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9817FF34C600619E3D /* libiconv.dylib */; };
+		B527E25018FD7D9C0034D589 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B527E24F18FD7D9C0034D589 /* backArrow.png */; };
 		B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5364DBE18C6477B005E84EF /* Images.xcassets */; };
 		B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B53A527018D233E5007CBDB1 /* doneEditingBtn.png */; };
 		B53A527318D233E5007CBDB1 /* editImageBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B53A527118D233E5007CBDB1 /* editImageBtn.png */; };
@@ -102,7 +103,6 @@
 		B5691B7818B2AFFD00FE34AE /* InventoryImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C7525E182A941E00BE68E8 /* InventoryImageModel.m */; };
 		B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C41183D22930075EB20 /* ImageTypesModel.m */; };
 		B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811B9C44183D22A30075EB20 /* ImageTagsModel.m */; };
-		B5691B7B18B2AFFD00FE34AE /* RetailWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */; };
 		B5691B7C18B2AFFD00FE34AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198425C17E0D49100B619C7 /* LoginViewController.m */; };
 		B5691B7D18B2AFFD00FE34AE /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198427D17E103C000B619C7 /* InventoryViewController.m */; };
 		B5691B7E18B2AFFD00FE34AE /* HomeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */; };
@@ -237,6 +237,7 @@
 		B525AB9317FF34B500619E3D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		B525AB9617FF34BD00619E3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B525AB9817FF34C600619E3D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		B527E24F18FD7D9C0034D589 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
 		B5364DBE18C6477B005E84EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B53A527018D233E5007CBDB1 /* doneEditingBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneEditingBtn.png; sourceTree = "<group>"; };
 		B53A527118D233E5007CBDB1 /* editImageBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editImageBtn.png; sourceTree = "<group>"; };
@@ -297,8 +298,6 @@
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
 		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		B5DCC0371886D40500DF4D07 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
-		B5DFCA48182196A600AE2A19 /* RetailWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetailWebViewController.h; sourceTree = "<group>"; };
-		B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetailWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +436,7 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B527E24F18FD7D9C0034D589 /* backArrow.png */,
 				B50B249D18F5CE3C006FC005 /* grayBar.png */,
 				B50B249B18F5CCB6006FC005 /* shutterBtn.png */,
 				B50B249918F59498006FC005 /* bottomBlueBar.png */,
@@ -536,8 +536,6 @@
 				8142C97F1888410000C32E83 /* InventoryCell.h */,
 				8142C9801888410000C32E83 /* InventoryCell.m */,
 				8142C9811888410000C32E83 /* InventoryCell.xib */,
-				B5DFCA48182196A600AE2A19 /* RetailWebViewController.h */,
-				B5DFCA49182196A600AE2A19 /* RetailWebViewController.m */,
 				813B81C717FC5E660011A2DD /* LaunchViewController.h */,
 				813B81C817FC5E660011A2DD /* LaunchViewController.m */,
 				8198425B17E0D49100B619C7 /* LoginViewController.h */,
@@ -735,6 +733,7 @@
 				B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */,
 				B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */,
 				B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */,
+				B527E25018FD7D9C0034D589 /* backArrow.png in Resources */,
 				B5006AC918D2129A0024A94B /* icon58x58.png in Resources */,
 				81BDB86C18B2716F00C71247 /* CameraOverlay.xib in Resources */,
 				B5006ABF18D0EDE80024A94B /* newPhotoSelectBtn.png in Resources */,
@@ -827,7 +826,6 @@
 				B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */,
 				B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */,
 				8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */,
-				B5691B7B18B2AFFD00FE34AE /* RetailWebViewController.m in Sources */,
 				B5691B7C18B2AFFD00FE34AE /* LoginViewController.m in Sources */,
 				8142C9821888410000C32E83 /* InventoryCell.m in Sources */,
 				B5691B7D18B2AFFD00FE34AE /* InventoryViewController.m in Sources */,

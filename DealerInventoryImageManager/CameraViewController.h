@@ -46,12 +46,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblSerialNumber;
 
 - (IBAction)savePhoto;
-- (IBAction)presentCameraView;
 - (IBAction)selectPhoto:(id)sender;
 - (IBAction)takePhoto:(UIButton *)sender;
 - (IBAction)dismissCameraView:(UIButton *)sender;
 
 - (IBAction)exposureSliderValueDidChange:(UISlider *)slider;
-- (IBAction)editImage:(id)sender;
-- (IBAction)stopEditingImage:(id)sender;
 @end

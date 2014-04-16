@@ -10,7 +10,6 @@
 #import "InventoryHome.h"
 #import "InventoryImage.h"
 #import "DealerModel.h"
-#import "RetailWebViewController.h"
 #import "ImageDetailsViewController.h"
 #import "CameraViewController.h"
 #import "InventoryImageModel.h"
@@ -43,7 +42,9 @@ NSMutableArray *models;
 {
     [super viewDidLoad];
     NSLog(@"HomeDetailsViewController : viewDidLoad");
-    
+	
+	_lblViewControllerTitle.text = _selectedSerialNumber;
+	
     // Draw the activity view background
     activityViewBackground.layer.cornerRadius = 10.0;
     activityViewBackground.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -392,7 +393,7 @@ NSMutableArray *models;
     else
     {
         // Not expired, trigger segue
-        /* *****************  SEGUE CODE HERE *********************/
+        [self performSegueWithIdentifier:@"segueFromHomeDetailsToNewPhoto" sender:self];
     }
     
 }
@@ -538,11 +539,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"HomeDetailsViewController : prepareForSegue");
-    
-	if ([[segue identifier]isEqualToString:@"segueToRetailWeb"]) {
-		RetailWebViewController *retailWebViewController = [segue destinationViewController];
-		retailWebViewController.requestedURL = _selectedSerialNumber;
-	}
 	
 	if ([[segue identifier] isEqualToString:@"segueFromHomeDetailsToNewPhoto"]) {
         CameraViewController *cvc = [segue destinationViewController];
