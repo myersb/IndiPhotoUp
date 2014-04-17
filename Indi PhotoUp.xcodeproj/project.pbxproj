@@ -82,6 +82,8 @@
 		B525AB9717FF34BD00619E3D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9617FF34BD00619E3D /* QuartzCore.framework */; };
 		B525AB9917FF34C600619E3D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B525AB9817FF34C600619E3D /* libiconv.dylib */; };
 		B527E25018FD7D9C0034D589 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B527E24F18FD7D9C0034D589 /* backArrow.png */; };
+		B527E295190015810034D589 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B527E294190015810034D589 /* MessageUI.framework */; };
+		B527E2981900159B0034D589 /* EmailLeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B527E2971900159B0034D589 /* EmailLeadViewController.m */; };
 		B5364DBF18C6477B005E84EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5364DBE18C6477B005E84EF /* Images.xcassets */; };
 		B53A527218D233E5007CBDB1 /* doneEditingBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B53A527018D233E5007CBDB1 /* doneEditingBtn.png */; };
 		B53A527318D233E5007CBDB1 /* editImageBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B53A527118D233E5007CBDB1 /* editImageBtn.png */; };
@@ -238,6 +240,9 @@
 		B525AB9617FF34BD00619E3D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B525AB9817FF34C600619E3D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		B527E24F18FD7D9C0034D589 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
+		B527E294190015810034D589 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B527E2961900159B0034D589 /* EmailLeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailLeadViewController.h; sourceTree = "<group>"; };
+		B527E2971900159B0034D589 /* EmailLeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailLeadViewController.m; sourceTree = "<group>"; };
 		B5364DBE18C6477B005E84EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B53A527018D233E5007CBDB1 /* doneEditingBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doneEditingBtn.png; sourceTree = "<group>"; };
 		B53A527118D233E5007CBDB1 /* editImageBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editImageBtn.png; sourceTree = "<group>"; };
@@ -305,6 +310,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B527E295190015810034D589 /* MessageUI.framework in Frameworks */,
 				B50B248E18F2F4F6006FC005 /* AssetsLibrary.framework in Frameworks */,
 				B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */,
 				B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */,
@@ -388,6 +394,7 @@
 		8198421F17E0D40900B619C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B527E294190015810034D589 /* MessageUI.framework */,
 				B50B248D18F2F4F6006FC005 /* AssetsLibrary.framework */,
 				B58F819E18CFA354003822FD /* CoreImage.framework */,
 				B5CDF8FC18C77EE60063CC0F /* iAd.framework */,
@@ -533,6 +540,8 @@
 				8140ACBC18ABEDAC00D04E05 /* CameraOverlayView.h */,
 				B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */,
 				B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */,
+				B527E2961900159B0034D589 /* EmailLeadViewController.h */,
+				B527E2971900159B0034D589 /* EmailLeadViewController.m */,
 				8142C97F1888410000C32E83 /* InventoryCell.h */,
 				8142C9801888410000C32E83 /* InventoryCell.m */,
 				8142C9811888410000C32E83 /* InventoryCell.xib */,
@@ -826,6 +835,7 @@
 				B5691B7918B2AFFD00FE34AE /* ImageTypesModel.m in Sources */,
 				B5691B7A18B2AFFD00FE34AE /* ImageTagsModel.m in Sources */,
 				8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */,
+				B527E2981900159B0034D589 /* EmailLeadViewController.m in Sources */,
 				B5691B7C18B2AFFD00FE34AE /* LoginViewController.m in Sources */,
 				8142C9821888410000C32E83 /* InventoryCell.m in Sources */,
 				B5691B7D18B2AFFD00FE34AE /* InventoryViewController.m in Sources */,

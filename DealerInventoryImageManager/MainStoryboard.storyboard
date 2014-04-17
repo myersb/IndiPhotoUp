@@ -141,12 +141,12 @@
                                     <constraint firstAttribute="width" constant="106" id="bho-nw-XN6"/>
                                 </constraints>
                                 <state key="normal" image="changeDealerBtn.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="changeDelear:" destination="iEF-6x-NNF" eventType="touchUpInside" id="Npe-32-X98"/>
-                                    <segue destination="vo6-7G-XIw" kind="push" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
+                                    <segue destination="vo6-7G-XIw" kind="modal" identifier="segueToChangeDealerFromInventoryList" id="dje-3c-QTt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FE-NJ-7V2">
@@ -167,9 +167,13 @@
                                     <constraint firstAttribute="height" constant="45" id="Jq0-1f-QCi"/>
                                     <constraint firstAttribute="width" constant="106" id="b7m-1h-e5p"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="leadsBtn.png">
+                                <state key="normal" image="leadsBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="doSomething:" destination="iEF-6x-NNF" eventType="touchUpInside" id="VIf-tJ-pw1"/>
+                                    <segue destination="VWN-oQ-L5g" kind="modal" identifier="segueToLeadEmail" id="kSY-2R-bA4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -958,6 +962,62 @@
             </objects>
             <point key="canvasLocation" x="1400" y="488"/>
         </scene>
+        <!--Email Lead View Controller-->
+        <scene sceneID="2FZ-j1-4q3">
+            <objects>
+                <viewController id="VWN-oQ-L5g" customClass="EmailLeadViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gK8-PE-p3w"/>
+                        <viewControllerLayoutGuide type="bottom" id="JOK-gN-7jD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oO6-wO-Muy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwx-LG-Bpp">
+                                <rect key="frame" x="0.0" y="48" width="320" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hello, Benjamin and Chris! This is a test email message from within ConnectUp!" translatesAutoresizingMaskIntoConstraints="NO" id="yAl-ms-0Uh">
+                                        <rect key="frame" x="20" y="39" width="280" height="206"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Email Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er3-oG-Zh1">
+                                        <rect key="frame" x="20" y="10" width="167" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXQ-PF-TPP">
+                                        <rect key="frame" x="222" y="253" width="78" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Send Email">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionEmailComposer" destination="VWN-oQ-L5g" eventType="touchUpInside" id="dsc-P5-lFw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ia8-g8-wLL"/>
+                    <connections>
+                        <outlet property="tvMessageBody" destination="yAl-ms-0Uh" id="Maz-os-tA4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZb-nY-M1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905" y="1151"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="H77-6K-3y6">
             <objects>
@@ -1002,11 +1062,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VBY-Wv-O0o"/>
-        <segue reference="k4I-VE-eeX"/>
-        <segue reference="BF5-Bq-G8l"/>
-        <segue reference="Ayj-3O-0Xy"/>
+        <segue reference="tUn-Ui-w9N"/>
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="5yM-gN-tF0"/>
         <segue reference="FLP-ej-MJ0"/>
+        <segue reference="dje-3c-QTt"/>
         <segue reference="yYU-7B-a5w"/>
         <segue reference="3jc-5l-dmt"/>
     </inferredMetricsTieBreakers>
