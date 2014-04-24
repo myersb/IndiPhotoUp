@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblSqFt;
 @property (strong, nonatomic) IBOutlet UILabel *lblLength;
 @property (strong, nonatomic) IBOutlet UILabel *lblWidth;
+@property (strong, nonatomic) IBOutlet UILabel *lblViewControllerTitle;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 @property (strong, nonatomic) IBOutlet UIButton *doneButton;
 

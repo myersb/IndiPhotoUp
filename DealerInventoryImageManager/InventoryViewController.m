@@ -400,9 +400,16 @@
 			homeDetails.selectedSerialNumber = _cellText;
 		}
 	}
+	
+	if ([[segue identifier] isEqualToString:@"segueToLeadEmail"]) {
+		NSLog(@"BOOM");
+	}
 }
 
 
+- (IBAction)doSomething:(id)sender {
+	[self performSegueWithIdentifier:@"segueToLeadEmail" sender:self];
+}
 
 
 

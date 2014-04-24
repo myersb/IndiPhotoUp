@@ -11,16 +11,24 @@
 
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
+// UI Properties
 @property (strong, nonatomic) IBOutlet CameraOverlayView *cameraOverlayView;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) UIImage *capturedImage;
 @property (strong, nonatomic) UIImage *imageToSave;
 @property (strong, nonatomic) UIImage *selectedImage;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbnail;
+@property (strong, nonatomic) IBOutlet UIButton *btnSelectPhoto;
+@property (strong, nonatomic) IBOutlet UIButton *doneEditingImageBtn;
+@property (strong, nonatomic) IBOutlet UIButton *editImageBtn;
+@property (strong, nonatomic) IBOutlet UIButton *saveBtn;
 @property (strong, nonatomic) IBOutlet UIButton *selectPhotoBtn;
 @property (strong, nonatomic) IBOutlet UIButton *takePhotoBtn;
-@property (strong, nonatomic) IBOutlet UIButton *saveBtn;
-@property (strong, nonatomic) IBOutlet UIButton *editImageBtn;
-@property (strong, nonatomic) IBOutlet UIButton *doneEditingImageBtn;
 @property (strong, nonatomic) UIImagePickerController *picker;
+@property (strong, nonatomic) UIView *overlay;
+@property (strong, nonatomic) IBOutlet UIView *editingControlerView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UILabel *lblSerialNumber;
 
 // Image filtering properties
 @property (strong, nonatomic) CIContext *coreImageContext;
@@ -30,26 +38,18 @@
 @property (strong, nonatomic) CIFilter *gammaFilter;
 @property (strong, nonatomic) CIFilter *exposureFilter;
 
-@property (nonatomic, assign) BOOL alertIsShowing;		// Flag to determine if the alert is showing
-@property (nonatomic, assign) BOOL showAlert;			// Flag to determine whether the alert should be shown
-@property (nonatomic, assign) BOOL endAlerts;
+// Variable Properties
+@property (assign) BOOL alertIsShowing;		// Flag to determine if the alert is showing
+@property (assign) BOOL endAlerts;
+@property (assign) BOOL showAlert;			// Flag to determine whether the alert should be shown
+@property (assign) BOOL shouldShowCameraOverlay;
 @property (nonatomic, strong) UIAlertView *alert;
-
-@property (nonatomic) UIView *overlay;
-@property (strong, nonatomic) IBOutlet UIView *editingControlerView;
-@property (nonatomic, strong) UIImage *capturedImage;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-
 @property (strong, nonatomic) NSString *selectedSerialNumber;
-@property (strong, nonatomic) IBOutlet UILabel *lblSerialNumber;
 
+// Actions
 - (IBAction)savePhoto;
-- (IBAction)presentCameraView:(id)sender;
 - (IBAction)selectPhoto:(id)sender;
 - (IBAction)takePhoto:(UIButton *)sender;
 - (IBAction)dismissCameraView:(UIButton *)sender;
-
 - (IBAction)exposureSliderValueDidChange:(UISlider *)slider;
-- (IBAction)editImage:(id)sender;
-- (IBAction)stopEditingImage:(id)sender;
 @end
