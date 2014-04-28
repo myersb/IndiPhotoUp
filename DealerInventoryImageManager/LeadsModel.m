@@ -79,12 +79,13 @@
         
         
         NSString *getTopLeadDate;
-
-        // Creates a pointer to the AppDelegate
+        
+        
         id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
         
-        if (dealerNumber == nil)
+        
+        if (dealerNumber == nil)  // This is here for testing purposes as we could put a dealer number into the system and skip the process of getting it from the DB.
         {
             
             // Fetch the users dealerNumber.
@@ -248,17 +249,98 @@
 }
 
 
-- (BOOL) claimLeadUpdate:(NSString*) independentLeadId {
+- (BOOL) claimLeadUpdate:(NSString*) independentLeadId withStatus:(NSString*) status{
+    
+    // NOTE : Status can be "C" for 'claimed' or "I" for 'Ignore'.  Ignore is like deleting in that it is removed from the DB.
+    
     NSLog(@"LeadsModel : claimLeadUpdate");
     
     [self checkOnlineConnection];
     NSLog(_isConnected ? @"Yes" : @"No");
-
+    
     
     //Checks that the user is online before processing
     if (_isConnected)
     {
-
+        
+        // *** Send change to remote server ***
+        
+        // *** Setup call to API. ***
+        
+        // Setup params
+        NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
+        
+        // Create request
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        [request setHTTPMethod:@"POST"];
+        
+        // Setup Post Body
+        NSString *stringImageURL = [NSString stringWithFormat:@"%@method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentLeadReassignmentUpdate&key=KjZUPTdFJ0s2RDM%%2BKVsgICAK&IndependentLeadID=%@&status%@", webServiceLoginURL, independentLeadId, status];
+        NSURL *url = [NSURL URLWithString:stringImageURL];
+        NSData *leadData = [NSData dataWithContentsOfURL:url];
+        
+        NSString *convertedString = [[NSString alloc] initWithData:leadData encoding:NSUTF8StringEncoding];
+        NSLog(@"Did receive data : %@", convertedString );
+        
+        // Check to see if the return of data has anything in it that is parsable.  If not, then return NO.
+        @try {
+            _jSON = [NSJSONSerialization JSONObjectWithData:leadData options:kNilOptions error:nil];
+            _dataDictionary = [_jSON objectForKey:@"data"];
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+            return NO; // This isn't working.
+        }
+        @finally {
+            NSLog(@"finally");
+        }
+        
+        /*
+         
+         // *** Put change into CordData ***
+         // Creates a pointer to the AppDelegate
+         
+         id delegate = [[UIApplication sharedApplication] delegate];
+         self.managedObjectContext = [delegate managedObjectContext];
+         
+         // Data object call
+         NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Leads"];
+         
+         // Setup filter
+         NSPredicate *predicate=[NSPredicate predicateWithFormat:@"independentLeadId==%@",independentLeadId];
+         fetchRequest.predicate=predicate;
+         
+         // Put data into new object based on filtered fetch request.
+         NSArray *updateLeadData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+         
+         
+         // Check that there is a lead and if so, then decide whether to delete it or Claim it.
+         @try {
+         Leads *lead = [updateLeadData objectAtIndex:0];
+         
+         if ([status isEqualToString:@"C"] )
+         {
+         lead.status = status;
+         
+         NSError *errorLead = nil;
+         [self.managedObjectContext save:&errorLead];
+         
+         } else {
+         
+         [self.managedObjectContext deleteObject:lead ];
+         }
+         }
+         @catch (NSException * e) {
+         NSLog(@"Lead doesn't exist in DB : Exception: %@", e);
+         return NO; // This isn't working.
+         }
+         @finally {
+         NSLog(@"");
+         }
+         
+         */
+        
+        
         return YES;
     }
     else
@@ -267,6 +349,79 @@
         return NO;
     }
 }
+
+
+// This sets the lead to "ignore" in the remote database (api) and removes it from core data
+- (BOOL) deleteLead: (NSString*) independentLeadId
+{
+    return [self claimLeadUpdate:independentLeadId withStatus:@"I"  ];
+    
+}
+
+// Sets the lead to "C" claimed, categorizing it as no longer "new"
+- (BOOL) claimLead: (NSString*) independentLeadId
+{
+    return [self claimLeadUpdate:independentLeadId withStatus:@"C"  ];
+}
+
+// Fetches a number or records starting at a certain record.  This can be used to return all or increments where the design might want to only load a portion at a time.
+- (NSArray*) getAllLeadsStartingAt: (NSNumber*) startingAt forHowMany: (NSNumber*) howMany
+
+{
+    // *** Put change into CordData ***
+    // Creates a pointer to the AppDelegate
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    
+    //setup the fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    
+    //setup the entity assignment
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Leads"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortStatus = [NSSortDescriptor sortDescriptorWithKey:@"status" ascending:YES];
+    NSSortDescriptor *sortLeadDateOnPhone = [NSSortDescriptor sortDescriptorWithKey:@"leadDateOnPhone" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortStatus, sortLeadDateOnPhone, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    
+    NSArray *getLeads = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    
+    
+    NSInteger i;
+    NSInteger start = [startingAt intValue]  ;
+    NSInteger to = [startingAt intValue] + [howMany intValue] ;
+    
+    NSMutableArray *leadsFiltered = [[NSMutableArray alloc] initWithCapacity:to];
+    
+    // Check to see if we have exceded the number of records in our "to" count.  If we have, then make it the count.
+    if ([getLeads count] < to){
+        to = getLeads.count;
+    }
+    
+    // Only loop over the records based on the "start" and "to"
+    for (i = start; i < to; i++)
+    {
+        id getLeadRecord = [getLeads objectAtIndex:i];
+        
+        // put each object into an array
+        [leadsFiltered addObject:getLeadRecord];
+    }
+    
+    // and serve that array out.
+    return leadsFiltered;
+    
+}
+
+
+
+
+
 
 
 @end

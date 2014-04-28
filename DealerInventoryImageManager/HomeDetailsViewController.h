@@ -70,5 +70,6 @@
 
 - (IBAction)addPhoto:(id)sender;
 - (void) checkOnlineConnection;
+- (IBAction)leadsViewButton:(id)sender;
 
 @end

@@ -536,6 +536,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
+- (IBAction)leadsViewButton:(id)sender {
+    [self performSegueWithIdentifier:@"fromInventoryImagesToLeadsView" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"HomeDetailsViewController : prepareForSegue");

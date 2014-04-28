@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		810CBC7D18D204920091AB24 /* Done_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 810CBC7C18D204920091AB24 /* Done_btn.png */; };
+		811020FA190A98AE0072F2E7 /* LeadsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 811020F9190A98AE0072F2E7 /* LeadsModel.m */; };
+		811020FD190A98C00072F2E7 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811020FC190A98C00072F2E7 /* LeadsViewController.m */; };
+		81102100190A98E50072F2E7 /* Leads.m in Sources */ = {isa = PBXBuildFile; fileRef = 811020FF190A98E50072F2E7 /* Leads.m */; };
 		8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */; };
 		813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
 		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
 		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
 		8142C9831888410000C32E83 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8142C9811888410000C32E83 /* InventoryCell.xib */; };
+		81641D45190B66DD00738872 /* LeadDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81641D44190B66DD00738872 /* LeadDetailsViewController.m */; };
 		8188875D17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8188875F17E7626D004B8260 /* SystemConfiguration.framework */; };
 		8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
@@ -45,8 +49,6 @@
 		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
 		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
-		81F6C9E118E471D500495C17 /* LeadsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6C9E018E471D500495C17 /* LeadsModel.m */; };
-		81F6C9E718E5FF8900495C17 /* Leads.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F6C9E618E5FF8900495C17 /* Leads.m */; };
 		B5006AB418D0DA120024A94B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811870D118BBD9B4002FFBA6 /* Crashlytics.framework */; };
 		B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */; };
 		B5006AB918D0E9710024A94B /* inputBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B5006AB618D0E9710024A94B /* inputBG.png */; };
@@ -138,6 +140,12 @@
 
 /* Begin PBXFileReference section */
 		810CBC7C18D204920091AB24 /* Done_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Done_btn.png; sourceTree = "<group>"; };
+		811020F8190A98AE0072F2E7 /* LeadsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsModel.h; sourceTree = "<group>"; };
+		811020F9190A98AE0072F2E7 /* LeadsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsModel.m; sourceTree = "<group>"; };
+		811020FB190A98C00072F2E7 /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
+		811020FC190A98C00072F2E7 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
+		811020FE190A98E50072F2E7 /* Leads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leads.h; sourceTree = "<group>"; };
+		811020FF190A98E50072F2E7 /* Leads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leads.m; sourceTree = "<group>"; };
 		811870D118BBD9B4002FFBA6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActivityIndicator.png; sourceTree = "<group>"; };
 		811B9C3A183D223B0075EB20 /* ImageTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTags.h; sourceTree = "<group>"; };
@@ -155,6 +163,8 @@
 		8142C97F1888410000C32E83 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		8142C9801888410000C32E83 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
 		8142C9811888410000C32E83 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InventoryCell.xib; sourceTree = "<group>"; };
+		81641D43190B66DD00738872 /* LeadDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadDetailsViewController.h; sourceTree = "<group>"; };
+		81641D44190B66DD00738872 /* LeadDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadDetailsViewController.m; sourceTree = "<group>"; };
 		8188875B17E75E53004B8260 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8188875E17E75E9B004B8260 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8188875F17E7626D004B8260 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -202,10 +212,6 @@
 		81CA9CA017EA331E00E6E1CC /* Dealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dealer.h; sourceTree = "<group>"; };
 		81CA9CA117EA331E00E6E1CC /* Dealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dealer.m; sourceTree = "<group>"; };
 		81D7A7D41887374400F561DF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		81F6C9DF18E471D500495C17 /* LeadsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsModel.h; sourceTree = "<group>"; };
-		81F6C9E018E471D500495C17 /* LeadsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsModel.m; sourceTree = "<group>"; };
-		81F6C9E518E5FF8900495C17 /* Leads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leads.h; sourceTree = "<group>"; };
-		81F6C9E618E5FF8900495C17 /* Leads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leads.m; sourceTree = "<group>"; };
 		B5006AB518D0E9710024A94B /* imageDetailsSaveBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageDetailsSaveBtn.png; sourceTree = "<group>"; };
 		B5006AB618D0E9710024A94B /* inputBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inputBG.png; sourceTree = "<group>"; };
 		B5006AB718D0E9710024A94B /* photoDetailsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDetailsBackground.png; sourceTree = "<group>"; };
@@ -362,8 +368,8 @@
 				B5659AED18034256009C4E38 /* InventoryImage.m */,
 				81CA9CA017EA331E00E6E1CC /* Dealer.h */,
 				81CA9CA117EA331E00E6E1CC /* Dealer.m */,
-				81F6C9E518E5FF8900495C17 /* Leads.h */,
-				81F6C9E618E5FF8900495C17 /* Leads.m */,
+				811020FE190A98E50072F2E7 /* Leads.h */,
+				811020FF190A98E50072F2E7 /* Leads.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -512,6 +518,8 @@
 		8198426217E0D9B300B619C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				811020F8190A98AE0072F2E7 /* LeadsModel.h */,
+				811020F9190A98AE0072F2E7 /* LeadsModel.m */,
 				81C50D7918159BD70011870C /* DataHelper.m */,
 				81C50D7818159BD70011870C /* DataHelper.h */,
 				81CA9C9C17EA28C700E6E1CC /* DealerModel.h */,
@@ -524,8 +532,6 @@
 				811B9C41183D22930075EB20 /* ImageTypesModel.m */,
 				811B9C43183D22A30075EB20 /* ImageTagsModel.h */,
 				811B9C44183D22A30075EB20 /* ImageTagsModel.m */,
-				81F6C9DF18E471D500495C17 /* LeadsModel.h */,
-				81F6C9E018E471D500495C17 /* LeadsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -557,6 +563,10 @@
 				B5922EBE18181C9D000B15DF /* HomeDetailsViewController.m */,
 				81A0D32418243955006FB5E7 /* ImageDetailsViewController.h */,
 				81A0D32518243955006FB5E7 /* ImageDetailsViewController.m */,
+				811020FB190A98C00072F2E7 /* LeadsViewController.h */,
+				811020FC190A98C00072F2E7 /* LeadsViewController.m */,
+				81641D43190B66DD00738872 /* LeadDetailsViewController.h */,
+				81641D44190B66DD00738872 /* LeadDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -647,7 +657,7 @@
 				8198421917E0D40900B619C7 /* Sources */,
 				8198421A17E0D40900B619C7 /* Frameworks */,
 				8198421B17E0D40900B619C7 /* Resources */,
-				811870D018BBD975002FFBA6 /* ShellScript */,
+				811870D018BBD975002FFBA6 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -785,13 +795,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		811870D018BBD975002FFBA6 /* ShellScript */ = {
+		811870D018BBD975002FFBA6 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,7 +832,6 @@
 				B5691B6E18B2AFFD00FE34AE /* ImageTypes.m in Sources */,
 				B5691B6F18B2AFFD00FE34AE /* ImageTags.m in Sources */,
 				B5691B7018B2AFFD00FE34AE /* HB_CoreDataManager.m in Sources */,
-				81F6C9E718E5FF8900495C17 /* Leads.m in Sources */,
 				B5691B7118B2AFFD00FE34AE /* JSONToArray.m in Sources */,
 				B5691B7218B2AFFD00FE34AE /* InventoryHome.m in Sources */,
 				B5691B8918B3BFA000FE34AE /* DealerInventoryImageManager.xcdatamodeld in Sources */,
@@ -838,14 +848,17 @@
 				B527E2981900159B0034D589 /* EmailLeadViewController.m in Sources */,
 				B5691B7C18B2AFFD00FE34AE /* LoginViewController.m in Sources */,
 				8142C9821888410000C32E83 /* InventoryCell.m in Sources */,
+				81641D45190B66DD00738872 /* LeadDetailsViewController.m in Sources */,
 				B5691B7D18B2AFFD00FE34AE /* InventoryViewController.m in Sources */,
 				B5691B7E18B2AFFD00FE34AE /* HomeDetailsViewController.m in Sources */,
 				B5691B7F18B2AFFD00FE34AE /* ImageDetailsViewController.m in Sources */,
 				B5691B8018B2AFFD00FE34AE /* UIDevice-Hardware.m in Sources */,
 				B5691B8118B2AFFD00FE34AE /* UIDevice-Reachability.m in Sources */,
+				81102100190A98E50072F2E7 /* Leads.m in Sources */,
+				811020FD190A98C00072F2E7 /* LeadsViewController.m in Sources */,
 				B5691B6D18B2AFB900FE34AE /* LaunchViewController.m in Sources */,
-				81F6C9E118E471D500495C17 /* LeadsModel.m in Sources */,
 				B5691B6C18B2AF7E00FE34AE /* CameraOverlay.xib in Sources */,
+				811020FA190A98AE0072F2E7 /* LeadsModel.m in Sources */,
 				B5691B8318B2B05300FE34AE /* CameraViewController.m in Sources */,
 				B5691B6B18B2AF6800FE34AE /* AppDelegate.m in Sources */,
 				B5691B6718B2AF0200FE34AE /* main.m in Sources */,
@@ -963,7 +976,6 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					.,
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -990,7 +1002,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					.,
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
