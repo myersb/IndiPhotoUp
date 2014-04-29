@@ -24,11 +24,13 @@
     //[BugSenseController sharedControllerWithBugSenseAPIKey:@"378d659d"];
 	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
 
-    //test
+    //load up - retrieves new leads.
     LeadsModel *leadsModel = [[LeadsModel alloc]init];
     BOOL getResult = [leadsModel refreshLeadData];
-
-    NSLog(@"%@",  (getResult ? @"YES" : @"NO"));
+    NSLog(@"Leads Refreshed ? %@",  (getResult ? @"YES" : @"NO"));
+    
+    BOOL leadupdate = [leadsModel claimLeadUpdate:@"58986fd8-5ea5-4209-8af5-6568dc3755a5"];
+    NSLog(@"Lead Claimed Success ? %@",  (leadupdate ? @"YES" : @"NO"));
     
 	return YES;
     

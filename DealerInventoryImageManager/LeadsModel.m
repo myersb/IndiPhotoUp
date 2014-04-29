@@ -71,7 +71,7 @@
     [self checkOnlineConnection];
     NSLog(_isConnected ? @"Yes" : @"No");
     
-    NSString *dealerNumber;
+    NSString *dealerNumber;  //= @"290844"; // remove if dealernumber is here
     
     //Checks that the user is online before processing
     if (_isConnected)
@@ -79,39 +79,39 @@
         
         
         NSString *getTopLeadDate;
-        
 
         // Creates a pointer to the AppDelegate
         id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
         
-        
-        
-        // Fetch the users dealerNumber.
-        NSFetchRequest *fetchRequestDealerNumber = [[NSFetchRequest alloc] init];
-        // setup the entity assignement
-        NSEntityDescription *entityDealer = [NSEntityDescription entityForName:@"Dealer"
-                                                  inManagedObjectContext:self.managedObjectContext];
-        [fetchRequestDealerNumber setEntity:entityDealer];
-        
-        NSError *errorDealer = nil;
-        NSArray *dealerData = [self.managedObjectContext executeFetchRequest:fetchRequestDealerNumber error:&errorDealer];
-        
-        
-        if (dealerData == nil)
+        if (dealerNumber == nil)
         {
-            NSLog(@"problem! dealerData fetch is nil : %@", errorDealer);
-            return NO;
+            
+            // Fetch the users dealerNumber.
+            NSFetchRequest *fetchRequestDealerNumber = [[NSFetchRequest alloc] init];
+            // setup the entity assignement
+            NSEntityDescription *entityDealer = [NSEntityDescription entityForName:@"Dealer"
+                                                            inManagedObjectContext:self.managedObjectContext];
+            [fetchRequestDealerNumber setEntity:entityDealer];
+            
+            NSError *errorDealer = nil;
+            NSArray *dealerData = [self.managedObjectContext executeFetchRequest:fetchRequestDealerNumber error:&errorDealer];
+            
+            
+            if (dealerData == nil)
+            {
+                NSLog(@"problem! dealerData fetch is nil : %@", errorDealer);
+                return NO;
+            }
+            
+            if (dealerData.count == 0)
+            {
+                NSLog(@"No dealer record to get leads from");
+                return NO;
+            } else {
+                dealerNumber = [dealerData[0] dealerNumber];
+            }
         }
-        
-        if (dealerData.count == 0)
-        {
-            NSLog(@"No dealer record to get leads from");
-            return NO;
-        } else {
-            dealerNumber = [dealerData[0] dealerNumber];
-        }
-        
         
         // *** get the most recent lead date. ***
         
@@ -248,8 +248,25 @@
 }
 
 
+- (BOOL) claimLeadUpdate:(NSString*) independentLeadId {
+    NSLog(@"LeadsModel : claimLeadUpdate");
+    
+    [self checkOnlineConnection];
+    NSLog(_isConnected ? @"Yes" : @"No");
 
+    
+    //Checks that the user is online before processing
+    if (_isConnected)
+    {
 
+        return YES;
+    }
+    else
+    {
+        NSLog(@"Not online");
+        return NO;
+    }
+}
 
 
 @end
