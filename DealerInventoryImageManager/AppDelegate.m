@@ -23,14 +23,19 @@
 {
     //[BugSenseController sharedControllerWithBugSenseAPIKey:@"378d659d"];
 	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
-
-    //load up - retrieves new leads.
-    LeadsModel *leadsModel = [[LeadsModel alloc]init];
-    BOOL getResult = [leadsModel refreshLeadData];
-    NSLog(@"Leads Refreshed ? %@",  (getResult ? @"YES" : @"NO"));
     
-    BOOL leadupdate = [leadsModel claimLeadUpdate:@"58986fd8-5ea5-4209-8af5-6568dc3755a5"];
-    NSLog(@"Lead Claimed Success ? %@",  (leadupdate ? @"YES" : @"NO"));
+    
+     
+    /*
+     BOOL getResult = [leadsModel refreshLeadData];
+     NSLog(@"Leads Refreshed ? %@",  (getResult ? @"YES" : @"NO"));
+     */
+    
+    /*
+     NSArray *getLeads = [leadsModel getAllLeadsStartingAt:@10 forHowMany:@10];
+     NSLog(@"%@", getLeads);
+     */
+
     
 	return YES;
     
@@ -44,7 +49,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -70,11 +75,11 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }
 
@@ -124,7 +129,7 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -146,7 +151,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }

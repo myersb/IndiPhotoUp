@@ -297,6 +297,10 @@
 	[self performSegueWithIdentifier:@"segueToChangeDealerFromInventoryList" sender:self];
 }
 
+- (IBAction)leadsButton:(id)sender {
+    [self performSegueWithIdentifier:@"FromInventoryToLeads" sender:self];
+}
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
 		_logoutSegue = YES;
@@ -404,6 +408,10 @@
 	if ([[segue identifier] isEqualToString:@"segueToLeadEmail"]) {
 		NSLog(@"BOOM");
 	}
+    
+    if ([[segue identifier] isEqualToString:@"FromInventoryToLeads"]){
+        
+    }
 }
 
 

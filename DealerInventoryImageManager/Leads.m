@@ -2,7 +2,7 @@
 //  Leads.m
 //  Indi PhotoUp
 //
-//  Created by Chris Cantley on 3/28/14.
+//  Created by Chris Cantley on 4/25/14.
 //  Copyright (c) 2014 Chris Cantley. All rights reserved.
 //
 
@@ -11,16 +11,16 @@
 
 @implementation Leads
 
-@dynamic independentLeadId;
+@dynamic changed;
+@dynamic comments;
 @dynamic dayPhone;
+@dynamic dealerNumber;
 @dynamic email;
 @dynamic firstName;
+@dynamic independentLeadId;
 @dynamic lastName;
-@dynamic comments;
-@dynamic status;
-@dynamic leadDateOnPhone;
-@dynamic changed;
-@dynamic dealerNumber;
 @dynamic leadDate;
+@dynamic leadDateOnPhone;
+@dynamic status;
 
 @end

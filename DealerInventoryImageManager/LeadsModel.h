@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSDictionary *jSON;
 
 - (BOOL) refreshLeadData;
-- (BOOL) claimLeadUpdate:(NSString*) independentLeadId;
 
+- (BOOL) deleteLead: (NSString*) independentLeadId;
+- (BOOL) claimLead: (NSString*) independentLeadId;
 @end

@@ -46,5 +46,6 @@
 - (IBAction)scanQRC:(id)sender;
 - (IBAction)logout:(id)sender;
 - (IBAction)changeDelear:(id)sender;
+- (IBAction)leadsButton:(id)sender;
 
 @end
