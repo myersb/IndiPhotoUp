@@ -149,14 +149,6 @@
 	
 	_shouldShowCameraOverlay = FALSE;
 	
-	_beginImage = [CIImage imageWithCGImage:_imageView.image.CGImage];
-	
-	_coreImageContext = [CIContext contextWithOptions:nil];
-	
-	//_gammaFilter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputPower", @0.75, nil];
-	
-	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputEV", @0.5, nil];
-	
 	_endAlerts = YES;
 }
 
@@ -253,6 +245,14 @@
 		UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
 	}
 	_imageView.image = croppedImage;
+	
+	_beginImage = [CIImage imageWithCGImage:_imageView.image.CGImage];
+	
+	_coreImageContext = [CIContext contextWithOptions:nil];
+	
+	//_gammaFilter = [CIFilter filterWithName:@"CIGammaAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputPower", @0.75, nil];
+	
+	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputEV", @0.5, nil];
 	
 	_saveBtn.hidden = NO;
 }
