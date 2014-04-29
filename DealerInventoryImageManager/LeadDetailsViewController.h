@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Leads.h"
-@interface LeadDetailsViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface LeadDetailsViewController : GAITrackedViewController
 {
     Leads *lead;
 }

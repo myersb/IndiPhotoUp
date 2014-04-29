@@ -41,6 +41,11 @@ NSMutableArray *models;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // This is the google analitics
+    self.screenName = @"HomeDetailsViewController";
+
+    
     NSLog(@"HomeDetailsViewController : viewDidLoad");
 	
 	_lblViewControllerTitle.text = _selectedSerialNumber;

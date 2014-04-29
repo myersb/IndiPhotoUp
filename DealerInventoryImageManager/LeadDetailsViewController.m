@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
     
+    // This is the google analitics
+    self.screenName = @"LeadDetailsViewController";
+    
     [self fillLabel];
     // Do any additional setup after loading the view.
 }

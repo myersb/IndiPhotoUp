@@ -26,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // This is the google analitics
+    self.screenName = @"EmailLeadViewController";
+    
     // Do any additional setup after loading the view.
 }
 

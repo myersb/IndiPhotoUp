@@ -33,6 +33,10 @@
 {
     [super viewDidLoad];
     
+    // This is the google analitics
+    self.screenName = @"LeadsViewController";
+
+    
     //load up - retrieves new leads.
     LeadsModel *leadsModel = [[LeadsModel alloc]init];
     [leadsModel refreshLeadData];

@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // This is the google analitics
+    self.screenName = @"CameraViewController";
+    
 	_lblSerialNumber.text = _selectedSerialNumber;
 	_alert.delegate = self;
 	_shouldShowCameraOverlay = TRUE;

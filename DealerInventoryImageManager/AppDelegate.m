@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Crashlytics/Crashlytics.h>
+#import "GAI.h"
+
 
 #import "LeadsModel.h"
 
@@ -25,7 +27,21 @@
 	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
     
     
-     
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-50420442-3"];
+    
+    
+    
     /*
      BOOL getResult = [leadsModel refreshLeadData];
      NSLog(@"Leads Refreshed ? %@",  (getResult ? @"YES" : @"NO"));

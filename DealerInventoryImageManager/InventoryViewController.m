@@ -34,6 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // This is the google analitics
+    self.screenName = @"InventoryViewController";
+
+    
     NSLog(@"InventoryViewController : viewDidLoad");
 	NSLog(@"CDN: %@", _chosenDealerNumber);
     

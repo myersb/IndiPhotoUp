@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import "GAITrackedViewController.h"
 
-@interface EmailLeadViewController : UIViewController <MFMailComposeViewControllerDelegate>
+@interface EmailLeadViewController : GAITrackedViewController <MFMailComposeViewControllerDelegate>
 
 - (IBAction)actionEmailComposer;
 @property (strong, nonatomic) IBOutlet UITextView *tvMessageBody;
