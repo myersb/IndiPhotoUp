@@ -7,6 +7,7 @@
 //
 
 #import "LeadDetailsViewController.h"
+#import "EmailLeadViewController.h"
 
 @interface LeadDetailsViewController ()
 
@@ -41,7 +42,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)fillLabel {
+- (void)fillLabel {
     
     
     NSLog(@"%@", _selectedLead);
@@ -55,21 +56,18 @@
     [_commentsText setText:[NSString stringWithFormat:@"%@", _selectedLead.comments ]];
     [_leadDateText setText:[NSString stringWithFormat:@"%@", leadDateOnPhone ]];
     [_phoneText setText:[NSString stringWithFormat:@"%@", _selectedLead.dayPhone ]];
-    [_emailText setText:[NSString stringWithFormat:@"%@", _selectedLead.email ]];
+    [_emailText setTitle:[NSString stringWithFormat:@"%@", _selectedLead.email ] forState:UIControlStateNormal];
 
     
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	if ([[segue identifier] isEqualToString:@"segueToEmailLeadView"]) {
+		EmailLeadViewController *elvc = [segue destinationViewController];
+		
+		elvc.leadToPassBack = _selectedLead;
+	}
 }
-*/
 
 @end

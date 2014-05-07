@@ -7,6 +7,7 @@
 //
 
 #import "EmailLeadViewController.h"
+#import "LeadDetailsViewController.h"
 
 @interface EmailLeadViewController ()
 
@@ -44,7 +45,7 @@
 	if ([MFMailComposeViewController canSendMail]) {
 		MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc]init];
 		mailViewController.mailComposeDelegate = self;
-		NSArray *toRecipients = [NSArray arrayWithObjects:@"ben.myers@claytonhomes.com",@"chris.cantley@claytonhomes.com", nil];
+		NSArray *toRecipients = [NSArray arrayWithObjects:@"ben.myers@claytonhomes.com",_leadToPassBack.email, nil];
 		[mailViewController setToRecipients:toRecipients];
 		[mailViewController setSubject:@"Subject Goes Here"];
 		[mailViewController setMessageBody:_tvMessageBody.text isHTML:NO];
@@ -57,19 +58,27 @@
 
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
+	_alert = [[UIAlertView alloc]initWithTitle:@"Message Sent" message:[NSString stringWithFormat:@"Your message was successfully sent."] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+	[_alert show];
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+	[self performSegueWithIdentifier:@"returnToLeads" sender:self];
 }
-*/
+
+
+//#pragma mark - Navigation
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"returnToLeads"]) {
+//		LeadDetailsViewController *ldvc = [segue destinationViewController];
+//		
+//		ldvc.selectedLead = _leadToPassBack;
+//	}
+//}
+
 
 @end

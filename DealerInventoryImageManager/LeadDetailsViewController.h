@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentsText;
 @property (weak, nonatomic) IBOutlet UITextView *leadDateText;
 @property (weak, nonatomic) IBOutlet UITextView *phoneText;
-@property (weak, nonatomic) IBOutlet UITextView *emailText;
+@property (weak, nonatomic) IBOutlet UIButton *emailText;
 
 @property (strong, nonatomic) Leads *selectedLead;
 

@@ -10,10 +10,18 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import "GAITrackedViewController.h"
+#import "Leads.h"
 
-@interface EmailLeadViewController : GAITrackedViewController <MFMailComposeViewControllerDelegate>
+@interface EmailLeadViewController : GAITrackedViewController <MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
-- (IBAction)actionEmailComposer;
+// UI Properties
 @property (strong, nonatomic) IBOutlet UITextView *tvMessageBody;
+@property (strong, nonatomic) UIAlertView *alert;
+
+// Variable Properties
+@property (strong, nonatomic) Leads *leadToPassBack;
+
+// Actions
+- (IBAction)actionEmailComposer;
 
 @end

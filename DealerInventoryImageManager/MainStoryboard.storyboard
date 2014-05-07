@@ -1118,13 +1118,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Email" translatesAutoresizingMaskIntoConstraints="NO" id="C8z-E2-0eJ">
-                                <rect key="frame" x="40" y="115" width="240" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMJ-DX-Sn8">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1138,6 +1131,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeU-UC-rRf">
+                                <rect key="frame" x="45" y="118" width="235" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Email">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="VWN-oQ-L5g" kind="push" identifier="segueToEmailLeadView" id="RM7-xo-F6D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1146,7 +1150,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentsText" destination="f5a-Ar-Dr3" id="2zU-hJ-la8"/>
-                        <outlet property="emailText" destination="C8z-E2-0eJ" id="LW9-p8-2ci"/>
+                        <outlet property="emailText" destination="eeU-UC-rRf" id="qIb-9p-obt"/>
                         <outlet property="fullNameLabel" destination="k9d-7u-hc7" id="JMd-vN-gxw"/>
                         <outlet property="leadDateText" destination="gLy-YZ-5Ea" id="Nvk-Sl-DDG"/>
                         <outlet property="phoneText" destination="QED-bK-uNP" id="RTW-xV-wuy"/>
@@ -1154,7 +1158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5H-vi-LsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2413" y="1966"/>
+            <point key="canvasLocation" x="2309" y="1966"/>
         </scene>
         <!--Email Lead View Controller-->
         <scene sceneID="2FZ-j1-4q3">
@@ -1169,10 +1173,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwx-LG-Bpp">
-                                <rect key="frame" x="0.0" y="48" width="320" height="284"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hello, Benjamin and Chris! This is a test email message from within ConnectUp!" translatesAutoresizingMaskIntoConstraints="NO" id="yAl-ms-0Uh">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter message here..." translatesAutoresizingMaskIntoConstraints="NO" id="yAl-ms-0Uh">
                                         <rect key="frame" x="20" y="39" width="280" height="206"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1206,6 +1210,7 @@
                     <navigationItem key="navigationItem" id="Ia8-g8-wLL"/>
                     <connections>
                         <outlet property="tvMessageBody" destination="yAl-ms-0Uh" id="Maz-os-tA4"/>
+                        <segue destination="afQ-9n-9JX" kind="modal" identifier="returnToLeads" id="nqY-lG-NQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZb-nY-M1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1235,6 +1240,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="afQ-9n-9JX" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="c63-3M-3IV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W0A-Sb-QAG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1274,13 +1280,13 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Hk-mZ-WEh"/>
+        <segue reference="nqY-lG-NQi"/>
+        <segue reference="K44-Bc-rxG"/>
+        <segue reference="vsb-Bq-z6h"/>
+        <segue reference="yYU-7B-a5w"/>
+        <segue reference="Ayj-3O-0Xy"/>
         <segue reference="yVG-si-1YU"/>
         <segue reference="tUn-Ui-w9N"/>
         <segue reference="5yM-gN-tF0"/>
-        <segue reference="Ayj-3O-0Xy"/>
-        <segue reference="yYU-7B-a5w"/>
-        <segue reference="vsb-Bq-z6h"/>
-        <segue reference="K44-Bc-rxG"/>
     </inferredMetricsTieBreakers>
 </document>
