@@ -147,6 +147,11 @@
     }
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
+}
+
 
 /* --------------------------------------------------------------- */
 #pragma mark Lifecycle Management

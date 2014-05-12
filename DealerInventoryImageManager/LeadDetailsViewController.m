@@ -56,18 +56,36 @@
     [_commentsText setText:[NSString stringWithFormat:@"%@", _selectedLead.comments ]];
     [_leadDateText setText:[NSString stringWithFormat:@"%@", leadDateOnPhone ]];
     [_phoneText setText:[NSString stringWithFormat:@"%@", _selectedLead.dayPhone ]];
-    [_emailText setTitle:[NSString stringWithFormat:@"%@", _selectedLead.email ] forState:UIControlStateNormal];
+    [_emailText setTitle:[NSString stringWithFormat:@"%@ -->", _selectedLead.email ] forState:UIControlStateNormal];
 
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+
+- (IBAction)actionEmailComposer
 {
-	if ([[segue identifier] isEqualToString:@"segueToEmailLeadView"]) {
-		EmailLeadViewController *elvc = [segue destinationViewController];
+	if ([MFMailComposeViewController canSendMail]) {
+		MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc]init];
+		mailViewController.mailComposeDelegate = self;
+		NSArray *toRecipients = [NSArray arrayWithObjects:@"ben.myers@claytonhomes.com",_selectedLead.email, nil];
+		[mailViewController setToRecipients:toRecipients];
+		[mailViewController setSubject:@"Subject Goes Here"];
 		
-		elvc.leadToPassBack = _selectedLead;
+		[self presentViewController:mailViewController animated:YES completion:nil];
+	} else {
+		NSLog(@"Device is unable to send email in its current state.");
 	}
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+	if (result != MFMailComposeResultCancelled) {
+		
+		_alert = [[UIAlertView alloc]initWithTitle:@"Message Sent" message:[NSString stringWithFormat:@"Your message was successfully sent."] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+		[_alert show];
+	}
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

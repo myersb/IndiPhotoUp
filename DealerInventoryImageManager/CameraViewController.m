@@ -135,17 +135,18 @@
 	[_spinner startAnimating];
 	_spinner.hidden = FALSE;
 	
-	_picker = [[UIImagePickerController alloc]init];
-	_picker.delegate = self;
-	_picker.allowsEditing = NO;
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	[imagePicker.view setFrame:CGRectMake(0, 80, 320, 350)];
+	imagePicker.delegate = self;
+	imagePicker.allowsEditing = NO;
 	
-	[self dismissViewControllerAnimated:YES completion:^{;
+	//[self dismissViewControllerAnimated:YES completion:^{
 		_showAlert = NO;
 		_endAlerts = YES;
-		_picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+		imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 
-		[self presentViewController:_picker animated:YES completion:NULL];
-	}];
+		[_picker presentViewController:imagePicker animated:YES completion:NULL];
+	//}];
 }
 
 - (IBAction)takePhoto:(UIButton *)sender {
@@ -237,6 +238,7 @@
 {
 	[_spinner stopAnimating];
 	[picker dismissViewControllerAnimated:YES completion:nil];
+	[_picker dismissViewControllerAnimated:YES completion:nil];
 	
 	_showAlert = NO;
 	_alertIsShowing = NO;

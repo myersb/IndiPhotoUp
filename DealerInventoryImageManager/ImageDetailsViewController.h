@@ -59,8 +59,8 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UIPickerView *imageTag;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorImage;
 @property (weak, nonatomic) IBOutlet UIView *activityIndicatorBackground;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *deleteButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *saveButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *deleteButton;
 @property (weak, nonatomic) IBOutlet UIView *pickerViewContainer;
 
 
