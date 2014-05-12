@@ -90,7 +90,12 @@
     }
     
     // Put the values into the fields
-    [_serialNumberLabel setText:[_currentInventoryModel serialNumber]];
+    if (!_currentInventoryModel.serialNumber)
+	{
+		_serialNumberLabel.text = _selectedSerialNumber;
+	}else{
+		_serialNumberLabel.text = _currentInventoryModel.serialNumber;
+	}
     [_homeDescriptionLabel setText:[_currentInventoryModel homeDesc]];
     [_featuresField setText:[_currentInventoryImage imageCaption]];
    
