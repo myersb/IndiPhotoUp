@@ -31,8 +31,11 @@
     
     // This is the google analitics
     self.screenName = @"LeadDetailsViewController";
+	id delegate = [[UIApplication sharedApplication]delegate];
+	self.managedObjectContext = [delegate managedObjectContext];
     
     [self fillLabel];
+	[self markAsRead];
     // Do any additional setup after loading the view.
 }
 
@@ -42,13 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)fillLabel {
-    
-    
-    NSLog(@"%@", _selectedLead);
-    
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+- (void)fillLabel
+{
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"MMM dd yyyy"];
     NSString *leadDateOnPhone = [dateFormat stringFromDate:_selectedLead.leadDateOnPhone];
     
@@ -57,11 +56,25 @@
     [_leadDateText setText:[NSString stringWithFormat:@"%@", leadDateOnPhone ]];
     [_phoneText setText:[NSString stringWithFormat:@"%@", _selectedLead.dayPhone ]];
     [_emailText setTitle:[NSString stringWithFormat:@"%@ -->", _selectedLead.email ] forState:UIControlStateNormal];
-
-    
 }
 
-
+- (void)markAsRead
+{
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Leads" inManagedObjectContext:[self managedObjectContext]];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"independentLeadId == %@", _selectedLead.independentLeadId];
+	
+	[fetchRequest setEntity:entity];
+	[fetchRequest setPredicate:predicate];
+	
+	NSError *error = nil;
+	NSArray *result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	
+	Leads *leadToChange = [result objectAtIndex:0];
+	[leadToChange setValue:@"c" forKeyPath:@"status"];
+	
+	
+}
 
 - (IBAction)actionEmailComposer
 {

@@ -48,6 +48,7 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+	
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -163,6 +164,7 @@
 	[_picker dismissViewControllerAnimated:YES completion:^{
 		[self performSegueWithIdentifier:@"segueFromCameraToDetails" sender:self];
 	}];
+	_picker = nil;
 }
 
 //- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
@@ -237,8 +239,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	[_spinner stopAnimating];
-	[picker dismissViewControllerAnimated:YES completion:nil];
-	[_picker dismissViewControllerAnimated:YES completion:nil];
 	
 	_showAlert = NO;
 	_alertIsShowing = NO;
@@ -261,6 +261,7 @@
 	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputEV", @0.5, nil];
 	
 	_saveBtn.hidden = NO;
+	[picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIImage *)cropImage:(UIImage*)image andFrame:(CGRect)rect {
@@ -296,6 +297,7 @@
 		ImageDetailsViewController *idvc = (ImageDetailsViewController *)[segue destinationViewController];
 		idvc.selectedImage = _imageView.image;
 		idvc.selectedSerialNumber = _selectedSerialNumber;
+		idvc.cameFrom = @"camera";
 		
 	}
 	

@@ -146,6 +146,7 @@
 	[self loadInventory];
 	
 	if (_isConnected == 1 && [_modelsArray count] > 0) {
+		NSLog(@"DELETED!");
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
 	

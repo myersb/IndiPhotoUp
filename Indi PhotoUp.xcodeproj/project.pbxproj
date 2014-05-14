@@ -122,8 +122,8 @@
 		B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BA718B3E42800FE34AE /* zbar-samples.png */; };
 		B5691BB018B4F9FC00FE34AE /* DealerSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */; };
 		B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B5691BB118B50CAB00FE34AE /* logoutBtn.png */; };
-		B57B7C6F1921474D00FEA322 /* captionBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B57B7C6D1921474D00FEA322 /* captionBG.png */; };
-		B57B7C701921474D00FEA322 /* serialNumberBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B57B7C6E1921474D00FEA322 /* serialNumberBG.png */; };
+		B57B7C7319238BAC00FEA322 /* captionBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B57B7C7119238BAC00FEA322 /* captionBG.png */; };
+		B57B7C7419238BAC00FEA322 /* serialNumberBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B57B7C7219238BAC00FEA322 /* serialNumberBG.png */; };
 		B58F819F18CFA354003822FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58F819E18CFA354003822FD /* CoreImage.framework */; };
 		B59070B818ABC70E00E15B2C /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = B59070B718ABC70E00E15B2C /* cancelBtn.png */; };
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
@@ -307,8 +307,8 @@
 		B5691BAE18B4F9FC00FE34AE /* DealerSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealerSelectViewController.h; sourceTree = "<group>"; };
 		B5691BAF18B4F9FC00FE34AE /* DealerSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealerSelectViewController.m; sourceTree = "<group>"; };
 		B5691BB118B50CAB00FE34AE /* logoutBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutBtn.png; sourceTree = "<group>"; };
-		B57B7C6D1921474D00FEA322 /* captionBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = captionBG.png; path = ../../../Photoshop/IndiPhotoUp/captionBG.png; sourceTree = "<group>"; };
-		B57B7C6E1921474D00FEA322 /* serialNumberBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = serialNumberBG.png; path = ../../../Photoshop/IndiPhotoUp/serialNumberBG.png; sourceTree = "<group>"; };
+		B57B7C7119238BAC00FEA322 /* captionBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = captionBG.png; sourceTree = "<group>"; };
+		B57B7C7219238BAC00FEA322 /* serialNumberBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serialNumberBG.png; sourceTree = "<group>"; };
 		B58F819E18CFA354003822FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B59070B718ABC70E00E15B2C /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		B591F064189BFB3B003AB1D9 /* blankThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankThumbnail.png; sourceTree = "<group>"; };
@@ -463,8 +463,8 @@
 		8198422917E0D40900B619C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B57B7C6D1921474D00FEA322 /* captionBG.png */,
-				B57B7C6E1921474D00FEA322 /* serialNumberBG.png */,
+				B57B7C7119238BAC00FEA322 /* captionBG.png */,
+				B57B7C7219238BAC00FEA322 /* serialNumberBG.png */,
 				814A0CA8190FECC800660D62 /* GAI.h */,
 				814A0CA9190FECC800660D62 /* GAIDictionaryBuilder.h */,
 				814A0CAA190FECC800660D62 /* GAIFields.h */,
@@ -750,6 +750,7 @@
 				B5006AB918D0E9710024A94B /* inputBG.png in Resources */,
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
 				B50B249618F5940E006FC005 /* changeDealerBtn.png in Resources */,
+				B57B7C7319238BAC00FEA322 /* captionBG.png in Resources */,
 				B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */,
 				B50B249718F5940E006FC005 /* inventoryBtn.png in Resources */,
 				B50B249818F5940E006FC005 /* leadsBtn.png in Resources */,
@@ -759,8 +760,6 @@
 				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
 				B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */,
 				B50B249018F58E0C006FC005 /* titleScreen.png in Resources */,
-				B57B7C701921474D00FEA322 /* serialNumberBG.png in Resources */,
-				B57B7C6F1921474D00FEA322 /* captionBG.png in Resources */,
 				8198423517E0D40900B619C7 /* Default.png in Resources */,
 				B50B249C18F5CCB6006FC005 /* shutterBtn.png in Resources */,
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
@@ -768,6 +767,7 @@
 				B5006ACB18D2129A0024A94B /* icon114x114.png in Resources */,
 				8198423717E0D40900B619C7 /* Default@2x.png in Resources */,
 				B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */,
+				B57B7C7419238BAC00FEA322 /* serialNumberBG.png in Resources */,
 				B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */,
 				B5163D0318D0C72F00DDBFD4 /* inventoryListLogoutBtn.png in Resources */,
 				8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */,

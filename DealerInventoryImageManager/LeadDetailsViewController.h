@@ -17,6 +17,8 @@
     Leads *lead;
 }
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @property (strong, nonatomic) UIAlertView *alert;
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *commentsText;

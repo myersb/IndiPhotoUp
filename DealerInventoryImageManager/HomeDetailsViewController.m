@@ -559,6 +559,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         // Get the destination class file for the target view
         ImageDetailsViewController *idvc = [segue destinationViewController];
 		idvc.selectedSerialNumber = _selectedSerialNumber;
+		idvc.cameFrom = @"details";
         
         // Get the selected image object and put it into the associated property in the target
         NSIndexPath *path = [self.imageTableView indexPathForSelectedRow];

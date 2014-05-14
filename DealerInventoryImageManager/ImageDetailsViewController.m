@@ -35,9 +35,8 @@
     
     NSLog(@"ImageDetailesViewController : viewDidLoad");
     
-    
     // Do any additional setup after loading the view.
-    // Draw the activity view background
+    // Draw the activity view backgroundpickerViewContainer
     activityIndicatorBackground.layer.cornerRadius = 10.0;
     activityIndicatorBackground.layer.borderColor = [[UIColor grayColor] CGColor];
     activityIndicatorBackground.layer.borderWidth = 1;
@@ -150,6 +149,13 @@
         currentRow++;
         
     }
+	
+	if ([_cameFrom isEqualToString:@"camera"])
+	{
+		_btnCancel.hidden = NO;
+		_btnBack.hidden = YES;
+		_deleteButton.hidden = YES;
+	}
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -181,6 +187,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+	_btnCancel.hidden = YES;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -189,7 +200,7 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	if ([[segue identifier]isEqualToString:@"segueToHomeDetailsFromImageDetails"]) {
+	if ([[segue identifier]isEqualToString:@"segueToHomeDetailsFromImageDetails"] || [[segue identifier] isEqualToString:@"segueCloseImageDetails"]) {
 		
 		HomeDetailsViewController *homeDetails = [segue destinationViewController];
         homeDetails.selectedSerialNumber = _selectedSerialNumber;
@@ -518,7 +529,6 @@
 // This prevents the keyboard from popping up.
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    
     if( [ textField.restorationIdentifier isEqualToString:@"imageTypeField" ] )
     {
         //dismiss the keyboard if it is up
@@ -667,4 +677,22 @@
     
 }
 
+/* --------------------------------------------------------------- */
+#pragma mark - Navigation methods
+/* --------------------------------------------------------------- */
+
+- (IBAction)goBack
+{
+	if ([_cameFrom isEqualToString:@"camera"])
+	{
+		[self performSegueWithIdentifier:@"segueFromImageDetailsToCamera" sender:self];
+		_selectedImage = [UIImage imageWithData:nil];
+	}
+	else if ([_cameFrom isEqualToString:@"details"])
+	{
+		[self performSegueWithIdentifier:@"segueToHomeDetailsFromImageDetails" sender:self];
+	}
+}
+- (IBAction)btnCancel {
+}
 @end
