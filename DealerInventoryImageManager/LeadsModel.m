@@ -38,43 +38,17 @@
 @implementation LeadsModel
 
 
-- (void) checkOnlineConnection {
-    NSLog(@"HomeDetailsViewController : checkOnlineConnection");
-	
-    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    [internetReachable startNotifier];
-    
-    // Internet is not reachable
-    // NOTE - change "reachableBlock" to "unreachableBlock"
-    
-    internetReachable.unreachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = NO;
-    };
-	
-	internetReachable.reachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = YES;
-    };
-    
-    // For whatever reason, it requires hitting this once to get it to set right.
-    NSLog(_isConnected ? @"Yes" : @"No");
-    
-}
-
-
-
 - (BOOL) refreshLeadData{
     NSLog(@"LeadsModel : refreshLeadDataForDealer");
     
-    [self checkOnlineConnection];
-    NSLog(_isConnected ? @"Yes" : @"No");
+    internetReachable = [[Reachability alloc] init];
+    [internetReachable checkOnlineConnection];
+    NSLog(internetReachable.isConnected ? @"Yes" : @"No");
     
     NSString *dealerNumber;  //= @"290844"; // remove if dealernumber is here
     
     //Checks that the user is online before processing
-    if (_isConnected)
+    if (internetReachable.isConnected)
     {
         
         
@@ -255,12 +229,13 @@
     
     NSLog(@"LeadsModel : claimLeadUpdate");
     
-    [self checkOnlineConnection];
-    NSLog(_isConnected ? @"Yes" : @"No");
+    internetReachable = [[Reachability alloc] init];
+    [internetReachable checkOnlineConnection];
+    NSLog(internetReachable.isConnected ? @"Yes" : @"No");
     
     
     //Checks that the user is online before processing
-    if (_isConnected)
+    if (internetReachable.isConnected)
     {
         
         // *** Send change to remote server ***

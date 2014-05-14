@@ -66,7 +66,6 @@
 @property (nonatomic, strong) NSOperationQueue *imageDownloadingQueue;
 @property (nonatomic, strong) NSCache *imageCache;
 
-@property (assign, nonatomic) BOOL isConnected;
 @property (assign, nonatomic) BOOL imageWasSaved;
 
 - (IBAction)addPhoto:(id)sender;

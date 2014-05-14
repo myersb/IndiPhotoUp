@@ -41,14 +41,13 @@
     
     NSLog(@"InventoryViewController : viewDidLoad");
 	NSLog(@"CDN: %@", _chosenDealerNumber);
-    
-
+	
+    internetReachable = [[Reachability alloc] init];
+	[internetReachable checkOnlineConnection];
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
 	self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	
-	_isConnected = TRUE;
-	[self checkOnlineConnection];
 	DealerModel *dealer = [[DealerModel alloc]init];
 	
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
@@ -70,7 +69,7 @@
 		dealer.dealerNumber = _chosenDealerNumber;
 	}
 	
-	if (_isConnected == TRUE) {
+	if (internetReachable.isConnected) {
 		NSLog(@"CDN3: %@", _dealerNumber);
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
@@ -145,7 +144,8 @@
     
 	[self loadInventory];
 	
-	if (_isConnected == 1 && [_modelsArray count] > 0) {
+	if (([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi ||
+		[[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN) && [_modelsArray count] > 0) {
 		NSLog(@"DELETED!");
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
@@ -161,8 +161,8 @@
 	_dataDictionary = [_jSON objectForKey:@"data"];
 	
 	// Check for other dictionaries inside of the dataDictionary
-	for (NSDictionary *modelDictionary in _dataDictionary) {
-		
+	for (NSDictionary *modelDictionary in _dataDictionary)
+	{
 		InventoryHome *home = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
 		NSString *trimmedSerialNumber = [NSString stringWithFormat:@"%@",[NSLocalizedString([modelDictionary objectForKey:@"serialnumber"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
 		
@@ -186,7 +186,8 @@
     
 	[self loadImages];
 	
-	if (_isConnected == 1 && [_imagesArray count] > 0) {
+	if (([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi ||
+		 [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN) && [_imagesArray count] > 0) {
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest];
 	}
 
@@ -351,28 +352,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[self performSegueWithIdentifier:@"segueToHomeDetails" sender:nil];
-}
-
-- (void) checkOnlineConnection {
-	
-	
-    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Internet is not reachable
-    // NOTE - change "reachableBlock" to "unreachableBlock"
-    
-    internetReachable.unreachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = FALSE;
-    };
-	
-	internetReachable.reachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = TRUE;
-    };
-    
-    [internetReachable startNotifier];
-    
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{

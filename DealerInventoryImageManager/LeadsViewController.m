@@ -40,6 +40,7 @@
     //load up - retrieves new leads.
     LeadsModel *leadsModel = [[LeadsModel alloc]init];
     [leadsModel refreshLeadData];
+	[self.tableView reloadData];
     
     NSLog(@"ready");
     
@@ -92,6 +93,7 @@
 {
     // Return the number of rows in the section.
     id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+	NSLog(@"Sections: %lu", (unsigned long)[secInfo numberOfObjects]);
     return [secInfo numberOfObjects];
 }
 
@@ -103,23 +105,22 @@ heightForHeaderInSection:(NSInteger)section
 }
 
 
--(UIView *) tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section
+-(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    l.textColor = [self colorFromHexString:@"#ffffff"];
+    UILabel *lblLeadSection = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    lblLeadSection.textColor = [self colorFromHexString:@"#ffffff"];
    
     NSString *getSection = [[[self.fetchedResultsController sections]objectAtIndex:section]name];
     if ([getSection isEqualToString:@"n"])
     {
-        l.backgroundColor = [self colorFromHexString:@"#B3BBE3"];
-        l.text = @"  New Leads";
+        lblLeadSection.backgroundColor = [self colorFromHexString:@"#B3BBE3"];
+        lblLeadSection.text = @"  New Leads";
     } else {
-        l.backgroundColor = [self colorFromHexString:@"#B3E3B5"];
-        l.text = @"  Viewed Leads";
+        lblLeadSection.backgroundColor = [self colorFromHexString:@"#B3E3B5"];
+        lblLeadSection.text = @"  Viewed Leads";
     }
     
-    return l;
+    return lblLeadSection;
 }
 
 // Override to support editing the table view.
@@ -199,10 +200,8 @@ viewForHeaderInSection:(NSInteger)section
                                               inManagedObjectContext:[self managedObjectContext]];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortStatus = [[NSSortDescriptor alloc] initWithKey:@"status"
-                                                                   ascending:NO];
-    NSSortDescriptor *sortLeadDate = [[NSSortDescriptor alloc] initWithKey:@"leadDate"
-                                                               ascending:NO];
+    NSSortDescriptor *sortStatus = [[NSSortDescriptor alloc] initWithKey:@"status" ascending:NO];
+    NSSortDescriptor *sortLeadDate = [[NSSortDescriptor alloc] initWithKey:@"leadDate" ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortStatus, sortLeadDate, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     

@@ -524,4 +524,15 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     return description;
 }
 
+- (BOOL)checkOnlineConnection {
+    NSLog(@"BOOM");
+	
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi || [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN) {
+		_isConnected = TRUE;
+	} else {
+		_isConnected = FALSE;
+	}
+	return _isConnected;
+}
+
 @end

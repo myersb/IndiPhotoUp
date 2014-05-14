@@ -45,7 +45,10 @@ NSMutableArray *models;
     // This is the google analitics
     self.screenName = @"HomeDetailsViewController";
 
-    
+    // Check for connection to internet
+    internetReachable = [[Reachability alloc] init];
+	[internetReachable checkOnlineConnection];
+	
     NSLog(@"HomeDetailsViewController : viewDidLoad");
 	
 	_lblViewControllerTitle.text = _selectedSerialNumber;
@@ -66,14 +69,12 @@ NSMutableArray *models;
 	
 	id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext  = [delegate managedObjectContext];
-	_isConnected = TRUE;
 	
 	if (_imageWasSaved) {
 		_doneButton.hidden = FALSE;
 		self.navigationItem.hidesBackButton = YES;
 	}
 	
-	[self checkOnlineConnection];
 	[self loadDetails];
 }
 
@@ -515,29 +516,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 	else if (_modelAvailable == NO){
 		[self performSegueWithIdentifier:@"noInventorySegue" sender:self];
 	}
-    
-}
-
-
-- (void) checkOnlineConnection {
-    NSLog(@"HomeDetailsViewController : checkOnlineConnection");
-	
-    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    // Internet is not reachable
-    // NOTE - change "reachableBlock" to "unreachableBlock"
-    
-    internetReachable.unreachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = FALSE;
-    };
-	
-	internetReachable.reachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = TRUE;
-    };
-    
-    [internetReachable startNotifier];
     
 }
 

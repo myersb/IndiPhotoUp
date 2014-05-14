@@ -71,7 +71,7 @@
 	NSArray *result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
 	
 	Leads *leadToChange = [result objectAtIndex:0];
-	[leadToChange setValue:@"c" forKeyPath:@"status"];
+	[leadToChange setValue:@"C" forKeyPath:@"status"];
 	
 	
 }
