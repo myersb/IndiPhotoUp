@@ -60,6 +60,24 @@
     [[self tableView] reloadData];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+	[self adjustHeightOfTableview];
+}
+
+
+
+- (void)adjustHeightOfTableview
+{
+	if ([[UIScreen mainScreen] bounds].size.height < 568)
+	{
+		// now set the frame accordingly
+		CGRect frame = self.tableView.frame;
+		frame.size.height = 364;
+		self.tableView.frame = frame;
+	}
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

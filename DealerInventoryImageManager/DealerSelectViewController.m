@@ -45,6 +45,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+	[self adjustHeightOfTableview];
+}
+
+
+
+- (void)adjustHeightOfTableview
+{
+	if ([[UIScreen mainScreen] bounds].size.height < 568)
+	{
+		// now set the frame accordingly
+		CGRect frame = self.lotTableView.frame;
+		frame.size.height = 364;
+		self.lotTableView.frame = frame;
+	}
+}
+
 - (void)loadLotInfo
 {
 	_fetchRequest = [[NSFetchRequest alloc]init];

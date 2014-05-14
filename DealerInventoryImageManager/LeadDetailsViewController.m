@@ -36,6 +36,7 @@
     
     [self fillLabel];
 	[self markAsRead];
+	self.title = @"Lead Details";
     // Do any additional setup after loading the view.
 }
 
@@ -52,9 +53,9 @@
     NSString *leadDateOnPhone = [dateFormat stringFromDate:_selectedLead.leadDateOnPhone];
     
     [_fullNameLabel setText:[NSString stringWithFormat:@"%@ %@", _selectedLead.firstName, _selectedLead.lastName ]];
-    [_commentsText setText:[NSString stringWithFormat:@"%@", _selectedLead.comments ]];
-    [_leadDateText setText:[NSString stringWithFormat:@"%@", leadDateOnPhone ]];
-    [_phoneText setText:[NSString stringWithFormat:@"%@", _selectedLead.dayPhone ]];
+    [_commentsText setText:[NSString stringWithFormat:@"%@", _selectedLead.comments]];
+    [_leadDateText setText:[NSString stringWithFormat:@"%@", leadDateOnPhone]];
+    [_phoneText setText:[NSString stringWithFormat:@"%@", _selectedLead.dayPhone]];
     [_emailText setTitle:[NSString stringWithFormat:@"%@ -->", _selectedLead.email ] forState:UIControlStateNormal];
 }
 
@@ -87,6 +88,8 @@
 		
 		[self presentViewController:mailViewController animated:YES completion:nil];
 	} else {
+		_alert = [[UIAlertView alloc]initWithTitle:@"Cannot Send Email" message:@"Please verify that you have an internet connection and that you have an email account properly setup on your device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+		[_alert show];
 		NSLog(@"Device is unable to send email in its current state.");
 	}
 }
