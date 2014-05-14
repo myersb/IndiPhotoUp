@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8198421C17E0D40900B619C7"
                BuildableName = "Indi PhotoUp.app"
-               BlueprintName = "Indi PhotoUp"
-               ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+               BlueprintName = "ConnectUp"
+               ReferencedContainer = "container:ConnectUp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8198424117E0D40A00B619C7"
                BuildableName = "Indi PhotoUpTests.octest"
-               BlueprintName = "Indi PhotoUpTests"
-               ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+               BlueprintName = "ConnectUpTests"
+               ReferencedContainer = "container:ConnectUp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
             BuildableName = "Indi PhotoUp.app"
-            BlueprintName = "Indi PhotoUp"
-            ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+            BlueprintName = "ConnectUp"
+            ReferencedContainer = "container:ConnectUp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
             BuildableName = "Indi PhotoUp.app"
-            BlueprintName = "Indi PhotoUp"
-            ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+            BlueprintName = "ConnectUp"
+            ReferencedContainer = "container:ConnectUp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
             BuildableName = "Indi PhotoUp.app"
-            BlueprintName = "Indi PhotoUp"
-            ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+            BlueprintName = "ConnectUp"
+            ReferencedContainer = "container:ConnectUp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

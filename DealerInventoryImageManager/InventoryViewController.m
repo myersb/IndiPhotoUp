@@ -391,7 +391,7 @@
 	}
 	
 	if ([[segue identifier] isEqualToString:@"segueToLeadEmail"]) {
-		NSLog(@"BOOM");
+		
 	}
     
     if ([[segue identifier] isEqualToString:@"FromInventoryToLeads"]){

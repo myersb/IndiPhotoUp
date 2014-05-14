@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Indi PhotoUp.xcodeproj">
+      location = "self:ConnectUp.xcodeproj">
    </FileRef>
 </Workspace>

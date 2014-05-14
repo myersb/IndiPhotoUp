@@ -13,7 +13,9 @@
 
 
 @interface LeadsViewController ()
-
+{
+	LeadsModel *leadsModel;
+}
 @end
 
 @implementation LeadsViewController
@@ -38,9 +40,7 @@
 
     
     //load up - retrieves new leads.
-    LeadsModel *leadsModel = [[LeadsModel alloc]init];
-    [leadsModel refreshLeadData];
-	[self.tableView reloadData];
+    leadsModel = [[LeadsModel alloc]init];
     
     NSLog(@"ready");
     
@@ -54,9 +54,10 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [self.tableView reloadData];
+	[leadsModel refreshLeadData];
+    [[self tableView] reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +81,9 @@
     if ([getSection isEqualToString:@"n"])
     {
         getSection = @"New Leads";
-    } else {
+    }
+	else if ([getSection isEqualToString:@"C"] || [getSection isEqualToString:@"c"])
+	{
         getSection = @"Viewed Leads";
     }
         
@@ -93,7 +96,6 @@
 {
     // Return the number of rows in the section.
     id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-	NSLog(@"Sections: %lu", (unsigned long)[secInfo numberOfObjects]);
     return [secInfo numberOfObjects];
 }
 
@@ -105,7 +107,8 @@ heightForHeaderInSection:(NSInteger)section
 }
 
 
--(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+-(UIView *) tableView:(UITableView *)tableView
+viewForHeaderInSection:(NSInteger)section
 {
     UILabel *lblLeadSection = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     lblLeadSection.textColor = [self colorFromHexString:@"#ffffff"];
@@ -200,8 +203,10 @@ heightForHeaderInSection:(NSInteger)section
                                               inManagedObjectContext:[self managedObjectContext]];
     [fetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortStatus = [[NSSortDescriptor alloc] initWithKey:@"status" ascending:NO];
-    NSSortDescriptor *sortLeadDate = [[NSSortDescriptor alloc] initWithKey:@"leadDate" ascending:NO];
+    NSSortDescriptor *sortStatus = [[NSSortDescriptor alloc] initWithKey:@"status"
+                                                                   ascending:NO];
+    NSSortDescriptor *sortLeadDate = [[NSSortDescriptor alloc] initWithKey:@"leadDate"
+                                                               ascending:NO];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortStatus, sortLeadDate, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
@@ -298,6 +303,7 @@ heightForHeaderInSection:(NSInteger)section
         
         // Change status of lead.
         LeadsModel *leadModel = [[LeadsModel alloc] init];
+		NSLog(@"%@", leadObj.independentLeadId);
         [leadModel claimLead:leadObj.independentLeadId];
         
 

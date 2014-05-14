@@ -240,7 +240,7 @@ NSMutableArray *models;
     [cell addSubview:tempImage ];
     
     // Fill out target fields with Data
-	if (_isConnected == 1) {
+	if (internetReachable.isConnected) {
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
             
 			NSString *getStringURL = [NSString stringWithFormat:@"%@?width=90&height=60", image.sourceURL];

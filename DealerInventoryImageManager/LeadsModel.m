@@ -41,16 +41,15 @@
 - (BOOL) refreshLeadData{
     NSLog(@"LeadsModel : refreshLeadDataForDealer");
     
-    internetReachable = [[Reachability alloc] init];
-    [internetReachable checkOnlineConnection];
-    NSLog(internetReachable.isConnected ? @"Yes" : @"No");
+    //internetReachable = [[Reachability alloc] init];
+    //[internetReachable checkOnlineConnection];
+    //NSLog(internetReachable.isConnected ? @"Yes" : @"No");
     
     NSString *dealerNumber;  //= @"290844"; // remove if dealernumber is here
     
     //Checks that the user is online before processing
-    if (internetReachable.isConnected)
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi || [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN)
     {
-        
         
         NSString *getTopLeadDate;
         
@@ -165,6 +164,7 @@
         
         _jSON = [NSJSONSerialization JSONObjectWithData:leadData options:kNilOptions error:nil];
         _dataDictionary = [_jSON objectForKey:@"data"];
+		NSLog(@"%@", _dataDictionary);
         
         
         // *** Loop over that data and put into the database ***
@@ -229,13 +229,9 @@
     
     NSLog(@"LeadsModel : claimLeadUpdate");
     
-    internetReachable = [[Reachability alloc] init];
-    [internetReachable checkOnlineConnection];
-    NSLog(internetReachable.isConnected ? @"Yes" : @"No");
-    
     
     //Checks that the user is online before processing
-    if (internetReachable.isConnected)
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi || [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN)
     {
         
         // *** Send change to remote server ***
@@ -255,7 +251,7 @@
         NSData *leadData = [NSData dataWithContentsOfURL:url];
         
         NSString *convertedString = [[NSString alloc] initWithData:leadData encoding:NSUTF8StringEncoding];
-        NSLog(@"Did receive data : %@", convertedString );
+        NSLog(@"Did receive data : %@", convertedString);
         
         // Check to see if the return of data has anything in it that is parsable.  If not, then return NO.
         @try {

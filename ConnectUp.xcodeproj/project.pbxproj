@@ -178,12 +178,12 @@
 		8188875B17E75E53004B8260 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8188875E17E75E9B004B8260 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8188875F17E7626D004B8260 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8198421D17E0D40900B619C7 /* Indi PhotoUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indi PhotoUp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8198421D17E0D40900B619C7 /* ConnectUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8198422017E0D40900B619C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8198422217E0D40900B619C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8198422417E0D40900B619C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8198422617E0D40900B619C7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8198422A17E0D40900B619C7 /* Indi PhotoUp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Indi PhotoUp-Info.plist"; sourceTree = "<group>"; };
+		8198422A17E0D40900B619C7 /* ConnectUp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnectUp-Info.plist"; sourceTree = "<group>"; };
 		8198422E17E0D40900B619C7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8198423017E0D40900B619C7 /* DealerInventoryImageManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DealerInventoryImageManager-Prefix.pch"; sourceTree = "<group>"; };
 		8198423117E0D40900B619C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		8198423617E0D40900B619C7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8198423817E0D40900B619C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8198423B17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DealerInventoryImageManager.xcdatamodel; sourceTree = "<group>"; };
-		8198424217E0D40A00B619C7 /* Indi PhotoUpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Indi PhotoUpTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8198424217E0D40A00B619C7 /* ConnectUpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectUpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8198424317E0D40A00B619C7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8198424C17E0D40A00B619C7 /* PhotoUpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoUpTests-Info.plist"; sourceTree = "<group>"; };
 		8198424E17E0D40A00B619C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -404,8 +404,8 @@
 		8198421E17E0D40900B619C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8198421D17E0D40900B619C7 /* Indi PhotoUp.app */,
-				8198424217E0D40A00B619C7 /* Indi PhotoUpTests.octest */,
+				8198421D17E0D40900B619C7 /* ConnectUp.app */,
+				8198424217E0D40A00B619C7 /* ConnectUpTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -511,7 +511,7 @@
 				B5691B6818B2AF2100FE34AE /* InfoPlist.strings */,
 				B5691BB118B50CAB00FE34AE /* logoutBtn.png */,
 				8198422E17E0D40900B619C7 /* main.m */,
-				8198422A17E0D40900B619C7 /* Indi PhotoUp-Info.plist */,
+				8198422A17E0D40900B619C7 /* ConnectUp-Info.plist */,
 				B525AB6217FDCC0000619E3D /* qrCode@2x.png */,
 			);
 			name = "Supporting Files";
@@ -672,9 +672,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8198421C17E0D40900B619C7 /* Indi PhotoUp */ = {
+		8198421C17E0D40900B619C7 /* ConnectUp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "Indi PhotoUp" */;
+			buildConfigurationList = 8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "ConnectUp" */;
 			buildPhases = (
 				8198421917E0D40900B619C7 /* Sources */,
 				8198421A17E0D40900B619C7 /* Frameworks */,
@@ -685,14 +685,14 @@
 			);
 			dependencies = (
 			);
-			name = "Indi PhotoUp";
+			name = ConnectUp;
 			productName = DealerInventoryImageManager;
-			productReference = 8198421D17E0D40900B619C7 /* Indi PhotoUp.app */;
+			productReference = 8198421D17E0D40900B619C7 /* ConnectUp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8198424117E0D40A00B619C7 /* Indi PhotoUpTests */ = {
+		8198424117E0D40A00B619C7 /* ConnectUpTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "Indi PhotoUpTests" */;
+			buildConfigurationList = 8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "ConnectUpTests" */;
 			buildPhases = (
 				8198423D17E0D40A00B619C7 /* Sources */,
 				8198423E17E0D40A00B619C7 /* Frameworks */,
@@ -704,9 +704,9 @@
 			dependencies = (
 				8198424917E0D40A00B619C7 /* PBXTargetDependency */,
 			);
-			name = "Indi PhotoUpTests";
+			name = ConnectUpTests;
 			productName = DealerInventoryImageManagerTests;
-			productReference = 8198424217E0D40A00B619C7 /* Indi PhotoUpTests.octest */;
+			productReference = 8198424217E0D40A00B619C7 /* ConnectUpTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -723,7 +723,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8198421817E0D40900B619C7 /* Build configuration list for PBXProject "Indi PhotoUp" */;
+			buildConfigurationList = 8198421817E0D40900B619C7 /* Build configuration list for PBXProject "ConnectUp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -735,8 +735,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8198421C17E0D40900B619C7 /* Indi PhotoUp */,
-				8198424117E0D40A00B619C7 /* Indi PhotoUpTests */,
+				8198421C17E0D40900B619C7 /* ConnectUp */,
+				8198424117E0D40A00B619C7 /* ConnectUpTests */,
 			);
 		};
 /* End PBXProject section */
@@ -909,7 +909,7 @@
 /* Begin PBXTargetDependency section */
 		8198424917E0D40A00B619C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8198421C17E0D40900B619C7 /* Indi PhotoUp */;
+			target = 8198421C17E0D40900B619C7 /* ConnectUp */;
 			targetProxy = 8198424817E0D40A00B619C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1003,16 +1003,16 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DealerInventoryImageManager/Indi PhotoUp-Prefix.pch";
+				GCC_PREFIX_HEADER = "DealerInventoryImageManager/ConnectUp-Prefix.pch";
 				GCC_WARN_SHADOW = YES;
-				INFOPLIST_FILE = "DealerInventoryImageManager/Indi PhotoUp-Info.plist";
+				INFOPLIST_FILE = "DealerInventoryImageManager/ConnectUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./DealerInventoryImageManager/ZBarSDK,
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_NAME = "Indi PhotoUp";
+				PRODUCT_NAME = ConnectUp;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1030,16 +1030,16 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DealerInventoryImageManager/Indi PhotoUp-Prefix.pch";
+				GCC_PREFIX_HEADER = "DealerInventoryImageManager/ConnectUp-Prefix.pch";
 				GCC_WARN_SHADOW = YES;
-				INFOPLIST_FILE = "DealerInventoryImageManager/Indi PhotoUp-Info.plist";
+				INFOPLIST_FILE = "DealerInventoryImageManager/ConnectUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					./DealerInventoryImageManager/ZBarSDK,
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_NAME = "Indi PhotoUp";
+				PRODUCT_NAME = ConnectUp;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1056,7 +1056,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManagerTests/PhotoUpTests-Info.plist";
-				PRODUCT_NAME = "Indi PhotoUpTests";
+				PRODUCT_NAME = ConnectUpTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1073,7 +1073,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
 				INFOPLIST_FILE = "DealerInventoryImageManagerTests/PhotoUpTests-Info.plist";
-				PRODUCT_NAME = "Indi PhotoUpTests";
+				PRODUCT_NAME = ConnectUpTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1082,7 +1082,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8198421817E0D40900B619C7 /* Build configuration list for PBXProject "Indi PhotoUp" */ = {
+		8198421817E0D40900B619C7 /* Build configuration list for PBXProject "ConnectUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8198425317E0D40A00B619C7 /* Debug */,
@@ -1091,7 +1091,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "Indi PhotoUp" */ = {
+		8198425517E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "ConnectUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8198425617E0D40A00B619C7 /* Debug */,
@@ -1100,7 +1100,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "Indi PhotoUpTests" */ = {
+		8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "ConnectUpTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8198425917E0D40A00B619C7 /* Debug */,
