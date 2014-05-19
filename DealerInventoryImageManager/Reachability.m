@@ -531,6 +531,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 	} else {
 		_isConnected = FALSE;
 	}
+	NSLog(@"IS CONNECTED: %d", _isConnected);
 	return _isConnected;
 }
 

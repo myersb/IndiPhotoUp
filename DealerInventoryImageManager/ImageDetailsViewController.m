@@ -407,30 +407,36 @@
                 [NSThread detachNewThreadSelector:@selector(showView) toTarget:self withObject:nil];
                 
                 // Run the long process on the main thread.
-                [self uploadImage];
-
-                id delegate = [[UIApplication sharedApplication] delegate];
-                self.managedObjectContext = [delegate managedObjectContext];
-                
-                _fetchRequest = [[NSFetchRequest alloc]init];
-                _entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
-                _predicate = [NSPredicate predicateWithFormat:@"serialNumber == %@", _selectedSerialNumber];
-                
-                [_fetchRequest setEntity:_entity];
-                [_fetchRequest setPredicate:_predicate];
-                
-                NSError *error = nil;
-                
-                _modelArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
-                
-                InventoryImageModel *saveInsert = [[InventoryImageModel alloc] init];
-                [saveInsert insertImageDataByInventoryPackageId:[[_modelArray objectAtIndex:0] inventoryPackageID]
-                                                       andTagId:imageTagObjectSelected.tagId
-                                                      andTypeId:imageTagObjectSelected.typeId
-                                              andImageTypeOrder:_currentInventoryImage.imageOrderNdx
-                                                 andFeatureText:_featuresField.text
-                                                 andImageSource:_fileSourceReference
-                                                 andSerialNumber:_currentInventoryImage.serialNumber];
+				if (internetReachable.isConnected) {
+					[self uploadImage];
+					
+					
+					id delegate = [[UIApplication sharedApplication] delegate];
+					self.managedObjectContext = [delegate managedObjectContext];
+					
+					_fetchRequest = [[NSFetchRequest alloc]init];
+					_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
+					_predicate = [NSPredicate predicateWithFormat:@"serialNumber == %@", _selectedSerialNumber];
+					
+					[_fetchRequest setEntity:_entity];
+					[_fetchRequest setPredicate:_predicate];
+					
+					NSError *error = nil;
+					
+					_modelArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
+					
+					InventoryImageModel *saveInsert = [[InventoryImageModel alloc] init];
+					[saveInsert insertImageDataByInventoryPackageId:[[_modelArray objectAtIndex:0] inventoryPackageID]
+														   andTagId:imageTagObjectSelected.tagId
+														  andTypeId:imageTagObjectSelected.typeId
+												  andImageTypeOrder:_currentInventoryImage.imageOrderNdx
+													 andFeatureText:_featuresField.text
+													 andImageSource:_fileSourceReference
+													andSerialNumber:_currentInventoryImage.serialNumber];
+				} else {
+					_alert = [[UIAlertView alloc]initWithTitle:@"No Connection" message:[NSString stringWithFormat:@"A cellular or wifi connection is required to upload an image. Please check your connection and try again."] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+					[_alert show];
+				}
             }
         }
         else
@@ -692,7 +698,5 @@
 	{
 		[self performSegueWithIdentifier:@"segueToHomeDetailsFromImageDetails" sender:self];
 	}
-}
-- (IBAction)btnCancel {
 }
 @end

@@ -69,7 +69,6 @@
 @property (assign, nonatomic) BOOL imageWasSaved;
 
 - (IBAction)addPhoto:(id)sender;
-- (void) checkOnlineConnection;
 - (IBAction)leadsViewButton:(id)sender;
 
 @end

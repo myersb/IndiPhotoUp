@@ -41,7 +41,7 @@ NSMutableArray *models;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor colorWithRed:0.724 green:0.459 blue:0.676 alpha:1.000];
     // This is the google analitics
     self.screenName = @"HomeDetailsViewController";
 

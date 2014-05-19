@@ -10,11 +10,13 @@
 #import "LeadsModel.h"
 #import "LeadsViewController.h"
 #import "LeadDetailsViewController.h"
+#import "Reachability.h"
 
 
 @interface LeadsViewController ()
 {
 	LeadsModel *leadsModel;
+    Reachability *internetReachable;
 }
 @end
 
@@ -37,6 +39,9 @@
     
     // This is the google analitics
     self.screenName = @"LeadsViewController";
+	
+    internetReachable = [[Reachability alloc] init];
+	[internetReachable checkOnlineConnection];
 
     
     //load up - retrieves new leads.
@@ -56,7 +61,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[leadsModel refreshLeadData];
+	if (internetReachable.isConnected) {
+		
+		[leadsModel refreshLeadData];
+	}
     [[self tableView] reloadData];
 }
 
@@ -148,21 +156,25 @@ viewForHeaderInSection:(NSInteger)section
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self managedObjectContext];
-        Leads *leadToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        // Change status of lead.
-        LeadsModel *leadModel = [[LeadsModel alloc] init];
-        [leadModel deleteLead:leadToDelete.independentLeadId];
-        
-        // setup to remove from context.
-        [context deleteObject:leadToDelete];
-        
-        // execute to save context changes.
-        NSError *error = nil;
-        if (![context save:&error]) {
-            NSLog(@"Error! %@",error);
-        }
+		if (internetReachable.isConnected) {
+			NSManagedObjectContext *context = [self managedObjectContext];
+			Leads *leadToDelete = [self.fetchedResultsController objectAtIndexPath:indexPath];
+			
+			// Change status of lead.
+			LeadsModel *leadModel = [[LeadsModel alloc] init];
+			[leadModel deleteLead:leadToDelete.independentLeadId];
+			
+			// setup to remove from context.
+			[context deleteObject:leadToDelete];
+			
+			// execute to save context changes.
+			NSError *error = nil;
+			if (![context save:&error]) {
+				NSLog(@"Error! %@",error);
+			}
+			_alert = [[UIAlertView alloc]initWithTitle:@"No Connection" message:[NSString stringWithFormat:@"An cellular or wifi connection is required for deleting leads. Please connect to a cellular or wireless network and try again."] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+			[_alert show];
+		}
     }
     
 }
@@ -322,9 +334,9 @@ viewForHeaderInSection:(NSInteger)section
         // Change status of lead.
         LeadsModel *leadModel = [[LeadsModel alloc] init];
 		NSLog(@"%@", leadObj.independentLeadId);
-        [leadModel claimLead:leadObj.independentLeadId];
-        
-
+		if (internetReachable.isConnected) {
+			[leadModel claimLead:leadObj.independentLeadId];
+		}
         
         // Get the destination class file for the target view
         LeadDetailsViewController *ldvc = [segue destinationViewController];

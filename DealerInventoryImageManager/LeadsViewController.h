@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
-@interface LeadsViewController : GAITrackedViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface LeadsViewController : GAITrackedViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 
-@property(nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIAlertView *alert;
 
 - (IBAction)changeDealerButton:(id)sender;
 //toChangeDealerFromLeadsView

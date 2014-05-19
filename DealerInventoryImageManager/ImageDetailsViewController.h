@@ -64,6 +64,7 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UIView *pickerViewContainer;
 @property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;
+@property (strong, nonatomic) UIAlertView *alert;
 
 
 // Actions
