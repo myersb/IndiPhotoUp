@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "Indi PhotoUp.app"
-            BlueprintName = "Indi PhotoUp"
-            ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+            BuildableName = "ConnectUp.app"
+            BlueprintName = "ConnectUp"
+            ReferencedContainer = "container:ConnectUp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8198421C17E0D40900B619C7"
-            BuildableName = "Indi PhotoUp.app"
-            BlueprintName = "Indi PhotoUp"
-            ReferencedContainer = "container:Indi PhotoUp.xcodeproj">
+            BuildableName = "ConnectUp.app"
+            BlueprintName = "ConnectUp"
+            ReferencedContainer = "container:ConnectUp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

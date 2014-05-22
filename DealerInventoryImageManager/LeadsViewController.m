@@ -137,16 +137,18 @@ heightForHeaderInSection:(NSInteger)section
 viewForHeaderInSection:(NSInteger)section
 {
     UILabel *lblLeadSection = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    lblLeadSection.textColor = [self colorFromHexString:@"#ffffff"];
+    lblLeadSection.textColor = [self colorFromHexString:@"#"];
    
     NSString *getSection = [[[self.fetchedResultsController sections]objectAtIndex:section]name];
     if ([getSection isEqualToString:@"n"])
     {
-        lblLeadSection.backgroundColor = [self colorFromHexString:@"#B3BBE3"];
+        lblLeadSection.backgroundColor = [self colorFromHexString:@"#007ee5"];
         lblLeadSection.text = @"  New Leads";
+        lblLeadSection.textColor = [self colorFromHexString:@"#ffffff"];
     } else {
-        lblLeadSection.backgroundColor = [self colorFromHexString:@"#B3E3B5"];
+        lblLeadSection.backgroundColor = [self colorFromHexString:@"#f0eff5"];
         lblLeadSection.text = @"  Viewed Leads";
+        lblLeadSection.textColor = [self colorFromHexString:@"#6b6b6b"];
     }
     
     return lblLeadSection;
@@ -196,6 +198,14 @@ viewForHeaderInSection:(NSInteger)section
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"MMM dd yyyy"];
     cell.detailTextLabel.text = [dateFormat stringFromDate:leads.leadDateOnPhone];
+    
+
+    if ([leads.status isEqualToString:@"n"])
+    {
+        cell.textLabel.textColor = [self colorFromHexString:@"#000000"];
+    } else {
+        cell.textLabel.textColor = [self colorFromHexString:@"#909090"];
+    }
     
     
     return cell;
