@@ -1315,11 +1315,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="Lcv-ej-NJy"/>
-        <segue reference="0Hk-mZ-WEh"/>
-        <segue reference="M71-ex-mn2"/>
-        <segue reference="yYU-7B-a5w"/>
+        <segue reference="kgZ-Z3-I4F"/>
         <segue reference="5yM-gN-tF0"/>
+        <segue reference="tUn-Ui-w9N"/>
+        <segue reference="0Hk-mZ-WEh"/>
+        <segue reference="Ayj-3O-0Xy"/>
+        <segue reference="yYU-7B-a5w"/>
     </inferredMetricsTieBreakers>
 </document>

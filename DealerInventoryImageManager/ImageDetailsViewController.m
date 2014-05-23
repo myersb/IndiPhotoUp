@@ -253,9 +253,9 @@
     
     // Adjust scroll view distance based on the screen size.
     if([UIScreen mainScreen].bounds.size.height == 568){
-        keyboardHeight = keyboardSize.height+20;
+        keyboardHeight = keyboardSize.height-250;
     } else{
-        keyboardHeight = keyboardSize.height-55;
+        keyboardHeight = keyboardSize.height-350;
     }
 
     
