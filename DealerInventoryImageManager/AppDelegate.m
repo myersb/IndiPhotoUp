@@ -40,7 +40,8 @@
     // Initialize tracker. Replace with your tracking ID.
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-50420442-3"];
     
-    
+    // Specify background fetch interval
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:2.00];
     
     /*
      BOOL getResult = [leadsModel refreshLeadData];
@@ -56,6 +57,16 @@
 	return YES;
     
 }
+
+#pragma mark - Background fetch
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSLog(@"########### Received Background Fetch ###########");
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 5;
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
