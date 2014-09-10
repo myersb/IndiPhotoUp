@@ -12,7 +12,7 @@
 #import "GAITrackedViewController.h"
 
 @interface InventoryViewController : GAITrackedViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, /*ZBarReaderDelegate,*/ UITableViewDataSource, UITableViewDelegate>
-
+@property (strong, nonatomic) NSMutableDictionary *settings;
 @property (strong, nonatomic) IBOutlet InventoryCell *inventoryCell;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -38,6 +38,13 @@
 @property (nonatomic, strong) IBOutlet UITableView *inventoryListTable;
 @property (nonatomic, strong) IBOutlet UIButton *btnChangeDealer;
 
+@property (weak, nonatomic) IBOutlet UIView *activityIndicatorBackground;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorImage;
+
+@property (weak, nonatomic) IBOutlet UIView *onrampViewNav;
+@property (weak, nonatomic) IBOutlet UIView *onrampViewUpload;
+@property (weak, nonatomic) IBOutlet UIView *noInventoryView;
+
 @property (nonatomic, strong) NSString *dealerNumber;
 @property (nonatomic, strong) NSString *chosenDealerNumber;
 
@@ -47,5 +54,7 @@
 - (IBAction)logout:(id)sender;
 - (IBAction)changeDelear:(id)sender;
 - (IBAction)leadsButton:(id)sender;
+- (IBAction)OkayButton:(id)sender;
+- (IBAction)infoButton:(id)sender;
 
 @end

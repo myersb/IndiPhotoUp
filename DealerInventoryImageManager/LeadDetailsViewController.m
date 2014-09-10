@@ -52,7 +52,7 @@
     [dateFormat setDateFormat:@"MMM dd yyyy"];
     NSString *leadDateOnPhone = [dateFormat stringFromDate:_selectedLead.leadDateOnPhone];
     
-    NSString *tempString = [NSString stringWithFormat:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie fermentum leo id tincidunt. Suspendisse tempus sem nisi. Aliquam facilisis, elit vitae consectetur tincidunt, nibh risus congue mi, eu viverra enim quam id enim. Vivamus suscipit cursus orci, eu placerat neque malesuada vel. Aenean a enim mi. Pellentesque semper in magna sed sodales. Cras porta nibh lacus, in interdum nisi gravida vel. Etiam faucibus quam non tempus elementum. Duis fermentum elit eu placerat convallis. Nam euismod eget tortor in lobortis. Suspendisse ac lorem massa. Sed turpis nibh, luctus in sem sed, molestie iaculis leo. Aliquam posuere enim nec venenatis imperdiet. Vestibulum tortor arcu, dapibus in odio ac, malesuada aliquet justo. Aliquam nec lacinia metus. Quisque suscipit volutpat massa. Cras ultrices tortor sit amet augue semper ornare. Mauris non eros id quam molestie congue quis non lacus. Nullam in pulvinar urna, non sodales lectus. Aenean ac enim ut metus dignissim mollis eu id eros. Etiam laoreet consectetur mauris, vel dapibus ante volutpat a. Suspendisse eu dictum turpis. Curabitur ac libero a velit dignissim tincidunt a nec massa. In mollis aliquam commodo.Vestibulum accumsan neque in erat tempus, nec auctor mauris semper. Phasellus sit amet ipsum velit. Ut rutrum tellus in sodales aliquam. Fusce tempus magna in rhoncus viverra. Nulla facilisi. Morbi non vehicula nunc. Proin non mollis metus. Suspendisse potenti. Aenean suscipit, ligula a ultrices mollis, tortor felis porttitor urna, vel lacinia nisl ipsum congue justo. Nullam auctor, nisl at bibendum posuere, ligula diam facilisis nisl, ac ullamcorper ipsum nulla id orci. Phasellus ultricies metus ac mauris feugiat pharetra. Nullam vel fermentum justo. Curabitur ornare sed sem eget faucibus. Donec vehicula arcu non massa lobortis vehicula."];
+    NSString *tempString = [NSString stringWithFormat:@"%@", _selectedLead.comments];
     
     [_fullNameLabel setText:[NSString stringWithFormat:@"%@ %@", _selectedLead.firstName, _selectedLead.lastName ]];
     [_commentsText setText:[NSString stringWithFormat:@"%@", tempString]];
@@ -74,7 +74,7 @@
 	NSArray *result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
 	
 	Leads *leadToChange = [result objectAtIndex:0];
-	[leadToChange setValue:@"C" forKeyPath:@"status"];
+	[leadToChange setValue:@"c" forKeyPath:@"status"];
 	
 	
 }

@@ -14,15 +14,23 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
+@property (nonatomic, strong) NSString *isNewLeads;
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIAlertView *alert;
 
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 - (IBAction)changeDealerButton:(id)sender;
 //toChangeDealerFromLeadsView
 
+- (IBAction)LeadStateButton:(id)sender;
 
 - (IBAction)inventoryViewButton:(id)sender;
 //toInventoryViewFromLeadsView
+
+-(NSFetchedResultsController *) fetchedResultsController;
+-(void) refreshData;
 
 @end

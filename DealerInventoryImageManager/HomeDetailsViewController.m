@@ -84,6 +84,19 @@ NSMutableArray *models;
 - (void)viewDidAppear:(BOOL)animated
 {
 	[self adjustHeightOfTableview];
+    
+    // Check to see if user should be sent back to login.
+    DealerModel *dealerModel = [[DealerModel alloc] init];
+    if (internetReachable.isConnected) {
+        
+        if ([dealerModel isDealerExpired]) {
+            NSLog(@"Dealer IS expired");
+            
+            // Send user to login as their Login has expired.
+            [self performSegueWithIdentifier:@"segueFromHomeDetailsToLogin" sender:self];
+        }
+		
+	}
 }
 
 
@@ -188,12 +201,22 @@ NSMutableArray *models;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Show the helper view if there aren't any fields to show.
+    if ([[self.fetchedResultsController sections]count]== 0){
+        [self.addImagesView setHidden:FALSE];
+    }
+    
 	return [[self.fetchedResultsController sections]count];
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
+    
+    
+    
     return [secInfo numberOfObjects];
 }
 

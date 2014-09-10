@@ -11,9 +11,11 @@
 #import "Reachability.h"
 #import "DealerModel.h"
 #import "LotInfo.h"
+#import "ConnectUpSettings.h"
 
-#define multiLotInfoURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentSingleOwnerMultiDealersRead&key=Ly9VUThFNSJBU0VHN14rWy5LNEUuCg%3D%3D&UserID="
+//#define multiLotInfoURL @"https://www.claytonUpdateCenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentSingleOwnerMultiDealersRead&key=Ly9VUThFNSJBU0VHN14rWy5LNEUuCg%3D%3D&UserID="
 
+#define multiLotInfoURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?"
 
 @interface Displaying_Alerts_with_UIAlertViewViewController : UIViewController <UIAlertViewDelegate>
 @end
@@ -27,7 +29,33 @@
 
 
 
+
+
 @implementation LoginViewController
+
+
+-(id) init{
+    
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"ConnectUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"ConnectUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+    
+    
+    return self;
+}
+
 
 #pragma mark - View lifecycle
 
@@ -38,7 +66,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    
+    NSLog(@"return button hit");
+    [self completeLogin];
     return YES;
 }
 
@@ -46,6 +75,9 @@
 -(NSString *) yesButtonTitle{
     return @"I'm Connected";
 }
+
+
+
 
 
 /* ****************************************************
@@ -71,15 +103,15 @@
 - (void) checkOnlineConnection {
 
 
-    internetReachable = [Reachability reachabilityWithHostname:@"www.google.com"];
+    internetReachable = [Reachability reachabilityForInternetConnection];
     
-    // Internet is not reachable
-    // NOTE - change "reachableBlock" to "unreachableBlock"
-    
-    internetReachable.unreachableBlock = ^(Reachability*reach)
-    {
-        
-        
+    NSLog(@"%@", internetReachable.currentReachabilityFlags);
+    NSLog(@"%@", internetReachable.currentReachabilityString);
+    NSLog(@"BOOL = %@\n", (internetReachable.currentReachabilityStatus ? @"YES" : @"NO"));
+
+    if (internetReachable.currentReachabilityStatus) {
+        _isConnected = TRUE;
+    } else {
         // Update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             UIAlertView *alertView = [[UIAlertView alloc]
@@ -94,12 +126,7 @@
             
             [alertView show];
         });
-    };
-	
-	internetReachable.reachableBlock = ^(Reachability*reach)
-    {
-		_isConnected = TRUE;
-    };
+    }
     
     [internetReachable startNotifier];
     
@@ -110,6 +137,29 @@
  ***************************************************** */
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+
+    
+    // Get settings.
+    ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
+    NSMutableDictionary *settings = [connectUpSettings getSettings];
+    
+    
+    // if the user hasn't seen this view, show it
+    /*
+    if ([[settings valueForKey:@"legalAgreed"] isEqualToString:@"0"]){
+        
+        // Show the upload view.
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:0.0];
+        self.legalView.alpha = 1.0;
+        [UIView commitAnimations];
+
+    }
+     */
+    
+    
+    
+    
     id delegate = [[UIApplication sharedApplication]delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
     // Are we online?
@@ -141,6 +191,7 @@
  Remove Keyboard From View
  ***************************************************** */
 - (IBAction)offKeyboardButton:(id)sender {
+    [sender resignFirstResponder];
     [self.view endEditing:YES];
 }
 
@@ -194,7 +245,13 @@
  User Login
  ***************************************************** */
 - (IBAction)logInSubmit:(id)sender {
-    
+    [sender resignFirstResponder];
+    [self.view endEditing:YES];
+    [self completeLogin];
+}
+
+
+- (void) completeLogin {
     
     // If either of the fields is empty, throw an erorr
     if ( _password.text.length == 0 || _userName.text.length == 0 ){
@@ -223,6 +280,7 @@
         // Was the dealer login successful?
         //
         if (_isDealerSuccess == YES){
+
             [self getLotInfo:_dealerNumber];
 			if ([_lotArray count] > 1) {
 				[self performSegueWithIdentifier:@"segueToDealerSelectFromLogin" sender:self];
@@ -242,18 +300,33 @@
         }
         
         
+        
     }
+    
 }
+
 
 - (void)getLotInfo:(NSString *)dealerNumber
 {
-	[self loadLotInfo];
+	[self init];
+    [self loadLotInfo];
 	
 	if (_isConnected == 1 && [_lotArray count] > 0) {
 		[self clearEntity:@"LotInfo" withFetchRequest:_fetchRequest];
 	}
-	
-	NSString *urlString = [NSString stringWithFormat:@"%@%@", multiLotInfoURL, dealerNumber];
+
+    NSLog(@"%@", self.settings);
+    
+    NSString *function = @"PrcIndependentSingleOwnerMultiDealersRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    NSString *urlString = [NSString stringWithFormat:@"%@method=gateway&function=%@&accesstoken=%@&userid=%@",
+                                
+                                multiLotInfoURL,
+                                function,
+                                accessToken,
+                                
+                                dealerNumber
+                                ];
 	NSURL *lotInfoURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:lotInfoURL];
 	
@@ -270,7 +343,7 @@
 		
 		lotInfo.address = NSLocalizedString([lotDictionary objectForKey:@"address1"], nil);
 		lotInfo.city = NSLocalizedString([lotDictionary objectForKey:@"city"], nil);
-		lotInfo.dealerNumber = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"dealernumber"] unsignedIntegerValue]];
+		lotInfo.dealerNumber = [NSString stringWithFormat:@"%@", [lotDictionary objectForKey:@"dealernumber"]];
 		lotInfo.name = NSLocalizedString([lotDictionary objectForKey:@"name"], nil);
 		lotInfo.state = NSLocalizedString([lotDictionary objectForKey:@"stateprovince"], nil);
 		lotInfo.phone = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"telephonenumber"] unsignedIntegerValue]];
@@ -325,6 +398,7 @@
 
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    
 	if (_isDealerSuccess) {
 		return YES;
 	}
@@ -350,7 +424,32 @@
 }
 
 - (IBAction)endTyping:(id)sender {
-	[sender resignFirstResponder];
-	[self logInSubmit:(id)sender];
+    [sender resignFirstResponder];
+	//[self logInSubmit:(id)sender];
+    [self.view endEditing:YES];
+    
+}
+
+- (IBAction)IAgreeButton:(id)sender {
+    
+    // Remove the view on click.
+    [UIView beginAnimations:@"fade" context:nil];
+    [UIView setAnimationDuration:0.5];
+    self.legalView.alpha = 0.0;
+    [UIView commitAnimations];
+    
+    
+    // load the pList data
+    ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
+    NSMutableDictionary *settings = [connectUpSettings getSettings];
+    
+    
+    // Change the data that was loaded
+    [settings setObject:@"1" forKey:@"legalAgreed"];
+    
+    // write data
+    [connectUpSettings writeToSettings:settings];
+    
+    
 }
 @end

@@ -394,7 +394,7 @@
         if (imageTagObjectSelected.typeId != nil )
         {
             
-            // Check to see if the use is online
+            // Check to see if the user is online
             Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
             NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
             if (networkStatus == NotReachable) {
@@ -405,9 +405,10 @@
             {
                 // Activate the Activity indicator on a seperate thread.
                 [NSThread detachNewThreadSelector:@selector(showView) toTarget:self withObject:nil];
+
                 
                 // Run the long process on the main thread.
-				if (internetReachable.isConnected) {
+				if (networkReachability.isReachable) {
 					[self uploadImage];
 					
 					

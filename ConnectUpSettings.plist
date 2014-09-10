@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AccessToken</key>
+	<string></string>
+	<key>appId</key>
+	<string>6CB2F9DF-0326-4A54-8B16-16DC748C6E0E</string>
+	<key>legalText</key>
+	<string>The Products transacted through the Service are licensed, not sold, to You for use only under the terms of this license, unless a Product is accompanied by a separate license agreement, in which case the terms of that separate license agreement will govern, subject to Your prior acceptance of that separate license agreement. The licensor (“Application Provider”) reserves all rights not expressly granted to You. The Product that is subject to this license is referred to in this license as the “Licensed Application.”</string>
+	<key>legalAgreed</key>
+	<string>0</string>
+	<key>onrampInventoryViewed</key>
+	<string>0</string>
+</dict>
+</plist>

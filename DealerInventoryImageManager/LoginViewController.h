@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSFetchRequest *fetchRequest;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSEntityDescription *entity;
+@property (strong, nonatomic) NSMutableDictionary *settings;
 
 @property (strong, nonatomic) Dealer *currentDealer;
 
@@ -32,10 +33,12 @@
 @property (strong, nonatomic) NSArray *dealer;
 
 @property (strong, nonatomic) NSString *dealerNumber;
+@property (weak, nonatomic) IBOutlet UIView *legalView;
 
 - (IBAction)offKeyboardButton:(id)sender;
 - (IBAction)logInSubmit:(id)sender;
 - (IBAction)endTyping:(id)sender;
+- (IBAction)IAgreeButton:(id)sender;
 
 
 

@@ -9,6 +9,7 @@
 #import "DealerSelectViewController.h"
 #import "InventoryViewController.h"
 #import "LotInfo.h"
+#import "LeadsModel.h"
 
 
 @interface DealerSelectViewController ()
@@ -37,6 +38,8 @@
 	self.managedObjectContext = [delegate managedObjectContext];
 	
 	[self loadLotInfo];
+    
+    [_lotTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -153,7 +156,15 @@
 	if (buttonIndex == 1) {
 		_logoutSegue = YES;
 		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
+        [self clearEntity:@"Leads" withFetchRequest:_fetchRequest];
+        
+        // Wipe the data for leads and reset the counter
+        LeadsModel *leadsModel = [[LeadsModel alloc] init];
+        [leadsModel refreshLeadBadge];
+        
 		[self performSegueWithIdentifier:@"segueToLoginFromDealerSelect" sender:self];
-	}
+	} else {
+        _logoutSegue = NO;
+    }
 }
 @end

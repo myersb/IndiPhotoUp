@@ -15,9 +15,13 @@
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSDictionary *dataDictionary;
 @property (nonatomic, strong) NSDictionary *jSON;
+@property (strong, nonatomic) NSMutableDictionary *settings;  
 
+//- (BOOL) refreshLeadData;
 - (BOOL) refreshLeadData;
 
 - (BOOL) deleteLead: (NSString*) independentLeadId;
 - (BOOL) claimLead: (NSString*) independentLeadId;
+- (void) refreshLeadBadge;
+- (void) deleteAllLeads;
 @end

@@ -17,12 +17,20 @@
 {
 	LeadsModel *leadsModel;
     Reachability *internetReachable;
+
 }
+
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
 @end
 
 @implementation LeadsViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize isNewLeads = _isNewLeads;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +44,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+
+    if (![_isNewLeads isEqualToString:@""]){
+        _isNewLeads = @"n";
+    }
+
+    
     
     // This is the google analitics
     self.screenName = @"LeadsViewController";
@@ -49,6 +64,12 @@
     
     NSLog(@"ready");
     
+    // Get new data and refresh data.
+
+    [leadsModel refreshLeadData];
+
+
+    
 
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -57,22 +78,38 @@
     }
 
     
+    
+    // Initialize the refresh control.
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshData)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView addSubview:self.refreshControl];
+    
+    NSLog(@"%lu", (unsigned long)[[_fetchedResultsController fetchedObjects] count]);
+    
+    
 }
+
+-(void) refreshData{
+    [leadsModel refreshLeadData];
+    [self.refreshControl endRefreshing];
+    
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	if (internetReachable.isConnected) {
-		
-		[leadsModel refreshLeadData];
-	}
-    [[self tableView] reloadData];
+
+    [_tableView reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [_tableView reloadData];
 	[self adjustHeightOfTableview];
 }
-
 
 
 - (void)adjustHeightOfTableview
@@ -94,65 +131,15 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return [[self.fetchedResultsController sections]count];
-}
-
--(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    NSString *getSection = [[[self.fetchedResultsController sections]objectAtIndex:section]name];
-    
-    if ([getSection isEqualToString:@"n"])
-    {
-        getSection = @"New Leads";
-    }
-	else if ([getSection isEqualToString:@"C"] || [getSection isEqualToString:@"c"])
-	{
-        getSection = @"Viewed Leads";
-    }
-        
-    
-    return getSection;
-}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> secInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [secInfo numberOfObjects];
+
+    return [[_fetchedResultsController fetchedObjects] count];
+
 }
 
-
--(CGFloat) tableView:(UITableView *)tableView
-heightForHeaderInSection:(NSInteger)section
-{
-    return 30.0;
-}
-
-
--(UIView *) tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section
-{
-    UILabel *lblLeadSection = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    lblLeadSection.textColor = [self colorFromHexString:@"#"];
-   
-    NSString *getSection = [[[self.fetchedResultsController sections]objectAtIndex:section]name];
-    if ([getSection isEqualToString:@"n"])
-    {
-        lblLeadSection.backgroundColor = [self colorFromHexString:@"#007ee5"];
-        lblLeadSection.text = @"  New Leads";
-        lblLeadSection.textColor = [self colorFromHexString:@"#ffffff"];
-    } else {
-        lblLeadSection.backgroundColor = [self colorFromHexString:@"#f0eff5"];
-        lblLeadSection.text = @"  Viewed Leads";
-        lblLeadSection.textColor = [self colorFromHexString:@"#6b6b6b"];
-    }
-    
-    return lblLeadSection;
-}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -174,9 +161,11 @@ viewForHeaderInSection:(NSInteger)section
 			if (![context save:&error]) {
 				NSLog(@"Error! %@",error);
 			}
-			_alert = [[UIAlertView alloc]initWithTitle:@"No Connection" message:[NSString stringWithFormat:@"An cellular or wifi connection is required for deleting leads. Please connect to a cellular or wireless network and try again."] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+			
+		} else {
+            _alert = [[UIAlertView alloc]initWithTitle:@"No Connection" message:[NSString stringWithFormat:@"A cellular or wifi connection is required for deleting leads. Please connect to a cellular or wireless network and try again."] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 			[_alert show];
-		}
+        }
     }
     
 }
@@ -227,12 +216,19 @@ viewForHeaderInSection:(NSInteger)section
 
 #pragma mark -
 #pragma mark Fetched Results Controller section
--(NSFetchedResultsController *) fetchedResultsController {
+
+// Can be called without the refresh, and will default refresh to 0
+-(NSFetchedResultsController *) fetchedResultsController{
+    return  [self fetchedResultsController:@"n"];
+}
+
+-(NSFetchedResultsController *) fetchedResultsController:(NSString*) refresh{
     
-    
+
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
+
     
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
@@ -242,6 +238,10 @@ viewForHeaderInSection:(NSInteger)section
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Leads"
                                               inManagedObjectContext:[self managedObjectContext]];
     [fetchRequest setEntity:entity];
+    
+    
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"status==%@", refresh];
+    fetchRequest.predicate=predicate;
     
     NSSortDescriptor *sortStatus = [[NSSortDescriptor alloc] initWithKey:@"status"
                                                                    ascending:NO];
@@ -361,10 +361,52 @@ viewForHeaderInSection:(NSInteger)section
 
 
 - (IBAction)changeDealerButton:(id)sender {
-    [self performSegueWithIdentifier:@"toChangeDealerFromLeadsView" sender:self];
+    // segues on toChangeDealerFromLeadsView
+}
+
+- (IBAction)LeadStateButton:(id)sender {
+    
+    // Handle the actions of changing between lead types
+    if (_segmentedControl.selectedSegmentIndex == 0){
+        _isNewLeads = @"n";
+        //[self fetchedResultsController:@"n"];
+        
+        _fetchedResultsController = nil;
+        
+        NSError *error = nil;
+        if (![[self fetchedResultsController:@"n"] performFetch:&error]) {
+            NSLog(@"Error! %@",error);
+            abort();
+        }
+        
+        
+    }
+    if (_segmentedControl.selectedSegmentIndex == 1){
+        _isNewLeads = @"c";
+        //[self fetchedResultsController:@"C"];
+        
+        _fetchedResultsController = nil;
+        
+        NSError *error = nil;
+        if (![[self fetchedResultsController:@"c"] performFetch:&error]) {
+            NSLog(@"Error! %@",error);
+            abort();
+        }
+    }
+
+    
+    
+    [_tableView reloadData];
+    
+    [_tableView setContentOffset:CGPointMake(0.0, 0.0) animated:NO];
+
 }
 
 - (IBAction)inventoryViewButton:(id)sender {
-    [self performSegueWithIdentifier:@"toInventoryViewFromLeadsView" sender:self];
+    // segues on toInventoryViewFromLeadsView
 }
+
+
+
+
 @end

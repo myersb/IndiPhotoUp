@@ -7,15 +7,18 @@
 //
 
 #import "AppDelegate.h"
-#import <Crashlytics/Crashlytics.h>
 #import "GAI.h"
 
-
 #import "LeadsModel.h"
+#import "DealerModel.h"
+#import "ImageTagsModel.h"
+#import "ImageTypesModel.h"
 
 // Added as it will be needed to setup and use the MainView
 
 @implementation AppDelegate
+
+
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -23,10 +26,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[BugSenseController sharedControllerWithBugSenseAPIKey:@"378d659d"];
-	[Crashlytics startWithAPIKey:@"b9604e91cfeb59bf98e8fe05697cc0c931fdb8dd"];
+    /*
+    DealerModel *dealerModel = [[DealerModel alloc]init];
     
-    
+    [dealerModel registerDealerWithUsername:@"indi"
+                               WithPassword:@"pubweb383"];
+    */
     
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
@@ -41,18 +46,17 @@
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-50420442-3"];
     
     // Specify background fetch interval
-    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:2.00];
+    //[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:2.00];
+    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    /*
-     BOOL getResult = [leadsModel refreshLeadData];
-     NSLog(@"Leads Refreshed ? %@",  (getResult ? @"YES" : @"NO"));
-     */
     
-    /*
-     NSArray *getLeads = [leadsModel getAllLeadsStartingAt:@10 forHowMany:@10];
-     NSLog(@"%@", getLeads);
-     */
-
+    // Prefill data into table if it doesn't exist.
+    ImageTagsModel *imageTagsModel = [[ImageTagsModel alloc] init];
+    [imageTagsModel preloadImageTags];
+    
+    ImageTypesModel *imageTypesModel = [[ImageTypesModel alloc] init];
+    [imageTypesModel preloadImageTypes];
+    
     
 	return YES;
     
@@ -63,7 +67,13 @@
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"########### Received Background Fetch ###########");
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 5;
+    
+    // Refresh the lead data and badge
+
+    LeadsModel  *leadsModel;
+    [leadsModel refreshLeadData];
+    [leadsModel refreshLeadBadge];
+
     completionHandler(UIBackgroundFetchResultNewData);
 }
 

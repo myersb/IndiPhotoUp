@@ -92,6 +92,7 @@ typedef void (^NetworkUnreachable)(Reachability * reachability);
 -(BOOL)isReachable;
 -(BOOL)isReachableViaWWAN;
 -(BOOL)isReachableViaWiFi;
+- (BOOL) connectedToNetwork;
 - (BOOL)checkOnlineConnection;
 
 // WWAN may be available, but not active until a connection has been established.

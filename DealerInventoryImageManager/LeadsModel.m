@@ -25,7 +25,9 @@
 #define JSON_LEAD_LEADDATE @"leaddate"
 #define JSON_LEAD_CHANGED @"changed"
 #define MINUTES_SINCE_LAST_REFRESH_CHECK ((int) 5)  //Used to force re-login if greater than two hours
-#define webServiceLoginURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?"
+//#define webServiceLoginURL @"http://claytonUpdateCenter.pubdev.com/cfide/remoteInvoke.cfc?"
+
+#define webServiceLoginURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?"
 
 
 @interface LeadsModel()
@@ -37,6 +39,28 @@
 
 @implementation LeadsModel
 
+-(id) init{
+    
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"ConnectUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"ConnectUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+    
+    
+    return self;
+}
+
 
 - (BOOL) refreshLeadData{
     NSLog(@"LeadsModel : refreshLeadDataForDealer");
@@ -46,6 +70,9 @@
     //NSLog(internetReachable.isConnected ? @"Yes" : @"No");
     
     NSString *dealerNumber;  //= @"290844"; // remove if dealernumber is here
+    
+    [self refreshLeadBadge];
+    
     
     //Checks that the user is online before processing
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi || [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN)
@@ -144,25 +171,45 @@
             //NSLog(@"Top Lead Date : %@", getTopLeadDate );
         }
         
+        
         // *** Setup call to API. ***
         
         // Setup params
         NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
+        NSString *function = @"PrcIndependentLeadsRead";
+        NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
         
         // Create request
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [request setHTTPMethod:@"POST"];
         
         // Setup Post Body
-        NSString *stringImageURL = [NSString stringWithFormat:@"%@method=processGetJSONArray&obj=retail&MethodToInvoke=PrcIndependentLeadsRead&key=KjZUPTdFJ0s2RDM%%2BKVsgICAK&dealernumber=%@&lastCheckedDate=%@&isMobile=%@", webServiceLoginURL, dealerNumber, getTopLeadDate, @"1"];
+        NSString *stringImageURL = [NSString stringWithFormat:@"%@method=gateway&function=%@&accesstoken=%@&dealerNumber=%@&lastCheckedDate=%@&isMobile=%@",
+                                    
+                                    webServiceLoginURL,
+                                    function,
+                                    accessToken,
+                                    
+                                    dealerNumber,
+                                    getTopLeadDate,
+                                    @"1"
+                                    ];
+        
+        
+        //NSString *stringImageURL = [NSString stringWithFormat:@"%@method=processGetJSONArray&obj=retail&MethodToInvoke=PrcIndependentLeadsRead&key=KjZUPTdFJ0s2RDM%%2BKVsgICAK&dealernumber=%@&lastCheckedDate=%@&isMobile=%@", webServiceLoginURL, dealerNumber, getTopLeadDate, @"1"];
         NSURL *url = [NSURL URLWithString:stringImageURL];
         NSData *leadData = [NSData dataWithContentsOfURL:url];
+        
+        NSLog(@"%@", url);
         
         //NSString *convertedString = [[NSString alloc] initWithData:leadData encoding:NSUTF8StringEncoding];
         //NSLog(@"Did receive data : %@", convertedString );
         
         
-        _jSON = [NSJSONSerialization JSONObjectWithData:leadData options:kNilOptions error:nil];
+        NSError *jsonError;
+        _jSON = [NSJSONSerialization JSONObjectWithData:leadData options:kNilOptions error:&jsonError];
+        NSLog(@"%@", jsonError);
+        
         _dataDictionary = [_jSON objectForKey:@"data"];
 		NSLog(@"%@", _dataDictionary);
         
@@ -189,6 +236,8 @@
             if ( getStatus == (id)[NSNull null] || [getStatus isEqualToString:@"null"])
             {
                 getStatus = [NSString stringWithFormat:@"n"]; // "n" meaning "not yet claimed".
+            } else {
+                getStatus = [NSString stringWithFormat:@"c"]; // "c" meaning "claimed".
             }
             
             
@@ -211,21 +260,24 @@
         [_managedObjectContext save:&insertDataError];
         
         
-        
-        
+        // Reset the badge count that is over the icon.
+        [self refreshLeadBadge];
         return YES;
+        
     }
     else
     {
         NSLog(@"Not online");
         return NO;
     }
+    
+    
 }
 
 
 - (BOOL) claimLeadUpdate:(NSString*) independentLeadId withStatus:(NSString*) status{
     
-    // NOTE : Status can be "C" for 'claimed' or "I" for 'Ignore'.  Ignore is like deleting in that it is removed from the DB.
+    // NOTE : Status can be "c" for 'claimed' or "I" for 'Ignore'.  Ignore is like deleting in that it is removed from the DB.
     
     NSLog(@"LeadsModel : claimLeadUpdate");
     
@@ -245,8 +297,23 @@
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [request setHTTPMethod:@"POST"];
         
+
+         
+        NSString *function = @"prcIndependentLeadReassignmentUpdate";
+        NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+        
         // Setup Post Body
-        NSString *stringImageURL = [NSString stringWithFormat:@"%@method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentLeadReassignmentUpdate&key=KjZUPTdFJ0s2RDM%%2BKVsgICAK&IndependentLeadID=%@&status%@", webServiceLoginURL, independentLeadId, status];
+        //NSString *stringImageURL = [NSString stringWithFormat:@"%@method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentLeadReassignmentUpdate&key=KjZUPTdFJ0s2RDM%%2BKVsgICAK&IndependentLeadID=%@&status%@", webServiceLoginURL, independentLeadId, status];
+        NSString *stringImageURL = [NSString stringWithFormat:@"%@method=gateway&function=%@&accesstoken=%@&IndependentLeadID=%@&status=%@",
+                                    
+                                    webServiceLoginURL,
+                                    function,
+                                    accessToken,
+                                    
+                                    independentLeadId,
+                                    status
+                                    ];
+        
         NSURL *url = [NSURL URLWithString:stringImageURL];
         NSData *leadData = [NSData dataWithContentsOfURL:url];
         
@@ -266,51 +333,51 @@
             NSLog(@"finally");
         }
         
-        /*
-         
-         // *** Put change into CordData ***
-         // Creates a pointer to the AppDelegate
-         
-         id delegate = [[UIApplication sharedApplication] delegate];
-         self.managedObjectContext = [delegate managedObjectContext];
-         
-         // Data object call
-         NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Leads"];
-         
-         // Setup filter
-         NSPredicate *predicate=[NSPredicate predicateWithFormat:@"independentLeadId==%@",independentLeadId];
-         fetchRequest.predicate=predicate;
-         
-         // Put data into new object based on filtered fetch request.
-         NSArray *updateLeadData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
-         
-         
-         // Check that there is a lead and if so, then decide whether to delete it or Claim it.
-         @try {
-         Leads *lead = [updateLeadData objectAtIndex:0];
-         
-         if ([status isEqualToString:@"C"] )
-         {
-         lead.status = status;
-         
-         NSError *errorLead = nil;
-         [self.managedObjectContext save:&errorLead];
-         
-         } else {
-         
-         [self.managedObjectContext deleteObject:lead ];
-         }
-         }
-         @catch (NSException * e) {
-         NSLog(@"Lead doesn't exist in DB : Exception: %@", e);
-         return NO; // This isn't working.
-         }
-         @finally {
-         NSLog(@"");
-         }
-         
-         */
         
+        
+        // *** Put change into CordData ***
+        // Creates a pointer to the AppDelegate
+        
+        id delegate = [[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = [delegate managedObjectContext];
+        
+        // Data object call
+        NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Leads"];
+        
+        // Setup filter
+        NSPredicate *predicate=[NSPredicate predicateWithFormat:@"independentLeadId==%@",independentLeadId];
+        fetchRequest.predicate=predicate;
+        
+        // Put data into new object based on filtered fetch request.
+        NSArray *updateLeadData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+        
+        
+        // Check that there is a lead and if so, then decide whether to delete it or Claim it.
+        @try {
+            Leads *lead = [updateLeadData objectAtIndex:0];
+            
+            if ([status isEqualToString:@"c"] )
+            {
+                lead.status = status;
+                
+                NSError *errorLead = nil;
+                [self.managedObjectContext save:&errorLead];
+                
+            } else {
+                
+                [self.managedObjectContext deleteObject:lead ];
+            }
+        }
+        @catch (NSException * e) {
+            NSLog(@"Lead doesn't exist in DB : Exception: %@", e);
+            return NO; // This isn't working.
+        }
+        @finally {
+            NSLog(@"");
+        }
+        
+        
+        [self refreshLeadBadge];
         
         return YES;
     }
@@ -321,6 +388,30 @@
     }
 }
 
+- (void) deleteAllLeads{
+    
+    
+    // Clear out old data to prepare for data refresh.
+    // --------------------------------------------------
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    // Data object call
+    NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Leads"];
+    
+   
+    // Put data into new object based on filtered fetch request.
+    NSArray *deleteLeadData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    
+    // Loop over the results and delete each object.
+    for (id object in deleteLeadData) {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+    [self refreshLeadBadge];
+    
+}
+
 
 // This sets the lead to "ignore" in the remote database (api) and removes it from core data
 - (BOOL) deleteLead: (NSString*) independentLeadId
@@ -329,11 +420,13 @@
     
 }
 
-// Sets the lead to "C" claimed, categorizing it as no longer "new"
+// Sets the lead to "c" claimed, categorizing it as no longer "new"
 - (BOOL) claimLead: (NSString*) independentLeadId
 {
-    return [self claimLeadUpdate:independentLeadId withStatus:@"C"  ];
+    return [self claimLeadUpdate:independentLeadId withStatus:@"c"  ];
 }
+
+
 
 // Fetches a number or records starting at a certain record.  This can be used to return all or increments where the design might want to only load a portion at a time.
 - (NSArray*) getAllLeadsStartingAt: (NSNumber*) startingAt forHowMany: (NSNumber*) howMany
@@ -386,6 +479,33 @@
     
     // and serve that array out.
     return leadsFiltered;
+    
+}
+
+
+
+
+-(void) refreshLeadBadge{
+    NSLog(@"LeadsModel : refreshLeadBadge");
+    
+    // Get a count of all objects under section 0 (the first section)
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    // Data object call
+    NSFetchRequest *fetchRequest=[NSFetchRequest fetchRequestWithEntityName:@"Leads"];
+    
+    // Setup filter
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"status==%@", @"n"];
+    fetchRequest.predicate=predicate;
+    
+    // Put data into new object based on filtered fetch request.
+    NSArray *readData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    
+    // Refresh the icon badge.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [readData count];
+    
+    NSLog(@"Number of New Leads : %lu", (unsigned long)readData.count);
     
 }
 

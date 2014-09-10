@@ -13,10 +13,10 @@
 #import "DealerModel.h"
 #import "Reachability.h"
 #import "Dealer.h"
+#import "ConnectUpSettings.h"
+#define BaseURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
 
-#define webServiceInventoryListURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
 
-#define inventoryImageURL @"https://claytonupdatecenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=actualinventory&MethodToInvoke=getDealerInventoryImagesRead&key=KzdEOSBGJEdQQzFKM14pWCAK&DealerNumber="
 
 @interface InventoryViewController ()
 {
@@ -31,15 +31,66 @@
 
 @implementation InventoryViewController
 
+
+-(id) init{
+    NSLog(@"InventoryViewController : init");
+    
+    // If the plist file doesn't exist, copy it to a place where it can be worked with.
+    // Setup settings to contain the data.
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"ConnectUpSettings.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // use to delete and reset app.
+    //[fileManager removeItemAtPath:docfilePath error:NULL];
+    
+    if (![fileManager fileExistsAtPath:docfilePath]){
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"ConnectUpSettings" ofType:@"plist"];
+        [fileManager copyItemAtPath:sourcePath toPath:docfilePath error:nil];
+    }
+    self.settings = [NSMutableDictionary dictionaryWithContentsOfFile:docfilePath];
+    
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
+    NSLog(@"InventoryViewController : ViewDidLoad");
+    
     [super viewDidLoad];
+    
+    [self init];
+    
+    ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
+    NSMutableDictionary *settings = [connectUpSettings getSettings];
+    
+    // if the user has  already seen the onramp for this view, turn it off.
+    if ([[settings valueForKey:@"onrampInventoryViewed"] isEqualToString:@"1"]){
+        
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:0.0];
+        self.onrampViewNav.alpha = 0.0;
+        [UIView commitAnimations];
+        
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:0.0];
+        self.onrampViewUpload.alpha = 0.0;
+        [UIView commitAnimations];
+        
+        
+    } else {
+        // Turn this off for now.  Clicking the "okay" button will turn this on later.
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:0.0];
+        self.onrampViewUpload.alpha = 0.0;
+        [UIView commitAnimations];
+    }
     
     // This is the google analitics
     self.screenName = @"InventoryViewController";
 
     
-    NSLog(@"InventoryViewController : viewDidLoad");
 	NSLog(@"CDN: %@", _chosenDealerNumber);
 	
     internetReachable = [[Reachability alloc] init];
@@ -79,11 +130,26 @@
 		[self loadImages];
 	}
 	
+    // Unhide the screen that displays the view regarding "no inventory"
+    if ([_modelsArray count] == 0){
+        [_noInventoryView setHidden:FALSE];
+    }
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating) toTarget:self withObject:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [NSThread detachNewThreadSelector:@selector(threadStopAnimating) toTarget:self withObject:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
 	[_inventoryListTable reloadData];
 	[self adjustHeightOfTableview];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +157,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+#pragma mark - Table view data source
 
 - (void)adjustHeightOfTableview
 {
@@ -103,8 +173,6 @@
 	}
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
@@ -112,7 +180,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
     return [_modelsArray count];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,7 +194,7 @@
         cell = _inventoryCell;
         _inventoryCell = nil;
 	}
-	
+	 
 	InventoryHome *currentHome = [_modelsArray objectAtIndex:indexPath.row];
 	
 	NSNumber *imageCount = [self loadImagesBySerialNumber:currentHome.serialNumber];
@@ -150,8 +220,29 @@
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
 	
-	NSString *urlString = [NSString stringWithFormat:@"%@%@", webServiceInventoryListURL, dealerNumber];
-	NSURL *invURL = [NSURL URLWithString:urlString];
+    // Get dealer confirmation data
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    NSLog(@"Check : %@", getUserInfo);
+    
+    
+    NSString *url = BaseURL;
+    NSString *function = @"getDealerInventoryRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    
+    NSLog(@"%@", self.settings);
+    
+    
+	NSString *urlString = [NSString stringWithFormat:@"%@&function=%@&accesstoken=%@&dealerNumber=%@&UN=%@&PID=%@",
+                           url,
+                           function,
+                           accessToken,
+                           
+                           dealerNumber,
+                           [getUserInfo objectForKey:@"userName"],
+                           [getUserInfo objectForKey:@"phoneId"] ];
+    
+    NSURL *invURL = [NSURL URLWithString:urlString];
 	NSData *data = [NSData dataWithContentsOfURL:invURL];
 	
 	// Sticks all of the jSON data inside of a dictionary
@@ -159,14 +250,27 @@
 	
 	// Creates a dictionary that goes inside the first data object eg. {data:[
 	_dataDictionary = [_jSON objectForKey:@"data"];
-	
+    
+    NSLog(@"%@", _dataDictionary);
+    
+	int checkForError;
+    
 	// Check for other dictionaries inside of the dataDictionary
-	for (NSDictionary *modelDictionary in _dataDictionary)
-	{
+	for (NSDictionary *modelDictionary in _dataDictionary) {
+		
+        checkForError = [[modelDictionary objectForKey:@"statuscode"] intValue] ;
+        if ( checkForError == 1 ) {
+            
+            // If there has been an error in the API, it is possible the user needs to log back in.
+            [self performSegueWithIdentifier:@"segueFromInventoryListToLogin" sender:self];
+        }
+        
+        
 		InventoryHome *home = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
 		NSString *trimmedSerialNumber = [NSString stringWithFormat:@"%@",[NSLocalizedString([modelDictionary objectForKey:@"serialnumber"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-		
 		home.homeDesc = NSLocalizedString([modelDictionary objectForKey:@"description"], nil);
+		home.assetID = NSLocalizedString([modelDictionary objectForKey:@"aid"], nil);
+        home.dealerNumber = NSLocalizedString([modelDictionary objectForKey:@"dealernumber"], nil);
 		home.serialNumber = trimmedSerialNumber;
 		home.brandDesc = NSLocalizedString([modelDictionary objectForKey:@"branddescription"], nil);
 		home.beds = [NSNumber numberWithInt:[NSLocalizedString([modelDictionary objectForKey:@"numberofbedrooms"], nil) intValue]];
@@ -175,23 +279,58 @@
 		home.length = [NSNumber numberWithInt:[NSLocalizedString([modelDictionary objectForKey:@"length"], nil) intValue]];
 		home.width = [NSNumber numberWithInt:[NSLocalizedString([modelDictionary objectForKey:@"width"], nil) intValue]];
         home.inventoryPackageID = NSLocalizedString([modelDictionary objectForKey:@"inventorypackageid"], nil);
+        home.hopePrice = [NSNumber numberWithInt:[NSLocalizedString([modelDictionary objectForKey:@"hopeprice"], nil) intValue]];
+        home.lineName = NSLocalizedString([modelDictionary objectForKey:@"linedescription"], nil);
 	}
-	[self loadInventory];
-	[_managedObjectContext save:nil];
+    
+	
+    
+    NSError *saveError;
+    [_managedObjectContext save:&saveError];
+    NSLog(@"%@", saveError);
+
+    
+    [self loadInventory];
+    
+	
 }
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
     NSLog(@"InventoryViewController : downloadImages");
     
-	[self loadImages];
+    [self loadImages];
 	
 	if (([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi ||
 		 [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN) && [_imagesArray count] > 0) {
 		[self clearEntity:@"InventoryImage" withFetchRequest:_imagesFetchRequest];
 	}
 
-	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@",inventoryImageURL, dealerNumber];
+    // Get dealer confirmation data
+    DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    /*
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@%@&UN=%@&PID=%@"
+                                ,inventoryImageURL
+                                , dealerNumber
+                                , [getUserInfo objectForKey:@"userName"]
+                                , [getUserInfo objectForKey:@"phoneId"] ];
+    */
+    
+    NSString *function = @"getDealerInventoryImagesRead";
+    NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
+    
+    
+	NSString *stringImageURL = [NSString stringWithFormat:@"%@&function=%@&accesstoken=%@&dealerNumber=%@&UN=%@&PID=%@",
+                           BaseURL,
+                           function,
+                           accessToken,
+                           
+                           dealerNumber,
+                           [getUserInfo objectForKey:@"userName"],
+                           [getUserInfo objectForKey:@"phoneId"] ];
+    
+    
 	NSURL *url = [NSURL URLWithString:stringImageURL];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
 	
@@ -212,8 +351,10 @@
         image.imageSource = NSLocalizedString([imageDictionary objectForKey:@"imagesource"], nil);
         image.inventoryPackageID = NSLocalizedString([imageDictionary objectForKey:@"inventorypackageid"], nil);
 	}
-	[self loadImages];
+	
 	[_managedObjectContext save:nil];
+    [self loadImages];
+    
 }
 
 - (void)loadInventory
@@ -234,7 +375,9 @@
 	NSError *error = nil;
 	
 	_modelsArray = [[self managedObjectContext] executeFetchRequest:_fetchRequest error:&error];
-	
+    
+	[_managedObjectContext save:nil];
+    
 	[_inventoryListTable reloadData];
 }
 
@@ -270,13 +413,15 @@
 	NSError *error = nil;
 	
 	_imagesArray = [[self managedObjectContext] executeFetchRequest:_imagesFetchRequest error:&error];
-	
+    
+    [_managedObjectContext save:nil];
+    
 	[_inventoryListTable reloadData];
 }
 
 - (void)clearEntity:(NSString *)entityName withFetchRequest:(NSFetchRequest *)fetchRequest
 {
-	fetchRequest = [[NSFetchRequest alloc]init];
+					fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
 	
 	[fetchRequest setEntity:_entity];
@@ -285,14 +430,18 @@
 	NSArray* result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
 	
 	for (NSManagedObject *object in result) {
-		[[self managedObjectContext] deleteObject:object];
-	}
 	
+        
+        [[self managedObjectContext] deleteObject:object];
+	}
+    
 	NSError *saveError = nil;
 	if (![[self managedObjectContext] save:&saveError]) {
 		NSLog(@"An error has occurred: %@", saveError);
 	}
 }
+
+#pragma mark - Button Actions
 
 - (IBAction)logout:(id)sender {
 	_alert = [[UIAlertView alloc]initWithTitle:@"Confirm Logout" message:[NSString stringWithFormat:@"Are you sure that you want to logout?"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Logout", nil];
@@ -305,8 +454,79 @@
 }
 
 - (IBAction)leadsButton:(id)sender {
+    
+    
     [self performSegueWithIdentifier:@"FromInventoryToLeads" sender:self];
+
+    
 }
+
+- (IBAction)OkayButton:(id)sender {
+
+    
+    if (self.onrampViewNav.alpha == 1.0){
+        
+        // Show the upload view.
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:0.0];
+        self.onrampViewUpload.alpha = 1.0;
+        [UIView commitAnimations];
+        
+        // Fade out the view that has the onramp info
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:1.0];
+        self.onrampViewNav.alpha = 0.0;
+        [UIView commitAnimations];
+        
+        
+        
+    } else {
+        
+        // Fade out the view that has the onramp info
+        [UIView beginAnimations:@"fade" context:nil];
+        [UIView setAnimationDuration:1.0];
+        self.onrampViewUpload.alpha = 0.0;
+        [UIView commitAnimations];
+        
+    }
+    
+    
+    
+    
+    // Next, set the plist settings so that it will no longer display this view to the user.
+    ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
+    NSMutableDictionary *settings = [connectUpSettings getSettings];
+    
+    // Change the data that was loaded in the init
+    [settings setObject:@"1" forKey:@"onrampInventoryViewed"];
+    
+    // Save the data change
+    [connectUpSettings writeToSettings:settings ];
+
+    /*
+    NSLog(@"%@", settings);
+
+    // get path info to be used by the following method
+    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *docfilePath = [basePath stringByAppendingPathComponent:@"ConnectUpSettings.plist"];
+    
+    // Write back to the file (remember, this is a copy of the original.  See -init where the copy was created.
+    [settings writeToFile:docfilePath atomically:YES];
+    */
+
+    
+    
+}
+
+- (IBAction)infoButton:(id)sender {
+    
+    // Fade out the view that has the onramp info
+    [UIView beginAnimations:@"fade" context:nil];
+    [UIView setAnimationDuration:1.0];
+    self.onrampViewNav.alpha = 1.0;
+    [UIView commitAnimations];
+}
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
@@ -315,6 +535,32 @@
 		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
 		[self performSegueWithIdentifier:@"segueFromInventoryListToLogin" sender:self];
 	}
+}
+
+
+#pragma mark - Activity Indicator
+-(void)showView{
+    [self.activityIndicatorBackground setHidden:FALSE];
+}
+
+-(void)hideView{
+    [self.activityIndicatorBackground setHidden:TRUE];
+}
+
+- (void) threadStopAnimating {
+    
+    [self.activityIndicatorImage stopAnimating];
+    
+    [self hideView];
+    
+}
+
+- (void) threadStartAnimating {
+    
+    [self.activityIndicatorImage startAnimating];
+    
+    [self showView];
+    
 }
 
 #pragma mark - QR Reader
