@@ -60,7 +60,7 @@
     
     NSLog(@"InventoryImageModel : deleteImageDataByImageId");
     
-    int processSuccess = 1;
+    int deleteImageDataByImageIdProcessSuccess = 1;
     
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
@@ -123,7 +123,7 @@
     
     
     
-    return processSuccess;
+    return deleteImageDataByImageIdProcessSuccess;
 
     
     
@@ -504,7 +504,7 @@
     
     NSLog(@"InventoryImageModel : connection.didReceiveData");
     
-    NSString *convertedString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSString *convertedString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //NSLog(@"Did receive data : %@", convertedString );
     
     // Sticks all of the jSON data inside of a dictionary

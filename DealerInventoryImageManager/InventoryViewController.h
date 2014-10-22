@@ -38,6 +38,9 @@
 @property (nonatomic, strong) IBOutlet UITableView *inventoryListTable;
 @property (nonatomic, strong) IBOutlet UIButton *btnChangeDealer;
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconLabelsImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *noImagesExampleImageView;
+
 @property (weak, nonatomic) IBOutlet UIView *activityIndicatorBackground;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorImage;
 

@@ -140,8 +140,8 @@
 
     
     // Get settings.
-    ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
-    NSMutableDictionary *settings = [connectUpSettings getSettings];
+    //ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
+    //NSMutableDictionary *settings = [connectUpSettings getSettings];
     
     
     // if the user hasn't seen this view, show it
@@ -308,7 +308,9 @@
 
 - (void)getLotInfo:(NSString *)dealerNumber
 {
-	[self init];
+    // Runs the init and removes the warning that the result of the init isnt being used.
+    NSLog(@"%@", [self init]);
+    
     [self loadLotInfo];
 	
 	if (_isConnected == 1 && [_lotArray count] > 0) {
@@ -346,7 +348,14 @@
 		lotInfo.dealerNumber = [NSString stringWithFormat:@"%@", [lotDictionary objectForKey:@"dealernumber"]];
 		lotInfo.name = NSLocalizedString([lotDictionary objectForKey:@"name"], nil);
 		lotInfo.state = NSLocalizedString([lotDictionary objectForKey:@"stateprovince"], nil);
-		lotInfo.phone = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"telephonenumber"] unsignedIntegerValue]];
+        
+        if ([[lotDictionary objectForKey:@"telephonenumber"] isKindOfClass:[NSString class]]) {
+            lotInfo.phone = [NSString stringWithFormat:@"%d", 0];
+            
+        } else {
+            lotInfo.phone = [NSString stringWithFormat:@"%lu", (unsigned long)[[lotDictionary objectForKey:@"telephonenumber"] unsignedIntegerValue]];
+        }
+        
 	}
 	[self loadLotInfo];
 	[_managedObjectContext save:nil];
@@ -372,8 +381,8 @@
 	NSError *error = nil;
 	NSArray *objects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
 	
-	for (NSManagedObjectContext *dealer in objects) {
-		[[self managedObjectContext] deleteObject:dealer];
+	for (NSManagedObject *getdealer in objects) {
+		[self.managedObjectContext deleteObject:getdealer];
 	}
 	
 	NSError *saveError = nil;

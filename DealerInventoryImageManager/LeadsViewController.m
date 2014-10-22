@@ -11,12 +11,14 @@
 #import "LeadsViewController.h"
 #import "LeadDetailsViewController.h"
 #import "Reachability.h"
+#import "DealerModel.h"
 
 
 @interface LeadsViewController ()
 {
 	LeadsModel *leadsModel;
     Reachability *internetReachable;
+    DealerModel *dealerModel;
 
 }
 
@@ -44,7 +46,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+
+    
+    // Check to see if user should be sent back to login.
+    if (internetReachable.isConnected) {
+        
+        if ([dealerModel isDealerExpired]) {
+            NSLog(@"Dealer IS expired");
+            
+            // Send user to login as their Login has expired.
+            [self performSegueWithIdentifier:@"toLoginViewFromLeads" sender:self];
+        }
+        
+    }
+    
 
     if (![_isNewLeads isEqualToString:@""]){
         _isNewLeads = @"n";
@@ -92,6 +107,13 @@
     
 }
 
+/*
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+        return YES;
+}
+*/
+
+
 -(void) refreshData{
     [leadsModel refreshLeadData];
     [self.refreshControl endRefreshing];
@@ -108,7 +130,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [_tableView reloadData];
-	[self adjustHeightOfTableview];
+	//[self adjustHeightOfTableview];
 }
 
 
@@ -312,6 +334,10 @@
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
+        case NSFetchedResultsChangeMove:
+            break; // Not used but put in to remove warning
+        case NSFetchedResultsChangeUpdate:
+            break; // Not used but put in to remove warning
     }
 }
 
@@ -321,6 +347,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    
     
     if ([[segue identifier]isEqualToString:@"ToLeadDetailsFromLeadList"]) {
         
@@ -353,6 +381,8 @@
         [ldvc setSelectedLead:leadObj];
  
         
+    } else if ([[segue identifier]isEqualToString:@"toLaunchViewFromLeadsView"]) {
+        [dealerModel deleteDealerData];
     }
 }
 

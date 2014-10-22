@@ -29,6 +29,7 @@
 
 
 - (BOOL) isDealerExpired;
+-(void) deleteDealerData;
 
 
 -(NSDictionary*) getUserNameAndMEID;

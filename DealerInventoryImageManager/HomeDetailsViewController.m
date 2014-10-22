@@ -269,7 +269,7 @@ NSMutableArray *models;
     UIImage *getImage = [UIImage imageNamed:@"ActivityIndicator.png"];
 
     tempImage.image = getImage;
-    tempImage.tag = image.imagesId; //Have to give it a unique identifier so that we can remove it later when the image loads
+    tempImage.tag = [image.imagesId integerValue]; //Have to give it a unique identifier so that we can remove it later when the image loads
 
     [cell addSubview:tempImage ];
     
@@ -285,7 +285,7 @@ NSMutableArray *models;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 
                 // This removes the temporary image based on the unique identifier
-                UIImageView *viewToRemove = [self.view viewWithTag:image.imagesId];
+                UIView *viewToRemove = [self.view viewWithTag:[image.imagesId integerValue] ];  // Added integervalue
                 [viewToRemove removeFromSuperview];
                 
                 // Load actual image.
@@ -350,6 +350,11 @@ NSMutableArray *models;
 		case NSFetchedResultsChangeDelete:
 			[self.imageTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
 			break;
+        case NSFetchedResultsChangeMove:
+            break; // Not used but put in to remove warning
+        case NSFetchedResultsChangeUpdate:
+            break; // Not used but put in to remove warning
+            
 	}
 }
 

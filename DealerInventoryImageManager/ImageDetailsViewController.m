@@ -13,6 +13,7 @@
 #import "ImageTypes.h"
 #import "InventoryImageModel.h"
 #import "Reachability.h"
+#import "DealerModel.h"
 
 @interface ImageDetailsViewController ()
 {
@@ -24,6 +25,7 @@
 @implementation ImageDetailsViewController
 
 @synthesize activeTextField, imageTagRow, pickerViewContainer, activityIndicatorBackground;
+
 
 
 - (void)viewDidLoad
@@ -382,6 +384,18 @@
     // Take data and update core data
     _returnVal = 0;
     
+    
+    // check that the user is still authorized.
+    DealerModel *dealerModel = [[DealerModel alloc] init];
+    if ([dealerModel isDealerExpired]) {
+        NSLog(@"Dealer IS expired");
+        
+        // Send user to login as their Login has expired.
+        [self performSegueWithIdentifier:@"fromImageDetailsToLogin" sender:self];
+    }
+    
+    
+    
     // push data and image to recieving service
     //
     // This is a New image
@@ -391,7 +405,7 @@
         
         
         // Check that TypeId has been selected.
-        if (imageTagObjectSelected.typeId != nil )
+        if ( imageTagObjectSelected.typeId != nil )
         {
             
             // Check to see if the user is online
@@ -449,15 +463,25 @@
     }
     else // This is an image edit
     {
-        InventoryImageModel *saveChanges = [[InventoryImageModel alloc] init];
-        if( 0 == [saveChanges updateImageDataByImageId:_currentInventoryImage.imagesId
-                                                 andTagId:imageTagObjectSelected.tagId
-                                                andTypeId:imageTagObjectSelected.typeId
-                                        andImageTypeOrder:_currentInventoryImage.imageOrderNdx
-                                           andFeatureText:_featuresField.text
-                                    andInventoryPackageId:_currentInventoryImage.inventoryPackageID
-                                        andImageSource:_currentInventoryImage.imageSource])
+        if ( imageTagObjectSelected.typeId != nil )
         {
+            
+            InventoryImageModel *saveChanges = [[InventoryImageModel alloc] init];
+            if( 0 == [saveChanges updateImageDataByImageId:_currentInventoryImage.imagesId
+                                                  andTagId:imageTagObjectSelected.tagId
+                                                 andTypeId:imageTagObjectSelected.typeId
+                                         andImageTypeOrder:_currentInventoryImage.imageOrderNdx
+                                            andFeatureText:_featuresField.text
+                                     andInventoryPackageId:_currentInventoryImage.inventoryPackageID
+                                            andImageSource:_currentInventoryImage.imageSource])
+            {
+                _returnVal = 2;
+            }
+        }
+        else
+        {
+            // Image Type wasn't selected.  Set to throw error.
+            
             _returnVal = 2;
         }
     }

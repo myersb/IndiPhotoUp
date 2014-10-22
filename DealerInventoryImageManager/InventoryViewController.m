@@ -60,7 +60,8 @@
     
     [super viewDidLoad];
     
-    [self init];
+    // Runs the init and removes the warning that the result of the init isnt being used.
+    NSLog(@"%@", [self init]);
     
     ConnectUpSettings *connectUpSettings = [[ConnectUpSettings alloc] init];
     NSMutableDictionary *settings = [connectUpSettings getSettings];
@@ -104,9 +105,10 @@
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
 	[fetchRequest setEntity:entity];
-	NSError *error = nil;
-	NSArray *dealerObj =  [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-	Dealer *savedDealer = [dealerObj objectAtIndex:0];
+    
+	//NSError *error = nil;
+	//NSArray *dealerObj =  [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+	//Dealer *savedDealer = [dealerObj objectAtIndex:0];
 	
 	[dealer getDealerNumber];
 	if (!_chosenDealerNumber.length) {
@@ -152,6 +154,7 @@
     
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -170,8 +173,17 @@
 		CGRect frame = self.inventoryListTable.frame;
 		frame.size.height = 364;
 		self.inventoryListTable.frame = frame;
+        
+        
+        // Not enough space to display this.
+        self.iconLabelsImageView.hidden = true;
+        self.noImagesExampleImageView.hidden = true;
+        
+        
 	}
 }
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

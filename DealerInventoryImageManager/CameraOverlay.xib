@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController">
@@ -23,7 +22,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="qlE-jf-xh0">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-p5-emf">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-p5-emf">
                     <rect key="frame" x="127" y="492" width="66" height="66"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="66" id="GSd-Pr-5XC"/>
@@ -45,8 +44,12 @@
                         <action selector="dismissCameraView:" destination="-1" eventType="touchUpInside" id="1C9-UW-4De"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfV-eQ-Fce">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfV-eQ-Fce">
                     <rect key="frame" x="18" y="493" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="Af8-hd-LKx"/>
+                        <constraint firstAttribute="height" constant="64" id="ykn-M4-xLP"/>
+                    </constraints>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -57,10 +60,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gfV-eQ-Fce" secondAttribute="bottom" constant="11" id="0k5-GA-hbn"/>
+                <constraint firstItem="gfV-eQ-Fce" firstAttribute="leading" secondItem="cXB-hw-rvx" secondAttribute="leading" constant="18" id="6Sh-dg-VR1"/>
                 <constraint firstAttribute="bottom" secondItem="gfV-eQ-Fce" secondAttribute="bottom" constant="11" id="QBN-mK-Qa1"/>
                 <constraint firstAttribute="bottom" secondItem="tjt-p5-emf" secondAttribute="bottom" constant="10" id="dsH-Pz-HpY"/>
+                <constraint firstItem="tjt-p5-emf" firstAttribute="leading" secondItem="gfV-eQ-Fce" secondAttribute="trailing" constant="45" id="fmG-42-XLS"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
@@ -68,4 +74,9 @@
         <image name="grayBar.png" width="640" height="87"/>
         <image name="shutterBtn.png" width="138" height="138"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

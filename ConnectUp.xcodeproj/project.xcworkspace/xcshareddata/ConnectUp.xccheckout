@@ -10,29 +10,29 @@
 	<string>ConnectUp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>61E39A52-DE03-4242-A5B8-7F516F7B16D2</key>
+		<key>D70FE7AB0EC5901EA9F421E06FA07B34F373F09B</key>
 		<string>https://github.com/myersb/IndiPhotoUp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ConnectUp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>61E39A52-DE03-4242-A5B8-7F516F7B16D2</key>
+		<key>D70FE7AB0EC5901EA9F421E06FA07B34F373F09B</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/myersb/IndiPhotoUp.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>61E39A52-DE03-4242-A5B8-7F516F7B16D2</string>
+	<string>D70FE7AB0EC5901EA9F421E06FA07B34F373F09B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>61E39A52-DE03-4242-A5B8-7F516F7B16D2</string>
+			<string>D70FE7AB0EC5901EA9F421E06FA07B34F373F09B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>IndiPhotoUp</string>
 		</dict>

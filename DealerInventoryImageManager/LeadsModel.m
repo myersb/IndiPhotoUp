@@ -217,12 +217,15 @@
         // *** Loop over that data and put into the database ***
         for (NSDictionary *imageDictionary in _dataDictionary) {
             
+            // Check to see if there was an error.
             
             Leads *lead = [NSEntityDescription insertNewObjectForEntityForName:@"Leads" inManagedObjectContext:[self managedObjectContext]];
             
             NSString *dateStr = [NSString stringWithFormat:@"%@",[NSLocalizedString([imageDictionary objectForKey:@"leaddate"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
             
             NSString *getStatus = [NSString stringWithFormat:@"%@",[NSLocalizedString([imageDictionary objectForKey:@"status"], nil) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+            
+            
             
             
             // Convert string to date object

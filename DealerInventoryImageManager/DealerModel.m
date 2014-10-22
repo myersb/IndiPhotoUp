@@ -363,6 +363,8 @@
     
     NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
 
+    NSLog(@"%@", jSON);
+    
     // We are checking to see if the dealer is expired.  So a bad authorization should pass back a "true" to confirm it is expired.
     if ( [[jSON objectForKey:JSON_DEALER_ACCESSTOKEN_AUTHORIZED] isEqualToString:@"false"] ){
         

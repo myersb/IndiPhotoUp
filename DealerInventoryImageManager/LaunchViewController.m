@@ -68,7 +68,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self init];
+    
+    // Runs the init and removes the warning that the result of the init isnt being used.
+    NSLog(@"%@", [self init]);
 	
     // Creates a pointer to the AppDelegate
 	// Note needed if I am using DataHelper

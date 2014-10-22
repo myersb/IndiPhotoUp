@@ -148,6 +148,9 @@
 
 		[_picker presentViewController:imagePicker animated:YES completion:NULL];
 	//}];
+    
+    
+    
 }
 
 - (IBAction)takePhoto:(UIButton *)sender {
@@ -165,6 +168,14 @@
 		[self performSegueWithIdentifier:@"segueFromCameraToDetails" sender:self];
 	}];
 	_picker = nil;
+}
+
+// Used to dismiss the camera view after a person chooses an image from the photo files.
+- (void)dismissCameraViewFromImageSelect {
+    _endAlerts = YES;
+    _shouldShowCameraOverlay = FALSE;
+    [_picker dismissViewControllerAnimated:YES completion:nil];
+    _picker = nil;
 }
 
 //- (IBAction)gammaSliderValueDidChange:(UISlider *)slider {
@@ -217,7 +228,7 @@
 			// be sure to filter the group so you only get photos
 			[group setAssetsFilter:[ALAssetsFilter allPhotos]];
 			
-			[group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:group.numberOfAssets - 1] options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+			[group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:group.numberOfAssets - 1] options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop2) {
 				if (nil != result) {
 					ALAssetRepresentation *repr = [result defaultRepresentation];
 					// this is the most recent saved photo
@@ -225,7 +236,7 @@
 					NSLog(@"%@",img);
 					// we only need the first (most recent) photo -- stop the enumeration
 					_thumbnail.image = img;
-					*stop = YES;
+					*stop2 = YES;
 				}
 			}];
 		}
@@ -261,7 +272,18 @@
 	_exposureFilter = [CIFilter filterWithName:@"CIExposureAdjust" keysAndValues:kCIInputImageKey, _beginImage, @"inputEV", @0.5, nil];
 	
 	_saveBtn.hidden = NO;
-	[picker dismissViewControllerAnimated:YES completion:nil];
+	//[picker dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+    
+        // After we are finished with dismissing the picker, run the below to close out the camera tool
+        [self dismissCameraViewFromImageSelect];
+    }];
+    
+    
+    
+
 }
 
 - (UIImage *)cropImage:(UIImage*)image andFrame:(CGRect)rect {
@@ -281,6 +303,7 @@
     return result;
 }
 
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
 	[picker dismissViewControllerAnimated:YES completion:NULL];
 	
@@ -290,6 +313,9 @@
 	_alertIsShowing = NO;
 	[_spinner stopAnimating];
 }
+
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

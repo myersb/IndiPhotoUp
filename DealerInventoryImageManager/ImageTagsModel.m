@@ -48,6 +48,14 @@ NSString * entityName = @"ImageTags";
     // *** Repopulate with the below data ***
     
     // Setup managed object
+    NSManagedObject *myMO0 = [NSEntityDescription insertNewObjectForEntityForName:entityName
+                                                           inManagedObjectContext:[self managedObjectContext]];
+    // Added values to fields
+    [myMO0 setValue:nil forKey:@"tagId"];
+    [myMO0 setValue:nil forKey:@"tagDescription"];
+    [myMO0 setValue:nil forKey:@"typeId"];
+    
+    // Setup managed object
     NSManagedObject *myMO1 = [NSEntityDescription insertNewObjectForEntityForName:entityName
                                                            inManagedObjectContext:[self managedObjectContext]];
     // Added values to fields
