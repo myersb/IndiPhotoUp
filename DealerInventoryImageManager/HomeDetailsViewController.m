@@ -52,7 +52,7 @@ NSMutableArray *models;
     internetReachable = [[Reachability alloc] init];
 	[internetReachable checkOnlineConnection];
 	
-    NSLog(@"HomeDetailsViewController : viewDidLoad");
+    //NSLog(@"HomeDetailsViewController : viewDidLoad");
 	
 	_lblViewControllerTitle.text = _selectedSerialNumber;
 	
@@ -90,7 +90,7 @@ NSMutableArray *models;
     if (internetReachable.isConnected) {
         
         if ([dealerModel isDealerExpired]) {
-            NSLog(@"Dealer IS expired");
+            //NSLog(@"Dealer IS expired");
             
             // Send user to login as their Login has expired.
             [self performSegueWithIdentifier:@"segueFromHomeDetailsToLogin" sender:self];
@@ -147,7 +147,7 @@ NSMutableArray *models;
 
 - (void)loadDetails
 {
-    NSLog(@"HomeDetailsViewController : loadDetails");
+    //NSLog(@"HomeDetailsViewController : loadDetails");
     
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
@@ -183,7 +183,7 @@ NSMutableArray *models;
 	}
     
 	if (![[self loadImages]performFetch:&error]) {
-		NSLog(@"An error has occurred: %@", error);
+		//NSLog(@"An error has occurred: %@", error);
 		abort();
 	}
 }
@@ -246,7 +246,7 @@ NSMutableArray *models;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"HomeDetailsViewController : tableView");
+    //NSLog(@"HomeDetailsViewController : tableView");
     
     InventoryImage *image = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
@@ -256,7 +256,7 @@ NSMutableArray *models;
 	
 	if (cell == nil) {
 		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        NSLog(@"Create new cell");
+        //NSLog(@"Create new cell");
     }
 	
 	// Puts the image object into the images array
@@ -306,19 +306,19 @@ NSMutableArray *models;
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
-    NSLog(@"HomeDetailsViewController : controllerWillChangeContent");
+    //NSLog(@"HomeDetailsViewController : controllerWillChangeContent");
 	[self.imageTableView beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
-    NSLog(@"HomeDetailsViewController : controllerDidChangeContent");
+    //NSLog(@"HomeDetailsViewController : controllerDidChangeContent");
     
 	[self.imageTableView endUpdates];
 	[self.managedObjectContext processPendingChanges];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
-    NSLog(@"HomeDetailsViewController : controller.didChangeObject");
+    //NSLog(@"HomeDetailsViewController : controller.didChangeObject");
     
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
@@ -341,7 +341,7 @@ NSMutableArray *models;
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type{
-    NSLog(@"HomeDetailsViewController : tcontroller.didChangeSection");
+    //NSLog(@"HomeDetailsViewController : tcontroller.didChangeSection");
     
 	switch (type) {
 		case NSFetchedResultsChangeInsert:
@@ -360,7 +360,7 @@ NSMutableArray *models;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"HomeDetailsViewController : tableView.commitEditingStyle");
+    //NSLog(@"HomeDetailsViewController : tableView.commitEditingStyle");
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
@@ -377,7 +377,7 @@ NSMutableArray *models;
 		NSError *error = nil;
 		
 		if (![[self loadImages]performFetch:&error]) {
-			NSLog(@"An error has occurred: %@", error);
+			//NSLog(@"An error has occurred: %@", error);
 			abort();
 		}
 		
@@ -399,7 +399,7 @@ NSMutableArray *models;
 #pragma mark Fetched Results Controller section
 - (NSFetchedResultsController *) loadImages
 {
-    NSLog(@"HomeDetailsViewController : loadImages");
+    //NSLog(@"HomeDetailsViewController : loadImages");
     
     
 	if (_fetchedResultsController != nil) {
@@ -425,7 +425,7 @@ NSMutableArray *models;
 
 - (IBAction)addPhoto:(id)sender {
     
-    NSLog(@"HomeDetailsViewController : addPhoto");
+    //NSLog(@"HomeDetailsViewController : addPhoto");
     
 	// Check to see if dealer activity is expired.
     //
@@ -450,7 +450,7 @@ NSMutableArray *models;
 - (void)confirmDealer:(NSString *)customTitle
 {
     
-    NSLog(@"HomeDetailsViewController : confirmDealer");
+    //NSLog(@"HomeDetailsViewController : confirmDealer");
     
     // Get the username
     //
@@ -504,7 +504,7 @@ NSMutableArray *models;
 - (void) alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    NSLog(@"DealerInventoryImageManager : alertView");
+    //NSLog(@"DealerInventoryImageManager : alertView");
     
     // Stores the title of the button pressed
     NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
@@ -521,9 +521,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         // Get the values out of the fields in the alert and show them
         //
         UITextField *password = [alertView textFieldAtIndex:0];
-        NSLog(@"User pressed the Yes button.");
-        NSLog(@"Password = %@", password.text);
-        NSLog(@"Username = %@", setupParams.userName);
+        //NSLog(@"User pressed the Yes button.");
+        //NSLog(@"Password = %@", password.text);
+        //NSLog(@"Username = %@", setupParams.userName);
         
         // Pass the dealer info and if it comes back as true, continue. otherwise re-run confirmDealer method
         //
@@ -540,7 +540,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
         }
         else
         {
-            NSLog(@"fail");
+            //NSLog(@"fail");
             [self confirmDealer:@"Your Login Errored. \n Please try again."];
         }
         
@@ -564,7 +564,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex{
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"HomeDetailsViewController : prepareForSegue");
+    //NSLog(@"HomeDetailsViewController : prepareForSegue");
 	
 	if ([[segue identifier] isEqualToString:@"segueFromHomeDetailsToNewPhoto"]) {
         CameraViewController *cvc = [segue destinationViewController];

@@ -143,10 +143,12 @@
     [fetchRequest setEntity:entity];
     NSError *error = nil;
     NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    /*
     if (fetchedObjects == nil)
     {
         NSLog(@"problem! %@", error);
     }
+    */
     
     // Set the propert dealerNumber to what is in the database.
     for (Dealer *d in fetchedObjects){
@@ -174,7 +176,7 @@
     // ******** SUBMIT LOGIN **********
     //
     
-    NSLog(@"%@", self.settings);
+    //NSLog(@"%@", self.settings);
     
 	// Setup params
     NSString *urlString = [NSString stringWithFormat:@"%@", webServiceLoginURL];
@@ -204,7 +206,7 @@
     //
     // If there is an error, return NO
 	if ( [accessTokenValue isEqualToString:@"Error"] ) {
-        NSLog(@"There was an error with the login");
+        //NSLog(@"There was an error with the login");
 
         return NO;
     
@@ -237,7 +239,7 @@
         // Check to see if the string needs padding and if so, pad it with "="
         NSString *paddedBody;
         
-        NSLog(@"%lu", ([getBodyItem length] % 64 ));
+        //NSLog(@"%lu", ([getBodyItem length] % 64 ));
         
         if ( ([getBodyItem length] % 64 ) ==  0){
             
@@ -259,7 +261,7 @@
         
         
 
-        NSLog(@"%@", paddedBody);
+        //NSLog(@"%@", paddedBody);
         
         
         
@@ -271,7 +273,7 @@
         NSDictionary *decodedAccessTokenBody = [NSJSONSerialization JSONObjectWithData:decodedData
                                         options: NSJSONReadingMutableContainers
                                           error:&error1];
-        NSLog(@"Error : %@", error1);
+        //NSLog(@"Error : %@", error1);
         
         
         
@@ -281,12 +283,15 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Dealer"
                                                   inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
-        NSError *error = nil;
-        NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+        //NSError *error = nil;
+        //NSArray *fetchedObjects = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+        
+        /*
         if (fetchedObjects == nil)
         {
             NSLog(@"problem! %@", error);
         }
+        */
         
             // Create an entity object to fill
             //
@@ -294,9 +299,10 @@
             
             // Check to see if the entity exists.  If it doesn't exist, fail this process.  It will look like the user cant logon
             //
+        
             if(dealer == nil)
             {
-                NSLog(@"Failed to create the dealer");
+                //NSLog(@"Failed to create the dealer");
                 return NO;
             }
             
@@ -308,7 +314,7 @@
             dealer.userName = getUserName;
             dealer.lastAuthorizationDate = [NSDate date];
             
-            NSLog(@"%@", dealer);
+            //NSLog(@"%@", dealer);
             
             // Commit the entity to storage
             //
@@ -316,7 +322,7 @@
             if ([self.managedObjectContext save:&savingError]){
                 return YES;
             } else {
-                NSLog(@"Failed to save the new person. Error = %@", savingError);
+                //NSLog(@"Failed to save the new person. Error = %@", savingError);
                 return NO;
             }
 
@@ -363,7 +369,7 @@
     
     NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];
 
-    NSLog(@"%@", jSON);
+    //NSLog(@"%@", jSON);
     
     // We are checking to see if the dealer is expired.  So a bad authorization should pass back a "true" to confirm it is expired.
     if ( [[jSON objectForKey:JSON_DEALER_ACCESSTOKEN_AUTHORIZED] isEqualToString:@"false"] ){

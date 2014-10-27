@@ -63,7 +63,7 @@
 
 
 - (BOOL) refreshLeadData{
-    NSLog(@"LeadsModel : refreshLeadDataForDealer");
+    //NSLog(@"LeadsModel : refreshLeadDataForDealer");
     
     //internetReachable = [[Reachability alloc] init];
     //[internetReachable checkOnlineConnection];
@@ -101,13 +101,13 @@
             
             if (dealerData == nil)
             {
-                NSLog(@"problem! dealerData fetch is nil : %@", errorDealer);
+                //NSLog(@"problem! dealerData fetch is nil : %@", errorDealer);
                 return NO;
             }
             
             if (dealerData.count == 0)
             {
-                NSLog(@"No dealer record to get leads from");
+                //NSLog(@"No dealer record to get leads from");
                 return NO;
             } else {
                 dealerNumber = [dealerData[0] dealerNumber];
@@ -139,7 +139,7 @@
         
         if (fetchedObjects == nil)
         {
-            NSLog(@"problem! Fetched objects is nil : %@", error);
+            //NSLog(@"problem! Fetched objects is nil : %@", error);
             return NO;
         }
         
@@ -200,7 +200,7 @@
         NSURL *url = [NSURL URLWithString:stringImageURL];
         NSData *leadData = [NSData dataWithContentsOfURL:url];
         
-        NSLog(@"%@", url);
+        //NSLog(@"%@", url);
         
         //NSString *convertedString = [[NSString alloc] initWithData:leadData encoding:NSUTF8StringEncoding];
         //NSLog(@"Did receive data : %@", convertedString );
@@ -270,7 +270,7 @@
     }
     else
     {
-        NSLog(@"Not online");
+        //NSLog(@"Not online");
         return NO;
     }
     
@@ -282,7 +282,7 @@
     
     // NOTE : Status can be "c" for 'claimed' or "I" for 'Ignore'.  Ignore is like deleting in that it is removed from the DB.
     
-    NSLog(@"LeadsModel : claimLeadUpdate");
+    //NSLog(@"LeadsModel : claimLeadUpdate");
     
     
     //Checks that the user is online before processing
@@ -320,8 +320,8 @@
         NSURL *url = [NSURL URLWithString:stringImageURL];
         NSData *leadData = [NSData dataWithContentsOfURL:url];
         
-        NSString *convertedString = [[NSString alloc] initWithData:leadData encoding:NSUTF8StringEncoding];
-        NSLog(@"Did receive data : %@", convertedString);
+        //NSString *convertedString = [[NSString alloc] initWithData:leadData encoding:NSUTF8StringEncoding];
+        //NSLog(@"Did receive data : %@", convertedString);
         
         // Check to see if the return of data has anything in it that is parsable.  If not, then return NO.
         @try {
@@ -329,7 +329,7 @@
             _dataDictionary = [_jSON objectForKey:@"data"];
         }
         @catch (NSException * e) {
-            NSLog(@"Exception: %@", e);
+            //NSLog(@"Exception: %@", e);
             return NO; // This isn't working.
         }
         @finally {
@@ -372,7 +372,7 @@
             }
         }
         @catch (NSException * e) {
-            NSLog(@"Lead doesn't exist in DB : Exception: %@", e);
+            //NSLog(@"Lead doesn't exist in DB : Exception: %@", e);
             return NO; // This isn't working.
         }
         @finally {
@@ -386,7 +386,7 @@
     }
     else
     {
-        NSLog(@"Not online");
+        //NSLog(@"Not online");
         return NO;
     }
 }
@@ -489,7 +489,7 @@
 
 
 -(void) refreshLeadBadge{
-    NSLog(@"LeadsModel : refreshLeadBadge");
+    //NSLog(@"LeadsModel : refreshLeadBadge");
     
     // Get a count of all objects under section 0 (the first section)
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -508,7 +508,7 @@
     // Refresh the icon badge.
     [UIApplication sharedApplication].applicationIconBadgeNumber = [readData count];
     
-    NSLog(@"Number of New Leads : %lu", (unsigned long)readData.count);
+    //NSLog(@"Number of New Leads : %lu", (unsigned long)readData.count);
     
 }
 

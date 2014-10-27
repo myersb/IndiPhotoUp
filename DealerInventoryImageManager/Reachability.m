@@ -531,7 +531,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 	} else {
 		_isConnected = FALSE;
 	}
-	NSLog(@"IS CONNECTED: %d", _isConnected);
+	//NSLog(@"IS CONNECTED: %d", _isConnected);
 	return _isConnected;
 }
 
@@ -555,7 +555,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     
     if (!didRetrieveFlags)
     {
-        NSLog(@"Error. Could not recover network reachability flags");
+        //NSLog(@"Error. Could not recover network reachability flags");
         return NO;
     }
     

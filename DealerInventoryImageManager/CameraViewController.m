@@ -233,7 +233,7 @@
 					ALAssetRepresentation *repr = [result defaultRepresentation];
 					// this is the most recent saved photo
 					UIImage *img = [UIImage imageWithCGImage:[repr fullResolutionImage]];
-					NSLog(@"%@",img);
+					//NSLog(@"%@",img);
 					// we only need the first (most recent) photo -- stop the enumeration
 					_thumbnail.image = img;
 					*stop2 = YES;

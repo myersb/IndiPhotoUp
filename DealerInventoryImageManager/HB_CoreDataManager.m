@@ -60,7 +60,8 @@
     //
     if (![fetchedResults performFetch:&error])
     {
-        NSLog(@"Error fetching data: %@", error.localizedFailureReason);
+        //NSLog(@"Error fetching data: %@", error.localizedFailureReason);
+        return nil;
     }
     else
     {
@@ -110,7 +111,7 @@
     //
     if (![_fetchedResultsController performFetch:&error])
     {
-        NSLog(@"Error fetching data: %@", error.localizedFailureReason);
+        //NSLog(@"Error fetching data: %@", error.localizedFailureReason);
         return NO;
     }
     
@@ -231,7 +232,7 @@
         {
             // add error handling here
             //
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            //NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
             
             return NO;
@@ -311,7 +312,7 @@
 	
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:optionsDictionary error:&error])
     {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        //NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
@@ -397,7 +398,7 @@
     //
     if (![_fetchedResultsController performFetch:&error])
     {
-        NSLog(@"Error fetching data: %@", error.localizedFailureReason);
+        //NSLog(@"Error fetching data: %@", error.localizedFailureReason);
         
         return NO;
     }

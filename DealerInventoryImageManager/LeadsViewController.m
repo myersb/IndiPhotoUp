@@ -52,7 +52,7 @@
     if (internetReachable.isConnected) {
         
         if ([dealerModel isDealerExpired]) {
-            NSLog(@"Dealer IS expired");
+            //NSLog(@"Dealer IS expired");
             
             // Send user to login as their Login has expired.
             [self performSegueWithIdentifier:@"toLoginViewFromLeads" sender:self];
@@ -77,7 +77,7 @@
     //load up - retrieves new leads.
     leadsModel = [[LeadsModel alloc]init];
     
-    NSLog(@"ready");
+    //NSLog(@"ready");
     
     // Get new data and refresh data.
 
@@ -88,7 +88,7 @@
 
     NSError *error = nil;
     if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Error! %@",error);
+        //NSLog(@"Error! %@",error);
         abort();
     }
 
@@ -102,7 +102,7 @@
     
     [self.tableView addSubview:self.refreshControl];
     
-    NSLog(@"%lu", (unsigned long)[[_fetchedResultsController fetchedObjects] count]);
+    //NSLog(@"%lu", (unsigned long)[[_fetchedResultsController fetchedObjects] count]);
     
     
 }
@@ -371,7 +371,7 @@
         
         // Change status of lead.
         LeadsModel *leadModel = [[LeadsModel alloc] init];
-		NSLog(@"%@", leadObj.independentLeadId);
+		//NSLog(@"%@", leadObj.independentLeadId);
 		if (internetReachable.isConnected) {
 			[leadModel claimLead:leadObj.independentLeadId];
 		}

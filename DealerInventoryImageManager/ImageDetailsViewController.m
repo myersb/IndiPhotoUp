@@ -35,7 +35,7 @@
     // This is the google analitics
     self.screenName = @"ImageDetailsViewController";
     
-    NSLog(@"ImageDetailesViewController : viewDidLoad");
+    //NSLog(@"ImageDetailesViewController : viewDidLoad");
     
     // Do any additional setup after loading the view.
     // Draw the activity view backgroundpickerViewContainer
@@ -60,7 +60,7 @@
     
     // *** Set Values in display ***
     
-    NSLog(@"%@", _selectedSerialNumber);
+    //NSLog(@"%@", _selectedSerialNumber);
     
     if (!_currentInventoryModel.serialNumber) {
 		_homeImage.image = _selectedImage;
@@ -249,7 +249,7 @@
     // Step 1: Get the size of the keyboard.
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
+    //NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
     
     int keyboardHeight;
     
@@ -361,7 +361,7 @@
 
 - (IBAction)deleteButton:(id)sender {
     
-    NSLog(@"ImageDetailesViewController : deleteButton");
+    //NSLog(@"ImageDetailesViewController : deleteButton");
 	UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"Are you sure that you want to delete this image? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
 	[deleteAlert show];
 }
@@ -379,7 +379,7 @@
 }
 
 - (IBAction)saveButton:(id)sender{
-    NSLog(@"ImageDetailesViewController : saveButton");
+    //NSLog(@"ImageDetailesViewController : saveButton");
     
     // Take data and update core data
     _returnVal = 0;
@@ -388,7 +388,7 @@
     // check that the user is still authorized.
     DealerModel *dealerModel = [[DealerModel alloc] init];
     if ([dealerModel isDealerExpired]) {
-        NSLog(@"Dealer IS expired");
+        //NSLog(@"Dealer IS expired");
         
         // Send user to login as their Login has expired.
         [self performSegueWithIdentifier:@"fromImageDetailsToLogin" sender:self];
@@ -590,7 +590,7 @@
 
 - (void)uploadImage
 {
-    NSLog(@"ImageDetailsViewController : uploadImage");
+    //NSLog(@"ImageDetailsViewController : uploadImage");
     
 
     // Scale the image down to the 3.2 aspect ratio needed.
@@ -634,7 +634,7 @@
     NSString *finalFileName = [NSString stringWithFormat:@"MOBL1-%@",udidString];
     NSString *imageDirectory = [NSString stringWithFormat:@"/retail/%@/", imageType];
 
-    NSLog(@"%@",finalFileName);
+    //NSLog(@"%@",finalFileName);
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
     [request setURL:[NSURL URLWithString:urlString]];
@@ -652,7 +652,7 @@
     [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[NSData dataWithData:imageData]];
     
-    NSLog(@"%@%@.jpg", imageDirectory, udidString );
+    //NSLog(@"%@%@.jpg", imageDirectory, udidString );
     
     // Set the field source reference
     _fileSourceReference = [NSString stringWithFormat:@"%@%@.jpg", imageDirectory, finalFileName];
@@ -671,11 +671,11 @@
     [self basicAuthForRequest:request withUsername:@"dirty" andPassword:@"authentication"];
     
     // now lets make the connection to the web
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    //NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
     // Display the results that the service gives back.
-    NSLog(@"%@",returnString);
+    //NSLog(@"%@",returnString);
     
 }
 
@@ -689,7 +689,7 @@
     // Reference properties of the NSMutableURLRequest
     CFHTTPMessageRef authoriztionMessageRef = CFHTTPMessageCreateRequest(kCFAllocatorDefault, (__bridge CFStringRef)[request HTTPMethod], (__bridge CFURLRef)[request URL], kCFHTTPVersion1_1);
     
-    NSLog(@"%@", authoriztionMessageRef);
+    //NSLog(@"%@", authoriztionMessageRef);
     
     // Encodes usernameRef and passwordRef in Base64
     CFHTTPMessageAddAuthentication(authoriztionMessageRef, nil, usernameRef, passwordRef, kCFHTTPAuthenticationSchemeBasic, FALSE);
@@ -697,7 +697,7 @@
     // Creates the 'Basic - <encoded_username_and_password>' string for the HTTP header
     CFStringRef authorizationStringRef = CFHTTPMessageCopyHeaderFieldValue(authoriztionMessageRef, CFSTR("Authorization"));
     
-    NSLog(@"%@", authorizationStringRef);
+    //NSLog(@"%@", authorizationStringRef);
     
     // Add authorizationStringRef as value for 'Authorization' HTTP header
     [request setValue:(__bridge NSString *)authorizationStringRef forHTTPHeaderField:@"Authorization"];

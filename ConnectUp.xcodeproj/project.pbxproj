@@ -14,7 +14,6 @@
 		811020FD190A98C00072F2E7 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811020FC190A98C00072F2E7 /* LeadsViewController.m */; };
 		81102100190A98E50072F2E7 /* Leads.m in Sources */ = {isa = PBXBuildFile; fileRef = 811020FF190A98E50072F2E7 /* Leads.m */; };
 		8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 8118711A18C12F9B002FFBA6 /* ActivityIndicator.png */; };
-		813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B81C817FC5E660011A2DD /* LaunchViewController.m */; };
 		8140ACBE18ABEDB500D04E05 /* CameraOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8140ACBD18ABEDB500D04E05 /* CameraOverlayView.m */; };
 		8142C9821888410000C32E83 /* InventoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8142C9801888410000C32E83 /* InventoryCell.m */; };
 		8142C9831888410000C32E83 /* InventoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8142C9811888410000C32E83 /* InventoryCell.xib */; };
@@ -28,7 +27,6 @@
 		81686A5419AFAAD8000E7631 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 81686A5319AFAAD8000E7631 /* AppVersion.m */; };
 		81686A5A19AFAEF3000E7631 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81686A5719AFAEF3000E7631 /* NSString+MD5Addition.m */; };
 		81686A5B19AFAEF3000E7631 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81686A5919AFAEF3000E7631 /* UIDevice+IdentifierAddition.m */; };
-		8188875D17E75E53004B8260 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188875B17E75E53004B8260 /* Reachability.m */; };
 		8188876017E7626D004B8260 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8188875F17E7626D004B8260 /* SystemConfiguration.framework */; };
 		818A5EA7195A1EDA005A6C8C /* LeadDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818A5EA6195A1EDA005A6C8C /* LeadDetailsViewController.m */; };
 		8198422117E0D40900B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
@@ -38,24 +36,12 @@
 		8198423517E0D40900B619C7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198423417E0D40900B619C7 /* Default.png */; };
 		8198423717E0D40900B619C7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198423617E0D40900B619C7 /* Default@2x.png */; };
 		8198423917E0D40900B619C7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198423817E0D40900B619C7 /* Default-568h@2x.png */; };
-		8198424417E0D40A00B619C7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198424317E0D40A00B619C7 /* SenTestingKit.framework */; };
-		8198424517E0D40A00B619C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422017E0D40900B619C7 /* UIKit.framework */; };
-		8198424617E0D40A00B619C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422217E0D40900B619C7 /* Foundation.framework */; };
-		8198424717E0D40A00B619C7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198422617E0D40900B619C7 /* CoreData.framework */; };
-		8198425E17E0D49100B619C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198425C17E0D49100B619C7 /* LoginViewController.m */; };
 		8198426B17E0E28A00B619C7 /* bgUpper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426917E0E28A00B619C7 /* bgUpper.jpg */; };
-		8198426C17E0E28A00B619C7 /* bgUpper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426917E0E28A00B619C7 /* bgUpper.jpg */; };
 		8198426D17E0E28A00B619C7 /* bgLower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426A17E0E28A00B619C7 /* bgLower.jpg */; };
-		8198426E17E0E28A00B619C7 /* bgLower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426A17E0E28A00B619C7 /* bgLower.jpg */; };
 		8198427017E0E2F300B619C7 /* claytonLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426F17E0E2F300B619C7 /* claytonLogo.jpg */; };
-		8198427117E0E2F300B619C7 /* claytonLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8198426F17E0E2F300B619C7 /* claytonLogo.jpg */; };
 		8198427317E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */; };
-		8198427417E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8198427217E0F1F100B619C7 /* QRCodeIcon_green1.png */; };
-		8198427F17E103C000B619C7 /* InventoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8198427D17E103C000B619C7 /* InventoryViewController.m */; };
 		819CAAE519784372005B8E5B /* ConnectUpSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 819CAAE419784372005B8E5B /* ConnectUpSettings.m */; };
 		81A0D32318240F2B006FB5E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A0D32218240F2B006FB5E7 /* libz.dylib */; };
-		81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9C9D17EA28C700E6E1CC /* DealerModel.m */; };
-		81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9CA117EA331E00E6E1CC /* Dealer.m */; };
 		81CCBCE1196C816A009529C6 /* iconLabels.png in Resources */ = {isa = PBXBuildFile; fileRef = 81CCBCE0196C816A009529C6 /* iconLabels.png */; };
 		81CFDCB719DCBF0100EE23E1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81CFDCB619DCBF0100EE23E1 /* MainStoryboard.storyboard */; };
 		81D7A7D51887374400F561DF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7A7D41887374400F561DF /* CFNetwork.framework */; };
@@ -137,17 +123,19 @@
 		B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = B591F064189BFB3B003AB1D9 /* blankThumbnail.png */; };
 		B5970E8518E4832C0096F6A3 /* LotInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B5970E8418E4832C0096F6A3 /* LotInfo.m */; };
 		B5CA35CA18A40D9D00C0A1EE /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA35C918A40D9D00C0A1EE /* CameraOverlay.xib */; };
+		FF095FF019FAAD97001DB650 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FE419FAAD97001DB650 /* AppIcon.png */; };
+		FF095FF119FAAD97001DB650 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FE519FAAD97001DB650 /* AppIcon@2x.png */; };
+		FF095FF219FAAD97001DB650 /* AppIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FE619FAAD97001DB650 /* AppIcon@3x.png */; };
+		FF095FF319FAAD97001DB650 /* Launch4.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FE719FAAD97001DB650 /* Launch4.png */; };
+		FF095FF419FAAD97001DB650 /* LaunchHD4.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FE819FAAD97001DB650 /* LaunchHD4.png */; };
+		FF095FF519FAAD97001DB650 /* LaunchHD4_7.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FE919FAAD97001DB650 /* LaunchHD4_7.png */; };
+		FF095FF619FAAD97001DB650 /* LaunchHD5_5.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FEA19FAAD97001DB650 /* LaunchHD5_5.png */; };
+		FF095FF719FAAD97001DB650 /* SettingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FEB19FAAD97001DB650 /* SettingsIcon.png */; };
+		FF095FF819FAAD97001DB650 /* SettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FEC19FAAD97001DB650 /* SettingsIcon@2x.png */; };
+		FF095FF919FAAD97001DB650 /* SettingsIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FED19FAAD97001DB650 /* SettingsIcon@3x.png */; };
+		FF095FFA19FAAD97001DB650 /* SpotlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FEE19FAAD97001DB650 /* SpotlightIcon.png */; };
+		FF095FFB19FAAD97001DB650 /* SpotlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF095FEF19FAAD97001DB650 /* SpotlightIcon@2x.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8198424817E0D40A00B619C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8198421517E0D40900B619C7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8198421C17E0D40900B619C7;
-			remoteInfo = DealerInventoryImageManager;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		810CBC7C18D204920091AB24 /* Done_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Done_btn.png; sourceTree = "<group>"; };
@@ -213,7 +201,6 @@
 		8198423617E0D40900B619C7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8198423817E0D40900B619C7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8198423B17E0D40900B619C7 /* DealerInventoryImageManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DealerInventoryImageManager.xcdatamodel; sourceTree = "<group>"; };
-		8198424217E0D40A00B619C7 /* ConnectUpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectUpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8198424317E0D40A00B619C7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8198425B17E0D49100B619C7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8198425C17E0D49100B619C7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -254,7 +241,7 @@
 		B5006AC518D2129A0024A94B /* icon114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114.png; sourceTree = "<group>"; };
 		B5006AC618D2129A0024A94B /* icon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120x120.png; sourceTree = "<group>"; };
 		B50B248D18F2F4F6006FC005 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		B50B248F18F58E0C006FC005 /* titleScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleScreen.png; sourceTree = "<group>"; };
+		B50B248F18F58E0C006FC005 /* titleScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = titleScreen.png; path = ../titleScreen.png; sourceTree = "<group>"; };
 		B50B249118F58E45006FC005 /* loginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginScreen.png; sourceTree = "<group>"; };
 		B50B249318F5940E006FC005 /* changeDealerBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changeDealerBtn.png; sourceTree = "<group>"; };
 		B50B249418F5940E006FC005 /* inventoryBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryBtn.png; sourceTree = "<group>"; };
@@ -340,6 +327,18 @@
 		B5DCC0341886D3EC00DF4D07 /* InventoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InventoryCell.xib; path = DealerInventoryImageManager/InventoryCell.xib; sourceTree = "<group>"; };
 		B5DCC0361886D40500DF4D07 /* InventoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCell.h; sourceTree = "<group>"; };
 		B5DCC0371886D40500DF4D07 /* InventoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCell.m; sourceTree = "<group>"; };
+		FF095FE419FAAD97001DB650 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		FF095FE519FAAD97001DB650 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		FF095FE619FAAD97001DB650 /* AppIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@3x.png"; sourceTree = "<group>"; };
+		FF095FE719FAAD97001DB650 /* Launch4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch4.png; sourceTree = "<group>"; };
+		FF095FE819FAAD97001DB650 /* LaunchHD4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchHD4.png; sourceTree = "<group>"; };
+		FF095FE919FAAD97001DB650 /* LaunchHD4_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchHD4_7.png; sourceTree = "<group>"; };
+		FF095FEA19FAAD97001DB650 /* LaunchHD5_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchHD5_5.png; sourceTree = "<group>"; };
+		FF095FEB19FAAD97001DB650 /* SettingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsIcon.png; sourceTree = "<group>"; };
+		FF095FEC19FAAD97001DB650 /* SettingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsIcon@2x.png"; sourceTree = "<group>"; };
+		FF095FED19FAAD97001DB650 /* SettingsIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsIcon@3x.png"; sourceTree = "<group>"; };
+		FF095FEE19FAAD97001DB650 /* SpotlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpotlightIcon.png; sourceTree = "<group>"; };
+		FF095FEF19FAAD97001DB650 /* SpotlightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpotlightIcon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,17 +362,6 @@
 				814A0CAF190FECD800660D62 /* libGoogleAnalyticsServices.a in Frameworks */,
 				8198422517E0D40900B619C7 /* CoreGraphics.framework in Frameworks */,
 				8198422717E0D40900B619C7 /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8198423E17E0D40A00B619C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8198424417E0D40A00B619C7 /* SenTestingKit.framework in Frameworks */,
-				8198424517E0D40A00B619C7 /* UIKit.framework in Frameworks */,
-				8198424617E0D40A00B619C7 /* Foundation.framework in Frameworks */,
-				8198424717E0D40A00B619C7 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +427,6 @@
 			isa = PBXGroup;
 			children = (
 				8198421D17E0D40900B619C7 /* ConnectUp.app */,
-				8198424217E0D40A00B619C7 /* ConnectUpTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,6 +459,7 @@
 		8198422817E0D40900B619C7 /* PhotoUp */ = {
 			isa = PBXGroup;
 			children = (
+				FF095FE319FAAD97001DB650 /* App Graphics */,
 				81686A5519AFAEA3000E7631 /* UIDevice */,
 				B5691B8A18B3E42800FE34AE /* ZBarSDK */,
 				813B81C317FB5DBA0011A2DD /* Data */,
@@ -519,7 +507,6 @@
 				B5006AC418D2129A0024A94B /* icon80x80.png */,
 				B5006AC518D2129A0024A94B /* icon114x114.png */,
 				B5006AC618D2129A0024A94B /* icon120x120.png */,
-				B50B248F18F58E0C006FC005 /* titleScreen.png */,
 				B5006ABB18D0EDE80024A94B /* newPhotoSaveBtn.png */,
 				B5006ABC18D0EDE80024A94B /* newPhotoSelectBtn.png */,
 				B5006ABD18D0EDE80024A94B /* newPhotoTakeBtn.png */,
@@ -698,6 +685,26 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FF095FE319FAAD97001DB650 /* App Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				B50B248F18F58E0C006FC005 /* titleScreen.png */,
+				FF095FE419FAAD97001DB650 /* AppIcon.png */,
+				FF095FE519FAAD97001DB650 /* AppIcon@2x.png */,
+				FF095FE719FAAD97001DB650 /* Launch4.png */,
+				FF095FE819FAAD97001DB650 /* LaunchHD4.png */,
+				FF095FE619FAAD97001DB650 /* AppIcon@3x.png */,
+				FF095FE919FAAD97001DB650 /* LaunchHD4_7.png */,
+				FF095FEA19FAAD97001DB650 /* LaunchHD5_5.png */,
+				FF095FEB19FAAD97001DB650 /* SettingsIcon.png */,
+				FF095FEC19FAAD97001DB650 /* SettingsIcon@2x.png */,
+				FF095FED19FAAD97001DB650 /* SettingsIcon@3x.png */,
+				FF095FEE19FAAD97001DB650 /* SpotlightIcon.png */,
+				FF095FEF19FAAD97001DB650 /* SpotlightIcon@2x.png */,
+			);
+			path = "App Graphics";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -718,25 +725,6 @@
 			productName = DealerInventoryImageManager;
 			productReference = 8198421D17E0D40900B619C7 /* ConnectUp.app */;
 			productType = "com.apple.product-type.application";
-		};
-		8198424117E0D40A00B619C7 /* ConnectUpTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "ConnectUpTests" */;
-			buildPhases = (
-				8198423D17E0D40A00B619C7 /* Sources */,
-				8198423E17E0D40A00B619C7 /* Frameworks */,
-				8198423F17E0D40A00B619C7 /* Resources */,
-				8198424017E0D40A00B619C7 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8198424917E0D40A00B619C7 /* PBXTargetDependency */,
-			);
-			name = ConnectUpTests;
-			productName = DealerInventoryImageManagerTests;
-			productReference = 8198424217E0D40A00B619C7 /* ConnectUpTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -766,7 +754,6 @@
 			projectRoot = "";
 			targets = (
 				8198421C17E0D40900B619C7 /* ConnectUp */,
-				8198424117E0D40A00B619C7 /* ConnectUpTests */,
 			);
 		};
 /* End PBXProject section */
@@ -778,10 +765,15 @@
 			files = (
 				81CCBCE1196C816A009529C6 /* iconLabels.png in Resources */,
 				B5163CF618D0C1EE00DDBFD4 /* dealerSelect.png in Resources */,
+				FF095FF219FAAD97001DB650 /* AppIcon@3x.png in Resources */,
+				FF095FF919FAAD97001DB650 /* SettingsIcon@3x.png in Resources */,
 				B5006AB918D0E9710024A94B /* inputBG.png in Resources */,
 				B525AB6317FDCC0000619E3D /* qrCode@2x.png in Resources */,
+				FF095FF419FAAD97001DB650 /* LaunchHD4.png in Resources */,
 				8159EA92196DA8E800158ED8 /* darkGreyBackground_WithCircles.png in Resources */,
+				FF095FF819FAAD97001DB650 /* SettingsIcon@2x.png in Resources */,
 				B50B249618F5940E006FC005 /* changeDealerBtn.png in Resources */,
+				FF095FF619FAAD97001DB650 /* LaunchHD5_5.png in Resources */,
 				B57B7C7319238BAC00FEA322 /* captionBG.png in Resources */,
 				B5163CF718D0C1EE00DDBFD4 /* loginBtn.png in Resources */,
 				B50B249718F5940E006FC005 /* inventoryBtn.png in Resources */,
@@ -791,17 +783,21 @@
 				B591F065189BFB3B003AB1D9 /* blankThumbnail.png in Resources */,
 				810EA33519588BEE0067075B /* leadsBtnOn.png in Resources */,
 				B5691BB218B50CAB00FE34AE /* logoutBtn.png in Resources */,
+				FF095FFB19FAAD97001DB650 /* SpotlightIcon@2x.png in Resources */,
 				B5691BAC18B3E42800FE34AE /* zbar-samples.png in Resources */,
 				B50B249018F58E0C006FC005 /* titleScreen.png in Resources */,
 				8198423517E0D40900B619C7 /* Default.png in Resources */,
 				B50B249C18F5CCB6006FC005 /* shutterBtn.png in Resources */,
 				B5691B6A18B2AF2100FE34AE /* InfoPlist.strings in Resources */,
+				FF095FF019FAAD97001DB650 /* AppIcon.png in Resources */,
+				FF095FF119FAAD97001DB650 /* AppIcon@2x.png in Resources */,
 				B50B249E18F5CE3C006FC005 /* grayBar.png in Resources */,
 				B5006ACB18D2129A0024A94B /* icon114x114.png in Resources */,
 				8198423717E0D40900B619C7 /* Default@2x.png in Resources */,
 				8159EA8A196D992600158ED8 /* ConnectUpSettings.plist in Resources */,
 				81CFDCB719DCBF0100EE23E1 /* MainStoryboard.storyboard in Resources */,
 				B5006AB818D0E9710024A94B /* imageDetailsSaveBtn.png in Resources */,
+				FF095FFA19FAAD97001DB650 /* SpotlightIcon.png in Resources */,
 				B57B7C7419238BAC00FEA322 /* serialNumberBG.png in Resources */,
 				8159EA96196DBEB700158ED8 /* noimagesExample.png in Resources */,
 				B5006AC018D0EDE80024A94B /* newPhotoTakeBtn.png in Resources */,
@@ -816,6 +812,7 @@
 				8159EA90196DA6EE00158ED8 /* info-25.png in Resources */,
 				B5006AC918D2129A0024A94B /* icon58x58.png in Resources */,
 				B5006ABF18D0EDE80024A94B /* newPhotoSelectBtn.png in Resources */,
+				FF095FF719FAAD97001DB650 /* SettingsIcon.png in Resources */,
 				B5006ABE18D0EDE80024A94B /* newPhotoSaveBtn.png in Resources */,
 				810EA33719588CAA0067075B /* inventoryBtnOn.png in Resources */,
 				B50B249218F58E45006FC005 /* loginScreen.png in Resources */,
@@ -827,7 +824,9 @@
 				B5691BA918B3E42800FE34AE /* zbar-back.png in Resources */,
 				8198427017E0E2F300B619C7 /* claytonLogo.jpg in Resources */,
 				8118711B18C12F9B002FFBA6 /* ActivityIndicator.png in Resources */,
+				FF095FF519FAAD97001DB650 /* LaunchHD4_7.png in Resources */,
 				8142C9831888410000C32E83 /* InventoryCell.xib in Resources */,
+				FF095FF319FAAD97001DB650 /* Launch4.png in Resources */,
 				8159EA8E196DA6C000158ED8 /* info-100.png in Resources */,
 				810CBC7D18D204920091AB24 /* Done_btn.png in Resources */,
 				8159EA8C196DA5EE00158ED8 /* info-32.png in Resources */,
@@ -838,17 +837,6 @@
 				B5691BAA18B3E42800FE34AE /* zbar-help.html in Resources */,
 				B5006AC718D2129A0024A94B /* icon29x29.png in Resources */,
 				B5006ACC18D2129A0024A94B /* icon120x120.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8198423F17E0D40A00B619C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8198426C17E0E28A00B619C7 /* bgUpper.jpg in Resources */,
-				8198426E17E0E28A00B619C7 /* bgLower.jpg in Resources */,
-				8198427117E0E2F300B619C7 /* claytonLogo.jpg in Resources */,
-				8198427417E0F1F100B619C7 /* QRCodeIcon_green1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,19 +856,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "";
-		};
-		8198424017E0D40A00B619C7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -930,28 +905,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8198423D17E0D40A00B619C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8198425E17E0D49100B619C7 /* LoginViewController.m in Sources */,
-				813B81CA17FC5E660011A2DD /* LaunchViewController.m in Sources */,
-				8198427F17E103C000B619C7 /* InventoryViewController.m in Sources */,
-				8188875D17E75E53004B8260 /* Reachability.m in Sources */,
-				81CA9C9F17EA28C700E6E1CC /* DealerModel.m in Sources */,
-				81CA9CA317EA331E00E6E1CC /* Dealer.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8198424917E0D40A00B619C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8198421C17E0D40900B619C7 /* ConnectUp */;
-			targetProxy = 8198424817E0D40A00B619C7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5691B6818B2AF2100FE34AE /* InfoPlist.strings */ = {
@@ -990,7 +944,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1014,7 +968,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1076,40 +1030,6 @@
 			};
 			name = Release;
 		};
-		8198425917E0D40A00B619C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DealerInventoryImageManager.app/DealerInventoryImageManager";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
-				INFOPLIST_FILE = "DealerInventoryImageManagerTests/PhotoUpTests-Info.plist";
-				PRODUCT_NAME = ConnectUpTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		8198425A17E0D40A00B619C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DealerInventoryImageManager.app/DealerInventoryImageManager";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DealerInventoryImageManager/DealerInventoryImageManager-Prefix.pch";
-				INFOPLIST_FILE = "DealerInventoryImageManagerTests/PhotoUpTests-Info.plist";
-				PRODUCT_NAME = ConnectUpTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1127,15 +1047,6 @@
 			buildConfigurations = (
 				8198425617E0D40A00B619C7 /* Debug */,
 				8198425717E0D40A00B619C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8198425817E0D40A00B619C7 /* Build configuration list for PBXNativeTarget "ConnectUpTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8198425917E0D40A00B619C7 /* Debug */,
-				8198425A17E0D40A00B619C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

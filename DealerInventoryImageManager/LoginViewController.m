@@ -66,7 +66,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    NSLog(@"return button hit");
+    //NSLog(@"return button hit");
     [self completeLogin];
     return YES;
 }
@@ -105,9 +105,9 @@
 
     internetReachable = [Reachability reachabilityForInternetConnection];
     
-    NSLog(@"%@", internetReachable.currentReachabilityFlags);
-    NSLog(@"%@", internetReachable.currentReachabilityString);
-    NSLog(@"BOOL = %@\n", (internetReachable.currentReachabilityStatus ? @"YES" : @"NO"));
+    //NSLog(@"%@", internetReachable.currentReachabilityFlags);
+    //NSLog(@"%@", internetReachable.currentReachabilityString);
+    //NSLog(@"BOOL = %@\n", (internetReachable.currentReachabilityStatus ? @"YES" : @"NO"));
 
     if (internetReachable.currentReachabilityStatus) {
         _isConnected = TRUE;
@@ -209,7 +209,7 @@
     // Step 1: Get the size of the keyboard.
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
+    //NSLog(@"%f", [UIScreen mainScreen].bounds.size.height);
     
     int keyboardHeight;
     
@@ -317,7 +317,7 @@
 		[self clearEntity:@"LotInfo" withFetchRequest:_fetchRequest];
 	}
 
-    NSLog(@"%@", self.settings);
+    //NSLog(@"%@", self.settings);
     
     NSString *function = @"PrcIndependentSingleOwnerMultiDealersRead";
     NSString *accessToken = [self.settings objectForKey:@"AccessToken"];

@@ -33,7 +33,7 @@
 
 
 -(id) init{
-    NSLog(@"InventoryViewController : init");
+    //NSLog(@"InventoryViewController : init");
     
     // If the plist file doesn't exist, copy it to a place where it can be worked with.
     // Setup settings to contain the data.
@@ -56,7 +56,7 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"InventoryViewController : ViewDidLoad");
+    //NSLog(@"InventoryViewController : ViewDidLoad");
     
     [super viewDidLoad];
     
@@ -92,7 +92,7 @@
     self.screenName = @"InventoryViewController";
 
     
-	NSLog(@"CDN: %@", _chosenDealerNumber);
+	//NSLog(@"CDN: %@", _chosenDealerNumber);
 	
     internetReachable = [[Reachability alloc] init];
 	[internetReachable checkOnlineConnection];
@@ -116,14 +116,14 @@
 	}
 	else{
 		_dealerNumber = _chosenDealerNumber;
-		NSLog(@"CDN2: %@", _dealerNumber);
+		//NSLog(@"CDN2: %@", _dealerNumber);
 		Dealer *savedDealer = [NSEntityDescription insertNewObjectForEntityForName:@"Dealer" inManagedObjectContext:[self managedObjectContext]];
 		savedDealer.dealerNumber = _chosenDealerNumber;
 		dealer.dealerNumber = _chosenDealerNumber;
 	}
 	
 	if (internetReachable.isConnected) {
-		NSLog(@"CDN3: %@", _dealerNumber);
+		//NSLog(@"CDN3: %@", _dealerNumber);
 		[self downloadInventoryData:_dealerNumber];
 		[self downloadImages:_dealerNumber];
 	}
@@ -222,27 +222,27 @@
 
 - (void)downloadInventoryData:(NSString *)dealerNumber
 {
-    NSLog(@"InventoryViewController : downloadInventoryData");
+    //NSLog(@"InventoryViewController : downloadInventoryData");
     
 	[self loadInventory];
 	
 	if (([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWiFi ||
 		[[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == ReachableViaWWAN) && [_modelsArray count] > 0) {
-		NSLog(@"DELETED!");
+		//NSLog(@"DELETED!");
 		[self clearEntity:@"InventoryHome" withFetchRequest:_fetchRequest];
 	}
 	
     // Get dealer confirmation data
     DealerModel *getDealerInfo = [[DealerModel alloc]init];
     NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
-    NSLog(@"Check : %@", getUserInfo);
+    //NSLog(@"Check : %@", getUserInfo);
     
     
     NSString *url = BaseURL;
     NSString *function = @"getDealerInventoryRead";
     NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
-    NSLog(@"%@", self.settings);
+    //NSLog(@"%@", self.settings);
     
     
 	NSString *urlString = [NSString stringWithFormat:@"%@&function=%@&accesstoken=%@&dealerNumber=%@&UN=%@&PID=%@",
@@ -263,7 +263,7 @@
 	// Creates a dictionary that goes inside the first data object eg. {data:[
 	_dataDictionary = [_jSON objectForKey:@"data"];
     
-    NSLog(@"%@", _dataDictionary);
+    //NSLog(@"%@", _dataDictionary);
     
 	int checkForError;
     
@@ -309,7 +309,7 @@
 
 - (void)downloadImages:(NSString *)dealerNumber
 {
-    NSLog(@"InventoryViewController : downloadImages");
+    //NSLog(@"InventoryViewController : downloadImages");
     
     [self loadImages];
 	
@@ -372,7 +372,7 @@
 - (void)loadInventory
 {
     
-    NSLog(@"InventoryViewController : loadInventory");
+    //NSLog(@"InventoryViewController : loadInventory");
     
 	_fetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryHome" inManagedObjectContext:[self managedObjectContext]];
@@ -396,7 +396,7 @@
 - (NSNumber *)loadImagesBySerialNumber: (NSString *)serialNumber
 {
     
-    NSLog(@"InventoryViewController : loadImagesBySerialNumber");
+    //NSLog(@"InventoryViewController : loadImagesBySerialNumber");
     
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
@@ -415,7 +415,7 @@
 
 - (void)loadImages
 {
-    NSLog(@"InventoryViewController : loadImages");
+    //NSLog(@"InventoryViewController : loadImages");
     
 	_imagesFetchRequest = [[NSFetchRequest alloc]init];
 	_entity = [NSEntityDescription entityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
@@ -543,7 +543,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
 		_logoutSegue = YES;
-		NSLog(@"logout");
+		//NSLog(@"logout");
 		[self clearEntity:@"Dealer" withFetchRequest:_fetchRequest];
 		[self performSegueWithIdentifier:@"segueFromInventoryListToLogin" sender:self];
 	}
@@ -615,7 +615,7 @@
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
 	if (_logoutSegue == NO){
 		return NO;
-		NSLog(@"NO!");
+		//NSLog(@"NO!");
 	}
 	else if (sender == _btnChangeDealer && _logoutSegue == NO){
 		return YES;
@@ -628,7 +628,7 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"InventoryViewController : prepareForSegue");
+    //NSLog(@"InventoryViewController : prepareForSegue");
     
 	if ([[segue identifier]isEqualToString:@"segueToHomeDetails"]) {
 		// Gets the index of the selected row

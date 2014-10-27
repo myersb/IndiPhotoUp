@@ -58,7 +58,7 @@
         andByInventoryPackageId:(NSString*) inventoryPackageId
 {
     
-    NSLog(@"InventoryImageModel : deleteImageDataByImageId");
+    //NSLog(@"InventoryImageModel : deleteImageDataByImageId");
     
     int deleteImageDataByImageIdProcessSuccess = 1;
     
@@ -91,7 +91,7 @@
     // Get dealer info check
     DealerModel *getDealerInfo = [[DealerModel alloc]init];
     NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
-    NSLog(@"Check : %@", getUserInfo);
+    //NSLog(@"Check : %@", getUserInfo);
 
     NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&imageId=%@&UN=%@&PID=%@&init"
                              ,url
@@ -143,7 +143,7 @@
 {
 
 
-    NSLog(@"InventoryImageModel : updateImageDataByImageId");
+    //NSLog(@"InventoryImageModel : updateImageDataByImageId");
     
     processSuccess = 1;
     
@@ -171,7 +171,7 @@
         
         DealerModel *getDealerInfo = [[DealerModel alloc]init];
         NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
-        NSLog(@"Check : %@", getUserInfo);
+        //NSLog(@"Check : %@", getUserInfo);
         
         NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&imageType=%@&imageId=%@&imageCaption=%@&imageTypeOrder=%@&searchTagId=%@&UN=%@&PID=%@&modifiedby=photoup&init"
                                  ,url
@@ -188,7 +188,7 @@
                                  ,[getUserInfo objectForKey:@"phoneId"]
                                  ];
         
-        NSLog(@"%@", queryString);
+        //NSLog(@"%@", queryString);
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:queryString]];
         
@@ -270,7 +270,7 @@
                             andImageSource:(NSString*) imageSource
                            andSerialNumber:(NSString*) serialNumber
 {
-    NSLog(@"InventoryImageModel : insertImageDataByInventoryPackageId");
+    //NSLog(@"InventoryImageModel : insertImageDataByInventoryPackageId");
     
     id delegate = [[UIApplication sharedApplication]delegate];
     self.managedObjectContext = [delegate managedObjectContext];
@@ -300,14 +300,14 @@
         // Get dealer confirmation data
         DealerModel *getDealerInfo = [[DealerModel alloc]init];
         NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
-        NSLog(@"Check : %@", getUserInfo);
+        //NSLog(@"Check : %@", getUserInfo);
 
         
         NSString *url = inventoryImageURL;
         NSString *function = @"PrcHomeInventoryImageInsert";
         NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
         
-        
+       
         NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&imageType=%@&imageCaption=%@&searchTagId=%@&serialNumber=%@&ImageReference=%@&UN=%@&PID=%@&modifiedby=photoup&init"
                                  ,url
                                  ,function
@@ -325,7 +325,7 @@
                                  ];
         
         NSURL *completeQueryString = [NSURL URLWithString:queryString];
-        NSLog(@"%@", completeQueryString);
+        //NSLog(@"%@", completeQueryString);
         
         NSData *imageIdReturn = [NSData dataWithContentsOfURL:completeQueryString];
         NSLog(@"InventoryImageModel : downloadImagesByinventoryPackageId : %@", imageIdReturn);
@@ -356,9 +356,9 @@
     NSString *function = @"getDealerInventoryImagesRead";
     NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
-    DealerModel *getDealerInfo = [[DealerModel alloc]init];
-    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
-    NSLog(@"Check : %@", getUserInfo);
+    //DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    //NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    //NSLog(@"Check : %@", getUserInfo);
     
     NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&dealerNumber=%@&init"
                              ,url
@@ -368,7 +368,7 @@
                              ,dealerNumber
                              ];
     
-    NSLog(@"%@", queryString);
+    //NSLog(@"%@", queryString);
     
 	NSURL *fullurl = [NSURL URLWithString:queryString];
 	NSData *imageData = [NSData dataWithContentsOfURL:fullurl];
@@ -399,7 +399,7 @@
 
 - (void)downloadImagesByinventoryPackageId:(NSString *)inventoryPackageId
 {
-    NSLog(@"InventoryImageModel : downloadImagesByinventoryPackageId");
+    //NSLog(@"InventoryImageModel : downloadImagesByinventoryPackageId");
     
     
     // Clear out old data to prepare for data refresh.
@@ -418,7 +418,7 @@
     NSArray *deleteImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
 
     
-    NSLog(@"Before - %@", deleteImageData);
+    //NSLog(@"Before - %@", deleteImageData);
     
     for (id object in deleteImageData) {
         [self.managedObjectContext deleteObject:object];
@@ -426,8 +426,8 @@
     
     
     // Put data into new object based on filtered fetch request.
-    NSArray *checkImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
-    NSLog(@"After Delete - %@", checkImageData);
+    //NSArray *checkImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    //NSLog(@"After Delete - %@", checkImageData);
 
     
     
@@ -439,9 +439,9 @@
     NSString *function = @"getDealerInventoryImagesRead";
     NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
-    DealerModel *getDealerInfo = [[DealerModel alloc]init];
-    NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
-    NSLog(@"Check : %@", getUserInfo);
+    //DealerModel *getDealerInfo = [[DealerModel alloc]init];
+    //NSDictionary *getUserInfo = (NSDictionary*)[getDealerInfo getUserNameAndMEID];
+    //NSLog(@"Check : %@", getUserInfo);
     
     NSString *queryString = [NSString stringWithFormat:@"%@&function=%@&accessToken=%@&inventoryPackageId=%@&init"
                              ,url
@@ -451,7 +451,7 @@
                              ,inventoryPackageId
                              ];
     
-    NSLog(@"%@", queryString);
+    //NSLog(@"%@", queryString);
 	NSURL *geturl = [NSURL URLWithString:queryString];
 	NSData *imageData = [NSData dataWithContentsOfURL:geturl];
 
@@ -459,7 +459,7 @@
 	_jSON = [NSJSONSerialization JSONObjectWithData:imageData options:kNilOptions error:nil];
 	_dataDictionary = [_jSON objectForKey:@"data"];
     
-    NSLog(@"%@", _dataDictionary);
+    //NSLog(@"%@", _dataDictionary);
 	
 	for (NSDictionary *imageDictionary in _dataDictionary) {
 		InventoryImage *image = [NSEntityDescription insertNewObjectForEntityForName:@"InventoryImage" inManagedObjectContext:[self managedObjectContext]];
@@ -480,8 +480,8 @@
     
     
     // Put data into new object based on filtered fetch request.
-    NSArray *newImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
-    NSLog(@"After Data Inserted - %@", newImageData);
+    //NSArray *newImageData = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil] ;
+    //NSLog(@"After Data Inserted - %@", newImageData);
     
 }
 
@@ -495,14 +495,14 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     
-    NSLog(@"InventoryImageModel : connection.didReceiveResponse");
-    //NSLog(@"Received Response : %@", response);
+    //NSLog(@"InventoryImageModel : connection.didReceiveResponse");
+    NSLog(@"Received Response : %@", response);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 {
     
-    NSLog(@"InventoryImageModel : connection.didReceiveData");
+    //NSLog(@"InventoryImageModel : connection.didReceiveData");
     
     //NSString *convertedString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //NSLog(@"Did receive data : %@", convertedString );
@@ -521,7 +521,7 @@
     for (NSDictionary *serviceReturn in _dataDictionary) {
         
         
-        NSLog(@"%@", [NSString stringWithFormat:@"%@", [serviceReturn objectForKey:@"errortype"]]);
+        //NSLog(@"%@", [NSString stringWithFormat:@"%@", [serviceReturn objectForKey:@"errortype"]]);
         
         if([ [NSString stringWithFormat:@"%@", [serviceReturn objectForKey:@"errortype"]] isEqualToString:@"Success"])
         {
@@ -537,7 +537,7 @@
  totalBytesWritten:(NSInteger)totalBytesWritten
 totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
-    NSLog(@"InventoryImageModel : connection.didSendBodyData");
+    //NSLog(@"InventoryImageModel : connection.didSendBodyData");
     
     NSLog(@"Sent Body data : %ld", (long)bytesWritten);
 
@@ -545,7 +545,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"InventoryImageModel : connectionDidFinishLoading");
+    //NSLog(@"InventoryImageModel : connectionDidFinishLoading");
     
     NSLog(@"Connection Finished : %@", connection);
 }

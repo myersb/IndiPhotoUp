@@ -89,7 +89,7 @@
         DealerModel *dealerModel = [[DealerModel alloc] init];
         
         if ([dealerModel isDealerExpired]) {
-            NSLog(@"Dealer IS expired");
+            //NSLog(@"Dealer IS expired");
             
             // Send user to login as their Login has expired.
             [self performSegueWithIdentifier:@"segueToLoginViewController" sender:self];
@@ -126,7 +126,7 @@
     NSString *function = @"versionCheck";
     NSString *accessToken = [self.settings objectForKey:@"AccessToken"];
     
-    NSLog(@"%@", accessToken);
+    //NSLog(@"%@", accessToken);
     
     //		[self performSegueWithIdentifier:@"segueToLoginFromDealerSelect" sender:self];
     
@@ -143,7 +143,7 @@
 	// Sticks all of the jSON data inside of a dictionary
     NSError *jsonError = nil;
     _jSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-	NSLog(@"App Version:%@", _jSON);
+	//NSLog(@"App Version:%@", _jSON);
     
 	
 	// Creates a dictionary that goes inside the first data object eg. {data:[
@@ -232,7 +232,7 @@
     
     if ( (unsigned long)fetchedObjects.count == 0) //2
     {
-        NSLog(@"No dealer?  move into the Login View ");
+        //NSLog(@"No dealer?  move into the Login View ");
         
         // Prefill data into table if it doesn't exist.
         ImageTagsModel *imageTagsModel = [[ImageTagsModel alloc] init];
@@ -264,7 +264,7 @@
             else{
                 [self performSegueWithIdentifier:@"segueToDealerSelectFromLaunch" sender:self];
             }
-            NSLog(@"There is a dealer, move into the Inventory View ");
+            //NSLog(@"There is a dealer, move into the Inventory View ");
         }
         
 		

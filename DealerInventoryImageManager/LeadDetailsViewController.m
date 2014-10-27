@@ -92,7 +92,7 @@
 	} else {
 		_alert = [[UIAlertView alloc]initWithTitle:@"Cannot Send Email" message:@"Please verify that you have an internet connection and that you have an email account properly setup on your device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 		[_alert show];
-		NSLog(@"Device is unable to send email in its current state.");
+		//NSLog(@"Device is unable to send email in its current state.");
 	}
 }
 

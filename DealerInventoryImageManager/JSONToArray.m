@@ -58,14 +58,14 @@
     
     if (resultObject == nil)
     {
-        NSLog(@"Get Model List JSON Error: %@", err);
+        //NSLog(@"Get Model List JSON Error: %@", err);
         [self showNetworkError:@"there was an error retrieving the Model List JSON Data."];
         return nil;
     }
     
     if (![resultObject isKindOfClass:[NSDictionary class]])
     {
-        NSLog(@"JSON Error: Expected dictionary");
+        //NSLog(@"JSON Error: Expected dictionary");
         [self showNetworkError:@"A dictionary was expected in the JSON Data."];
         return nil;
     }
@@ -74,7 +74,7 @@
     
     if (tempJSONData == nil)
     {
-        NSLog(@"Array extraction failed:  Expected data array");
+        //NSLog(@"Array extraction failed:  Expected data array");
         [self showNetworkError:@"An 'array' object was expected."];        
         return nil;
     }
@@ -91,14 +91,14 @@
     
     if (resultObject == nil)
     {
-        NSLog(@"Get Model List JSON Error: %@", err);
+        //NSLog(@"Get Model List JSON Error: %@", err);
         [self showNetworkError:@"there was an error retrieving the Model List JSON Data."];
         return nil;
     }
     
     if (![resultObject isKindOfClass:[NSDictionary class]])
     {
-        NSLog(@"JSON Error: Expected dictionary");
+        //NSLog(@"JSON Error: Expected dictionary");
         [self showNetworkError:@"A dictionary was expected in the JSON Data."];
         return nil;
     }
@@ -107,7 +107,7 @@
     
     if (tempJSONData == nil)
     {
-        NSLog(@"Array extraction failed:  Expected data array");
+        //NSLog(@"Array extraction failed:  Expected data array");
         [self showNetworkError:@"An 'array' object was expected."];
         return nil;
     }
