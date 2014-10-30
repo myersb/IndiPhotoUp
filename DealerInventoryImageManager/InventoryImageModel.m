@@ -13,6 +13,8 @@
 
 
 #define inventoryImageURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
+//#define inventoryImageURL @"http://claytonupdatecenter.pubdev.com/cmhapi/connect.cfc?method=gateway"
+
 
 
 @interface InventoryImageModel()

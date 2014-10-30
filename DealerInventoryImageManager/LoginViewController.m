@@ -13,9 +13,12 @@
 #import "LotInfo.h"
 #import "ConnectUpSettings.h"
 
-//#define multiLotInfoURL @"https://www.claytonUpdateCenter.com/cfide/remoteInvoke.cfc?method=processGetJSONArray&obj=retail&MethodToInvoke=prcIndependentSingleOwnerMultiDealersRead&key=Ly9VUThFNSJBU0VHN14rWy5LNEUuCg%3D%3D&UserID="
 
 #define multiLotInfoURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?"
+//#define multiLotInfoURL @"http://claytonupdatecenter.pubdev.com/cmhapi/connect.cfc?"
+
+
+
 
 @interface Displaying_Alerts_with_UIAlertViewViewController : UIViewController <UIAlertViewDelegate>
 @end

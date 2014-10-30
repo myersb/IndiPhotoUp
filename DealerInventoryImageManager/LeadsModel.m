@@ -25,8 +25,8 @@
 #define JSON_LEAD_LEADDATE @"leaddate"
 #define JSON_LEAD_CHANGED @"changed"
 #define MINUTES_SINCE_LAST_REFRESH_CHECK ((int) 5)  //Used to force re-login if greater than two hours
-//#define webServiceLoginURL @"http://claytonUpdateCenter.pubdev.com/cfide/remoteInvoke.cfc?"
 
+//#define webServiceLoginURL @"http://claytonUpdateCenter.pubdev.com/cfide/remoteInvoke.cfc?"
 #define webServiceLoginURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?"
 
 
@@ -208,10 +208,10 @@
         
         NSError *jsonError;
         _jSON = [NSJSONSerialization JSONObjectWithData:leadData options:kNilOptions error:&jsonError];
-        NSLog(@"%@", jsonError);
+        //NSLog(@"%@", jsonError);
         
         _dataDictionary = [_jSON objectForKey:@"data"];
-		NSLog(@"%@", _dataDictionary);
+		//NSLog(@"%@", _dataDictionary);
         
         
         // *** Loop over that data and put into the database ***

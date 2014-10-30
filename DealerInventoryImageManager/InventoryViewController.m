@@ -14,8 +14,9 @@
 #import "Reachability.h"
 #import "Dealer.h"
 #import "ConnectUpSettings.h"
-#define BaseURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
 
+#define BaseURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
+//#define BaseURL @"http://claytonupdatecenter.pubdev.com/cmhapi/connect.cfc?method=gateway"
 
 
 @interface InventoryViewController ()

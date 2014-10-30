@@ -109,6 +109,8 @@ NSMutableArray *models;
 //		frame.size.height = 100;
 //		self.imageTableView.frame = frame;
 //	}
+    
+    /*
 	if ([[UIScreen mainScreen] bounds].size.height < 520)
 	{
 
@@ -129,6 +131,8 @@ NSMutableArray *models;
         [self.view needsUpdateConstraints];
     }];
 	}
+     
+     */
 }
 
 -(void)backToInventoryViewController

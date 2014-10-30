@@ -15,6 +15,9 @@
 #import "Reachability.h"
 
 #define baseURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?method=gateway"
+//#define baseURL @"http://claytonupdatecenter.pubdev.com/cmhapi/connect.cfc?method=gateway"
+
+
 #define appName @"ConnectUp"
 @interface LaunchViewController ()
 {

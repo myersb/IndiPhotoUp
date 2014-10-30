@@ -42,6 +42,14 @@
 	else{
 		_saveBtn.hidden = YES;
 	}
+    
+    
+    
+    // Turn off the exposure tool if it is an iPhone 4
+    if([UIScreen mainScreen].bounds.size.height != 568){
+        _editingControlerView.hidden = true;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

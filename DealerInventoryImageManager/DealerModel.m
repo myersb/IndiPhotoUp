@@ -31,6 +31,8 @@
 
 #define webServiceLoginURL @"https://www.claytonupdatecenter.com/cmhapi/connect.cfc?"
 
+//#define webServiceLoginURL @"http://claytonupdatecenter.pubdev.com/cmhapi/connect.cfc?"
+
 /* OPTIONS
  username = jonest
  password = password

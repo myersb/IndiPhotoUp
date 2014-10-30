@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c5n-er-YFP">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -123,11 +123,11 @@ This Service and all data accessed through the Service are the  property of CMH 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="app-tG-Ihp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="app-tG-Ihp">
                                 <rect key="frame" x="0.0" y="61" width="320" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="86" id="dpm-vf-U4l">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="dpm-vf-U4l">
                                         <rect key="frame" x="0.0" y="22" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dpm-vf-U4l" id="4Pc-qJ-Lvi">
@@ -144,7 +144,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <outlet property="delegate" destination="iEF-6x-NNF" id="ZI8-CV-Hy3"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRb-Qp-Wgb">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRb-Qp-Wgb">
                                 <rect key="frame" x="0.0" y="56" width="319" height="467"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Clayton Homes In Your Inventory" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="glY-co-90a">
@@ -170,7 +170,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <constraint firstAttribute="height" constant="45" id="yLx-nI-rFs"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-kT-bJn" userLabel="Button Change Dealer">
                                 <rect key="frame" x="214" y="523" width="106" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="FVi-5i-USy"/>
@@ -185,21 +185,21 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <segue destination="vo6-7G-XIw" kind="modal" identifier="segueToChangeDealerFromInventoryList" id="fPP-4L-pb9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FE-NJ-7V2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FE-NJ-7V2" userLabel="Button Inventory Home">
                                 <rect key="frame" x="107" y="523" width="106" height="45"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="MUU-7V-sXa"/>
                                     <constraint firstAttribute="height" constant="45" id="Wms-bc-fgN"/>
-                                    <constraint firstAttribute="width" constant="106" id="wED-Ms-Xog"/>
                                 </constraints>
                                 <state key="normal" image="inventoryBtnOn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5Y-Tm-QKf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5Y-Tm-QKf" userLabel="Button Leads View">
                                 <rect key="frame" x="-1" y="523" width="106" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Jq0-1f-QCi"/>
-                                    <constraint firstAttribute="width" constant="106" id="b7m-1h-e5p"/>
+                                    <constraint firstAttribute="width" constant="106" id="Kaw-Cf-ygK"/>
                                 </constraints>
                                 <state key="normal" image="leadsBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,8 +209,8 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <segue destination="afQ-9n-9JX" kind="modal" identifier="FromInventoryToLeads" id="bs8-mW-rC8"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-RX-iLH">
-                                <rect key="frame" x="-1" y="17" width="320" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-RX-iLH">
+                                <rect key="frame" x="0.0" y="17" width="320" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
@@ -223,7 +223,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3w-Mh-xeG">
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3w-Mh-xeG" userLabel="View Loading Icon">
                                 <rect key="frame" x="59" y="231" width="202" height="137"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading New Leads" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l43-AR-w8h">
@@ -237,18 +237,22 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.078431375324726105" green="0.50980395078659058" blue="0.76862752437591553" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="aRq-Cg-vmj"/>
+                                    <constraint firstAttribute="height" constant="137" id="eb5-ch-y5W"/>
+                                </constraints>
                             </view>
-                            <view alpha="0.84999999999999987" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMD-te-zEd">
+                            <view alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMD-te-zEd" userLabel="View Onboarding Uploading">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noimagesExample.png" translatesAutoresizingMaskIntoConstraints="NO" id="zWh-0f-TeE">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimagesExample.png" translatesAutoresizingMaskIntoConstraints="NO" id="zWh-0f-TeE">
                                         <rect key="frame" x="20" y="256" width="280" height="150"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="2at-Wh-w7c"/>
-                                            <constraint firstAttribute="width" constant="280" id="Yql-eC-Csx"/>
+                                            <constraint firstAttribute="height" constant="150" id="NLl-5j-Uhv"/>
+                                            <constraint firstAttribute="width" constant="280" id="WMg-v3-9AS"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysi-95-N07">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysi-95-N07" userLabel="View White">
                                         <rect key="frame" x="20" y="55" width="280" height="188"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uploading Pictures" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pu-ML-KeF">
@@ -265,8 +269,12 @@ This Service and all data accessed through the Service are the  property of CMH 
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="188" id="Peb-GQ-O8v"/>
+                                            <constraint firstAttribute="width" constant="280" id="hba-np-wz1"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kgt-cb-Jfh">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgt-cb-Jfh" userLabel="View Blue">
                                         <rect key="frame" x="20" y="243" width="280" height="58"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybd-B7-9DL">
@@ -282,34 +290,29 @@ This Service and all data accessed through the Service are the  property of CMH 
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.34901961679999999" green="0.5647059083" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="0De-S8-mq1"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="AIy-6L-XUn"/>
+                                            <constraint firstAttribute="height" constant="58" id="JS4-Jh-7EE"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="clH-H7-A8D"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ysi-95-N07" firstAttribute="top" secondItem="QMD-te-zEd" secondAttribute="top" constant="55" id="27b-gu-ikS"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="leading" secondItem="kgt-cb-Jfh" secondAttribute="leading" id="6xI-NL-9p2"/>
-                                    <constraint firstItem="ysi-95-N07" firstAttribute="leading" secondItem="QMD-te-zEd" secondAttribute="leading" constant="20" id="AFB-bE-Pxj"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="top" secondItem="ysi-95-N07" secondAttribute="bottom" constant="13" id="Bmw-wk-aYw"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="top" secondItem="QMD-te-zEd" secondAttribute="top" constant="256" id="Fa1-hf-9ST"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="leading" secondItem="QMD-te-zEd" secondAttribute="leading" constant="20" id="GGl-qc-Ey5"/>
-                                    <constraint firstAttribute="trailing" secondItem="zWh-0f-TeE" secondAttribute="trailing" constant="20" id="GJe-qb-oGJ"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="leading" secondItem="QMD-te-zEd" secondAttribute="leading" constant="20" id="HfX-dL-W7g"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="centerX" secondItem="kgt-cb-Jfh" secondAttribute="centerX" id="Pm2-oo-N4n"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="leading" secondItem="ysi-95-N07" secondAttribute="leading" id="Qao-wm-guf"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="top" secondItem="QMD-te-zEd" secondAttribute="top" constant="256" id="RF7-1s-ThX"/>
-                                    <constraint firstItem="kgt-cb-Jfh" firstAttribute="top" secondItem="ysi-95-N07" secondAttribute="bottom" id="bJg-C3-73q"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="centerX" secondItem="QMD-te-zEd" secondAttribute="centerX" id="g5m-dY-3AB"/>
-                                    <constraint firstAttribute="trailing" secondItem="ysi-95-N07" secondAttribute="trailing" constant="20" id="o84-dD-0gb"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="trailing" secondItem="kgt-cb-Jfh" secondAttribute="trailing" id="rZN-MJ-Gb1"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="leading" secondItem="QMD-te-zEd" secondAttribute="leading" constant="20" id="suB-2e-xXu"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="trailing" secondItem="ysi-95-N07" secondAttribute="trailing" id="u7G-x0-Oit"/>
-                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="centerX" secondItem="ysi-95-N07" secondAttribute="centerX" id="wVl-mM-Gan"/>
+                                    <constraint firstItem="ysi-95-N07" firstAttribute="top" secondItem="QMD-te-zEd" secondAttribute="top" constant="55" id="Hv2-Nh-zIv"/>
+                                    <constraint firstItem="zWh-0f-TeE" firstAttribute="top" secondItem="QMD-te-zEd" secondAttribute="top" constant="256" id="PkP-fd-o7C"/>
+                                    <constraint firstAttribute="centerX" secondItem="ysi-95-N07" secondAttribute="centerX" id="VWT-l1-Qem"/>
+                                    <constraint firstAttribute="trailing" secondItem="kgt-cb-Jfh" secondAttribute="trailing" constant="20" id="axW-v5-8fp"/>
+                                    <constraint firstItem="kgt-cb-Jfh" firstAttribute="leading" secondItem="QMD-te-zEd" secondAttribute="leading" constant="20" id="bPP-fe-3uY"/>
+                                    <constraint firstItem="kgt-cb-Jfh" firstAttribute="top" secondItem="QMD-te-zEd" secondAttribute="top" constant="243" id="jUG-2Z-kor"/>
+                                    <constraint firstAttribute="centerX" secondItem="zWh-0f-TeE" secondAttribute="centerX" id="tZT-D9-aXO"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frh-qo-vvo">
+                            <view alpha="0.95000000000000007" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frh-qo-vvo" userLabel="View Onboarding Nav">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="darkGreyBackground_WithCircles.png" translatesAutoresizingMaskIntoConstraints="NO" id="yhQ-SX-u0E">
+                                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="darkGreyBackground_WithCircles.png" translatesAutoresizingMaskIntoConstraints="NO" id="yhQ-SX-u0E">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="iconLabels.png" translatesAutoresizingMaskIntoConstraints="NO" id="17P-BQ-LHV">
@@ -319,7 +322,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                             <constraint firstAttribute="width" constant="320" id="g4A-LJ-fNe"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-ec-Ls1">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-ec-Ls1" userLabel="View White">
                                         <rect key="frame" x="20" y="55" width="280" height="188"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Navigation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvH-U0-uaY">
@@ -336,8 +339,12 @@ This Service and all data accessed through the Service are the  property of CMH 
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="188" id="n8d-dj-UMg"/>
+                                            <constraint firstAttribute="width" constant="280" id="uXx-2a-lbY"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-Vx-w87">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d3V-Vx-w87" userLabel="View Blue">
                                         <rect key="frame" x="20" y="243" width="280" height="58"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs2-BD-til">
@@ -353,9 +360,13 @@ This Service and all data accessed through the Service are the  property of CMH 
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.3490196168422699" green="0.56470590829849243" blue="0.86666673421859741" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="CjO-rb-Crd"/>
+                                            <constraint firstAttribute="height" constant="58" id="j7p-aJ-wea"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="centerY" secondItem="frh-qo-vvo" secondAttribute="centerY" id="0B5-gO-Sal"/>
                                     <constraint firstAttribute="trailing" secondItem="17P-BQ-LHV" secondAttribute="trailing" id="3hX-WH-WPP"/>
@@ -364,14 +375,12 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="leading" secondItem="frh-qo-vvo" secondAttribute="leading" id="MCz-YS-AZx"/>
                                     <constraint firstAttribute="trailing" secondItem="17P-BQ-LHV" secondAttribute="trailing" id="N43-0M-pO1"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="top" secondItem="frh-qo-vvo" secondAttribute="top" id="Nqt-tq-deU"/>
-                                    <constraint firstAttribute="trailing" secondItem="2N0-ec-Ls1" secondAttribute="trailing" constant="20" id="OQB-47-ZPw"/>
+                                    <constraint firstItem="2N0-ec-Ls1" firstAttribute="top" secondItem="frh-qo-vvo" secondAttribute="top" constant="55" id="PQt-qh-1ZN"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="leading" secondItem="yhQ-SX-u0E" secondAttribute="leading" id="Pt5-Ya-FLK"/>
                                     <constraint firstAttribute="bottom" secondItem="17P-BQ-LHV" secondAttribute="bottom" id="V6Q-PO-HLF"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="centerY" secondItem="yhQ-SX-u0E" secondAttribute="centerY" id="YlX-7e-dqh"/>
-                                    <constraint firstItem="2N0-ec-Ls1" firstAttribute="leading" secondItem="frh-qo-vvo" secondAttribute="leading" constant="20" id="Z4F-1S-GzS"/>
-                                    <constraint firstItem="d3V-Vx-w87" firstAttribute="top" secondItem="2N0-ec-Ls1" secondAttribute="bottom" id="ZnC-jG-HZk"/>
+                                    <constraint firstItem="d3V-Vx-w87" firstAttribute="top" secondItem="frh-qo-vvo" secondAttribute="top" constant="243" id="a5F-5r-7BF"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="bottom" secondItem="yhQ-SX-u0E" secondAttribute="bottom" id="bAP-W7-xob"/>
-                                    <constraint firstItem="2N0-ec-Ls1" firstAttribute="top" secondItem="frh-qo-vvo" secondAttribute="top" constant="55" id="di7-Ss-OjO"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="leading" secondItem="frh-qo-vvo" secondAttribute="leading" id="eRu-Li-4I8"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="trailing" secondItem="yhQ-SX-u0E" secondAttribute="trailing" id="hKu-ZW-syX"/>
                                     <constraint firstItem="17P-BQ-LHV" firstAttribute="centerX" secondItem="frh-qo-vvo" secondAttribute="centerX" id="k70-bG-V7V"/>
@@ -391,22 +400,30 @@ This Service and all data accessed through the Service are the  property of CMH 
                             <accessibilityTraits key="traits" none="YES" button="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstItem="c5Y-Tm-QKf" firstAttribute="top" secondItem="app-tG-Ihp" secondAttribute="bottom" id="0Du-py-JyT"/>
-                            <constraint firstAttribute="bottom" secondItem="Ygv-Rg-BkZ" secondAttribute="bottom" id="84q-Zd-2pH"/>
                             <constraint firstItem="D3w-Mh-xeG" firstAttribute="top" secondItem="JeV-1B-LYE" secondAttribute="top" constant="231" id="8V9-nS-82s"/>
+                            <constraint firstItem="fRb-Qp-Wgb" firstAttribute="top" secondItem="JeV-1B-LYE" secondAttribute="top" constant="56" id="8fD-zf-qnt"/>
                             <constraint firstAttribute="trailing" secondItem="vMW-kT-bJn" secondAttribute="trailing" id="Bdw-DO-34I"/>
-                            <constraint firstItem="D3w-Mh-xeG" firstAttribute="centerX" secondItem="app-tG-Ihp" secondAttribute="centerX" id="R0y-4g-4MZ"/>
+                            <constraint firstAttribute="trailing" secondItem="QMD-te-zEd" secondAttribute="trailing" id="D5y-9O-tdy"/>
+                            <constraint firstItem="app-tG-Ihp" firstAttribute="top" secondItem="JeV-1B-LYE" secondAttribute="top" constant="61" id="MjR-Oi-HEm"/>
+                            <constraint firstAttribute="trailing" secondItem="fRb-Qp-Wgb" secondAttribute="trailing" constant="1" id="Mls-dR-SvU"/>
+                            <constraint firstAttribute="bottom" secondItem="QMD-te-zEd" secondAttribute="bottom" id="Qz0-dw-GOf"/>
+                            <constraint firstItem="7cm-RX-iLH" firstAttribute="top" secondItem="JeV-1B-LYE" secondAttribute="top" constant="17" id="T8n-I9-KNS"/>
                             <constraint firstItem="c5Y-Tm-QKf" firstAttribute="leading" secondItem="JeV-1B-LYE" secondAttribute="leading" constant="-1" id="V9y-4e-SNm"/>
-                            <constraint firstItem="D3w-Mh-xeG" firstAttribute="leading" secondItem="JeV-1B-LYE" secondAttribute="leadingMargin" constant="43" id="Z1F-9M-h1A"/>
-                            <constraint firstItem="D3w-Mh-xeG" firstAttribute="centerX" secondItem="Ygv-Rg-BkZ" secondAttribute="centerX" id="Zaz-EP-zyG"/>
-                            <constraint firstItem="D3w-Mh-xeG" firstAttribute="centerX" secondItem="6FE-NJ-7V2" secondAttribute="centerX" id="cPq-4Y-dsV"/>
+                            <constraint firstItem="app-tG-Ihp" firstAttribute="leading" secondItem="JeV-1B-LYE" secondAttribute="leading" id="Whj-El-Y8p"/>
+                            <constraint firstItem="QMD-te-zEd" firstAttribute="leading" secondItem="JeV-1B-LYE" secondAttribute="leading" id="YuL-Gk-slO"/>
+                            <constraint firstAttribute="bottom" secondItem="fRb-Qp-Wgb" secondAttribute="bottom" constant="45" id="Z7I-Ob-3ex"/>
+                            <constraint firstAttribute="bottom" secondItem="Ygv-Rg-BkZ" secondAttribute="bottom" id="c3d-dj-jym"/>
                             <constraint firstItem="D3w-Mh-xeG" firstAttribute="centerX" secondItem="frh-qo-vvo" secondAttribute="centerX" id="cgz-bj-T1f"/>
+                            <constraint firstAttribute="bottom" secondItem="app-tG-Ihp" secondAttribute="bottom" constant="45" id="ejT-dI-fAf"/>
                             <constraint firstItem="vMW-kT-bJn" firstAttribute="leading" secondItem="6FE-NJ-7V2" secondAttribute="trailing" constant="1" id="fcg-Cr-Yaj"/>
-                            <constraint firstItem="app-tG-Ihp" firstAttribute="top" secondItem="7cm-RX-iLH" secondAttribute="bottom" id="gv9-5l-bUN"/>
                             <constraint firstAttribute="bottom" secondItem="c5Y-Tm-QKf" secondAttribute="bottom" id="h2P-88-qPL"/>
-                            <constraint firstItem="D3w-Mh-xeG" firstAttribute="centerX" secondItem="QMD-te-zEd" secondAttribute="centerX" id="kuk-xA-8r5"/>
-                            <constraint firstAttribute="bottom" secondItem="D3w-Mh-xeG" secondAttribute="bottom" constant="200" id="mDV-Om-T92"/>
+                            <constraint firstAttribute="centerX" secondItem="Ygv-Rg-BkZ" secondAttribute="centerX" id="hSu-RF-bbE"/>
+                            <constraint firstItem="fRb-Qp-Wgb" firstAttribute="leading" secondItem="JeV-1B-LYE" secondAttribute="leading" id="jkN-83-Keu"/>
+                            <constraint firstAttribute="trailing" secondItem="7cm-RX-iLH" secondAttribute="trailing" id="piu-2p-mXd"/>
+                            <constraint firstAttribute="trailing" secondItem="app-tG-Ihp" secondAttribute="trailing" id="s04-Ma-cyR"/>
+                            <constraint firstItem="7cm-RX-iLH" firstAttribute="leading" secondItem="JeV-1B-LYE" secondAttribute="leading" id="uaM-TN-m0v"/>
                             <constraint firstAttribute="bottom" secondItem="6FE-NJ-7V2" secondAttribute="bottom" id="vdy-QB-eRz"/>
+                            <constraint firstItem="QMD-te-zEd" firstAttribute="top" secondItem="JeV-1B-LYE" secondAttribute="top" id="wbj-bT-gal"/>
                             <constraint firstAttribute="bottom" secondItem="vMW-kT-bJn" secondAttribute="bottom" id="wmA-JT-1RD"/>
                             <constraint firstItem="6FE-NJ-7V2" firstAttribute="leading" secondItem="c5Y-Tm-QKf" secondAttribute="trailing" constant="2" id="xwB-tO-HBx"/>
                         </constraints>
@@ -444,10 +461,10 @@ This Service and all data accessed through the Service are the  property of CMH 
             </objects>
             <point key="canvasLocation" x="1400" y="475"/>
         </scene>
-        <!--Inventory Home-->
+        <!--Home Details View-->
         <scene sceneID="yV7-yF-5SW">
             <objects>
-                <viewController id="l4i-wu-eBC" customClass="HomeDetailsViewController" sceneMemberID="viewController">
+                <viewController title="Home Details View" id="l4i-wu-eBC" customClass="HomeDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jSb-RO-hoC"/>
                         <viewControllerLayoutGuide type="bottom" id="nz2-JT-1Cn"/>
@@ -456,106 +473,15 @@ This Service and all data accessed through the Service are the  property of CMH 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moh-qe-Huk">
-                                <rect key="frame" x="16" y="145" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCN-vC-Mb3">
-                                <rect key="frame" x="112" y="145" width="187" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QS5-D0-Hzr">
-                                <rect key="frame" x="16" y="122" width="112" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JB-mY-IBm">
-                                <rect key="frame" x="134" y="122" width="157" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqF-QA-jh0">
-                                <rect key="frame" x="16" y="85" width="204" height="21"/>
+                                <rect key="frame" x="16" y="57" width="204" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beds:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8w-sJ-HJs">
-                                <rect key="frame" x="16" y="168" width="39" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWX-nb-5ck">
-                                <rect key="frame" x="56" y="168" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Baths:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U59-id-PnV">
-                                <rect key="frame" x="112" y="168" width="43" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00b-o7-WcN">
-                                <rect key="frame" x="156" y="168" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sq. Ft.:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKh-Ck-7Rq">
-                                <rect key="frame" x="206" y="168" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg6-25-FD6">
-                                <rect key="frame" x="256" y="168" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Length:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7n-J2-WSv">
-                                <rect key="frame" x="16" y="189" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmY-HA-c4r">
-                                <rect key="frame" x="67" y="189" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Width:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wm-6o-s8o">
-                                <rect key="frame" x="112" y="189" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxT-1N-UHb">
-                                <rect key="frame" x="156" y="189" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipj-B1-ncT">
-                                <rect key="frame" x="0.0" y="223" width="320" height="300"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-Xj-8in">
-                                <rect key="frame" x="0.0" y="223" width="320" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lc4-Xj-8in" userLabel="Table View - Display Images">
+                                <rect key="frame" x="0.0" y="179" width="320" height="344"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="345" id="qDf-WD-WbU"/>
-                                </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="2" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="6ag-gr-1KJ" rowHeight="60" style="IBUITableViewCellStyleDefault" id="NN4-y7-oHa">
@@ -584,17 +510,17 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <outlet property="delegate" destination="l4i-wu-eBC" id="D72-94-I2T"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-Od-t61">
-                                <rect key="frame" x="0.0" y="223" width="320" height="300"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-Od-t61" userLabel="View - Add Images">
+                                <rect key="frame" x="0.0" y="180" width="320" height="344"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Images" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-1Y-6am">
-                                        <rect key="frame" x="36" y="20" width="249" height="45"/>
+                                        <rect key="frame" x="36" y="23" width="249" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="textColor" red="0.34901961679999999" green="0.5647059083" blue="0.86666673419999996" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hit the &quot;+&quot; to begin adding images for this inventory." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="FA0-Ob-AKw">
-                                        <rect key="frame" x="35" y="57" width="251" height="75"/>
+                                        <rect key="frame" x="35" y="60" width="251" height="75"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -602,7 +528,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cK3-Xr-cgV">
+                            <view alpha="0.84999999999999987" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cK3-Xr-cgV" userLabel="View - Waiting">
                                 <rect key="frame" x="400" y="91" width="100" height="100"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WhN-Hd-pjP">
@@ -612,18 +538,18 @@ This Service and all data accessed through the Service are the  property of CMH 
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bottomBlueBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="gM6-WV-icW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomBlueBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="gM6-WV-icW">
                                 <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="F36-Sx-jOQ"/>
-                                    <constraint firstAttribute="width" constant="320" id="Qaf-xj-kbe"/>
+                                    <constraint firstAttribute="width" constant="320" id="GAi-AM-Jeh"/>
+                                    <constraint firstAttribute="height" constant="45" id="J2O-D2-fbK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-Mh-oQv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-Mh-oQv" userLabel="Button Leads View">
                                 <rect key="frame" x="0.0" y="523" width="106" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="YZd-DM-oyX"/>
-                                    <constraint firstAttribute="height" constant="45" id="akT-zV-8Pi"/>
+                                    <constraint firstAttribute="width" constant="106" id="h8k-MS-UDi"/>
+                                    <constraint firstAttribute="height" constant="45" id="wYf-Qa-red"/>
                                 </constraints>
                                 <state key="normal" title="Leads View" image="leadsBtn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -633,11 +559,11 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <segue destination="afQ-9n-9JX" kind="modal" identifier="fromInventoryImagesToLeadsView" id="0Hk-mZ-WEh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sx1-Sg-i6Z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sx1-Sg-i6Z" userLabel="Button Change Dealer">
                                 <rect key="frame" x="214" y="523" width="106" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="SDl-5Y-g3p"/>
-                                    <constraint firstAttribute="width" constant="106" id="q1v-Kf-pwX"/>
+                                    <constraint firstAttribute="width" constant="106" id="XSe-KI-Biu"/>
+                                    <constraint firstAttribute="height" constant="45" id="adK-tY-xbg"/>
                                 </constraints>
                                 <state key="normal" image="changeDealerBtn.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -648,11 +574,11 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <segue destination="vo6-7G-XIw" kind="modal" id="Ayj-3O-0Xy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-3y-iE5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-3y-iE5" userLabel="Button Inventory">
                                 <rect key="frame" x="107" y="523" width="106" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="Fju-L2-lce"/>
-                                    <constraint firstAttribute="height" constant="45" id="KO2-oq-mYY"/>
+                                    <constraint firstAttribute="width" constant="106" id="Hoh-pp-O5V"/>
+                                    <constraint firstAttribute="height" constant="45" id="sA5-AE-sIg"/>
                                 </constraints>
                                 <state key="normal" image="inventoryBtnOn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -661,16 +587,16 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <segue destination="iEF-6x-NNF" kind="modal" identifier="segueFromHomeDetailsToInventoryList" id="tUn-Ui-w9N"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ayk-T7-wXW">
-                                <rect key="frame" x="0.0" y="-3" width="320" height="66"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ayk-T7-wXW" userLabel="View - Header Nav">
+                                <rect key="frame" x="0.0" y="-3" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1h-sx-OK0">
-                                        <rect key="frame" x="69" y="35" width="182" height="21"/>
+                                        <rect key="frame" x="69" y="12" width="182" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdG-rd-Owu">
-                                        <rect key="frame" x="271" y="16" width="40" height="50"/>
+                                        <rect key="frame" x="272" y="-5" width="40" height="50"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="43"/>
                                         <state key="normal" title="+">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -680,7 +606,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDb-L2-tU6">
-                                        <rect key="frame" x="6" y="31" width="58" height="30"/>
+                                        <rect key="frame" x="0.0" y="-1" width="69" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Back">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -692,17 +618,110 @@ This Service and all data accessed through the Service are the  property of CMH 
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moh-qe-Huk">
+                                <rect key="frame" x="16" y="109" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCN-vC-Mb3">
+                                <rect key="frame" x="112" y="109" width="187" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QS5-D0-Hzr">
+                                <rect key="frame" x="16" y="86" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JB-mY-IBm">
+                                <rect key="frame" x="134" y="86" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beds:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8w-sJ-HJs">
+                                <rect key="frame" x="16" y="132" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWX-nb-5ck">
+                                <rect key="frame" x="56" y="132" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Baths:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U59-id-PnV">
+                                <rect key="frame" x="112" y="132" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00b-o7-WcN">
+                                <rect key="frame" x="156" y="132" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sq. Ft.:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKh-Ck-7Rq">
+                                <rect key="frame" x="206" y="132" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg6-25-FD6">
+                                <rect key="frame" x="256" y="132" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Length:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7n-J2-WSv">
+                                <rect key="frame" x="16" y="153" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmY-HA-c4r">
+                                <rect key="frame" x="67" y="153" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Width:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wm-6o-s8o">
+                                <rect key="frame" x="112" y="153" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxT-1N-UHb">
+                                <rect key="frame" x="156" y="153" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25490197539329529" green="0.57647061347961426" blue="0.81568634510040283" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="sx1-Sg-i6Z" secondAttribute="trailing" id="51U-ls-PeO"/>
-                            <constraint firstItem="sx1-Sg-i6Z" firstAttribute="leading" secondItem="AGz-3y-iE5" secondAttribute="trailing" constant="1" id="Cet-CY-RQi"/>
-                            <constraint firstItem="U6g-Mh-oQv" firstAttribute="leading" secondItem="46x-l0-HZC" secondAttribute="leading" id="Hd9-pk-Duw"/>
-                            <constraint firstItem="AGz-3y-iE5" firstAttribute="leading" secondItem="U6g-Mh-oQv" secondAttribute="trailing" constant="1" id="YBx-pb-U3H"/>
-                            <constraint firstItem="nz2-JT-1Cn" firstAttribute="top" secondItem="AGz-3y-iE5" secondAttribute="bottom" id="a2V-AR-Hy3"/>
-                            <constraint firstItem="nz2-JT-1Cn" firstAttribute="top" secondItem="U6g-Mh-oQv" secondAttribute="bottom" id="faX-7f-cZ4"/>
-                            <constraint firstItem="nz2-JT-1Cn" firstAttribute="top" secondItem="sx1-Sg-i6Z" secondAttribute="bottom" id="qPH-gI-fFq"/>
-                            <constraint firstItem="nz2-JT-1Cn" firstAttribute="top" secondItem="gM6-WV-icW" secondAttribute="bottom" id="tQE-b8-rBp"/>
+                            <constraint firstItem="xe1-Od-t61" firstAttribute="top" secondItem="46x-l0-HZC" secondAttribute="top" constant="180" id="40D-6o-c9d"/>
+                            <constraint firstAttribute="bottom" secondItem="sx1-Sg-i6Z" secondAttribute="bottom" id="8xk-Sk-LBO"/>
+                            <constraint firstAttribute="bottom" secondItem="U6g-Mh-oQv" secondAttribute="bottom" id="B1j-as-1Tc"/>
+                            <constraint firstItem="Lc4-Xj-8in" firstAttribute="leading" secondItem="46x-l0-HZC" secondAttribute="leading" id="Fmu-Lb-gOf"/>
+                            <constraint firstAttribute="bottom" secondItem="gM6-WV-icW" secondAttribute="bottom" id="HOz-gK-GlD"/>
+                            <constraint firstItem="xe1-Od-t61" firstAttribute="leading" secondItem="46x-l0-HZC" secondAttribute="leading" id="JPn-Hq-VQA"/>
+                            <constraint firstAttribute="bottom" secondItem="xe1-Od-t61" secondAttribute="bottom" constant="44" id="NNg-s2-F2r"/>
+                            <constraint firstAttribute="centerX" secondItem="gM6-WV-icW" secondAttribute="centerX" id="U1A-1j-yVK"/>
+                            <constraint firstAttribute="bottom" secondItem="Lc4-Xj-8in" secondAttribute="bottom" constant="45" id="Usa-5P-PX7"/>
+                            <constraint firstItem="Lc4-Xj-8in" firstAttribute="top" secondItem="46x-l0-HZC" secondAttribute="top" constant="179" id="VLJ-9g-F2e"/>
+                            <constraint firstItem="U6g-Mh-oQv" firstAttribute="leading" secondItem="46x-l0-HZC" secondAttribute="leading" id="am2-JW-XJ7"/>
+                            <constraint firstAttribute="bottom" secondItem="AGz-3y-iE5" secondAttribute="bottom" id="dl0-7u-hr8"/>
+                            <constraint firstAttribute="trailing" secondItem="Lc4-Xj-8in" secondAttribute="trailing" id="eNQ-Nb-5sF"/>
+                            <constraint firstAttribute="centerX" secondItem="AGz-3y-iE5" secondAttribute="centerX" id="jps-8m-x4a"/>
+                            <constraint firstAttribute="trailing" secondItem="sx1-Sg-i6Z" secondAttribute="trailing" id="mff-is-T4j"/>
+                            <constraint firstAttribute="trailing" secondItem="xe1-Od-t61" secondAttribute="trailing" id="w06-tc-qdP"/>
+                            <constraint firstAttribute="bottom" secondItem="AGz-3y-iE5" secondAttribute="bottom" id="zbU-RD-rrb"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -723,14 +742,13 @@ This Service and all data accessed through the Service are the  property of CMH 
                         <outlet property="lblSqFt" destination="Sg6-25-FD6" id="L43-0J-5uJ"/>
                         <outlet property="lblViewControllerTitle" destination="P1h-sx-OK0" id="Nnh-fB-fIB"/>
                         <outlet property="lblWidth" destination="BxT-1N-UHb" id="5D9-6q-ji4"/>
-                        <outlet property="tableViewHeightConstraint" destination="qDf-WD-WbU" id="P4G-yR-kb4"/>
                         <segue destination="iEF-6x-NNF" kind="modal" identifier="noInventorySegue" id="VBY-Wv-O0o"/>
                         <segue destination="jT0-Dd-hZP" kind="modal" identifier="segueFromHomeDetailsToNewPhoto" id="CbV-E2-SbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCg-UX-0Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="475"/>
+            <point key="canvasLocation" x="1804" y="472"/>
         </scene>
         <!--New Photo-->
         <scene sceneID="Chg-Ld-21A">
@@ -750,7 +768,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCb-Yp-3EC">
                                 <rect key="frame" x="0.0" y="41" width="320" height="213"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tY-uA-bLB">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tY-uA-bLB" userLabel="View - For Serial Number">
                                 <rect key="frame" x="0.0" y="252" width="320" height="77"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="serialNumberBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="OQs-RW-lrl">
@@ -771,7 +789,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-RV-Ome">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-RV-Ome" userLabel="View - Exposure">
                                 <rect key="frame" x="0.0" y="342" width="320" height="66"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXPOSURE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezn-lb-Bxg">
@@ -849,11 +867,14 @@ This Service and all data accessed through the Service are the  property of CMH 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="grayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-Uj-iil">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-Uj-iil">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Tr9-oT-aDx"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbY-8c-wsd" userLabel="ButtonTopBackArrow">
-                                <rect key="frame" x="20" y="13" width="25" height="21"/>
+                                <rect key="frame" x="16" y="9" width="25" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="HYi-ub-TCQ"/>
                                     <constraint firstAttribute="height" constant="21" id="YkR-le-BeX"/>
@@ -865,13 +886,17 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <action selector="goBack" destination="clY-9V-Vh5" eventType="touchUpInside" id="2cM-c6-RpW"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
-                                <rect key="frame" x="0.0" y="41" width="320" height="483"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-Qf-9hB">
+                                <rect key="frame" x="0.0" y="44" width="320" height="483"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UT5-NQ-fWg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UT5-NQ-fWg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="213" id="Kko-z7-kLv"/>
+                                            <constraint firstAttribute="width" constant="320" id="SmC-lj-hbc"/>
+                                        </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-Je-BDb">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-Je-BDb" userLabel="View - Serial Number">
                                         <rect key="frame" x="0.0" y="210" width="320" height="77"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="serialNumberBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="JfP-SE-Egk">
@@ -893,7 +918,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INm-t9-hRp">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INm-t9-hRp" userLabel="View - Image Details">
                                         <rect key="frame" x="0.0" y="299" width="320" height="102"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="captionBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="lDl-lj-ZMY">
@@ -933,8 +958,8 @@ This Service and all data accessed through the Service are the  property of CMH 
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYE-IB-D4x">
-                                        <rect key="frame" x="0.0" y="695" width="320" height="226"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYE-IB-D4x" userLabel="View - Picker">
+                                        <rect key="frame" x="0.0" y="800" width="320" height="226"/>
                                         <subviews>
                                             <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="imageRoom" translatesAutoresizingMaskIntoConstraints="NO" id="8aF-Gc-mYG">
                                                 <rect key="frame" x="5" y="31" width="310" height="162"/>
@@ -960,24 +985,20 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="FZV-pz-zKQ"/>
+                                    <constraint firstAttribute="centerX" secondItem="UT5-NQ-fWg" secondAttribute="centerX" id="Jca-Xu-aaA"/>
+                                    <constraint firstAttribute="bottom" secondItem="UT5-NQ-fWg" secondAttribute="bottom" constant="270" id="bVR-on-UZ6"/>
+                                    <constraint firstItem="UT5-NQ-fWg" firstAttribute="top" secondItem="xXJ-Qf-9hB" secondAttribute="top" id="jew-H0-TpR"/>
+                                </constraints>
                             </scrollView>
-                            <view hidden="YES" alpha="0.84999999999999987" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-Pd-7Im">
-                                <rect key="frame" x="110" y="234" width="100" height="100"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-p5-xru">
-                                        <rect key="frame" x="31" y="32" width="37" height="37"/>
-                                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdi-O5-Hgf">
-                                <rect key="frame" x="106" y="11" width="108" height="21"/>
+                                <rect key="frame" x="106" y="9" width="108" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWo-kz-WI4">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWo-kz-WI4">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="IPp-Td-9g2">
@@ -994,9 +1015,9 @@ This Service and all data accessed through the Service are the  property of CMH 
                                 </items>
                             </toolbar>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXb-jb-hOI" userLabel="ButtonTopX">
-                                <rect key="frame" x="40" y="9" width="25" height="25"/>
+                                <rect key="frame" x="40" y="7" width="27" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="ZJa-J6-z1G"/>
+                                    <constraint firstAttribute="width" constant="27" id="ZJa-J6-z1G"/>
                                     <constraint firstAttribute="height" constant="25" id="o4n-hH-EhO"/>
                                 </constraints>
                                 <state key="normal" image="cancelBtn.png">
@@ -1006,27 +1027,41 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <segue destination="l4i-wu-eBC" kind="modal" identifier="segueCloseImageDetails" id="9Gx-e8-dab"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-Pd-7Im">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-p5-xru">
+                                        <rect key="frame" x="31" y="32" width="37" height="37"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xXJ-Qf-9hB" firstAttribute="top" secondItem="Wdi-O5-Hgf" secondAttribute="bottom" constant="9" id="1tf-Bh-VLb"/>
+                            <constraint firstItem="cWo-kz-WI4" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leading" id="0uW-Jq-f4r"/>
                             <constraint firstItem="Wdi-O5-Hgf" firstAttribute="centerX" secondItem="TWA-aD-nQO" secondAttribute="centerX" id="6Y5-dJ-yzC"/>
-                            <constraint firstItem="Wdi-O5-Hgf" firstAttribute="centerX" secondItem="xXJ-Qf-9hB" secondAttribute="centerX" id="AfB-ld-NyG"/>
-                            <constraint firstItem="6iv-Pd-7Im" firstAttribute="centerX" secondItem="xXJ-Qf-9hB" secondAttribute="centerX" id="Fvu-F3-6jx"/>
-                            <constraint firstItem="PXb-jb-hOI" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="topMargin" constant="9" id="GDE-Vr-LN7"/>
-                            <constraint firstItem="Wdi-O5-Hgf" firstAttribute="centerX" secondItem="zeh-Uj-iil" secondAttribute="centerX" id="LeX-mt-1oO"/>
+                            <constraint firstItem="xXJ-Qf-9hB" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="top" constant="44" id="E5v-lY-D1W"/>
+                            <constraint firstItem="PXb-jb-hOI" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="topMargin" constant="7" id="GDE-Vr-LN7"/>
+                            <constraint firstAttribute="trailing" secondItem="zeh-Uj-iil" secondAttribute="trailing" id="IQG-ut-yco"/>
+                            <constraint firstAttribute="trailing" secondItem="xXJ-Qf-9hB" secondAttribute="trailing" id="NLz-4P-nMx"/>
                             <constraint firstItem="PXb-jb-hOI" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leadingMargin" constant="24" id="NxH-wh-bJX"/>
                             <constraint firstItem="6iv-Pd-7Im" firstAttribute="centerX" secondItem="cWo-kz-WI4" secondAttribute="centerX" id="QS7-qC-hqy"/>
                             <constraint firstItem="KQM-hu-4en" firstAttribute="top" secondItem="cWo-kz-WI4" secondAttribute="bottom" id="RS7-Ne-z0V"/>
-                            <constraint firstItem="Wdi-O5-Hgf" firstAttribute="centerY" secondItem="zeh-Uj-iil" secondAttribute="centerY" id="RfC-pl-7yk"/>
-                            <constraint firstItem="Wdi-O5-Hgf" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="topMargin" constant="11" id="WC7-UD-0G2"/>
+                            <constraint firstItem="zeh-Uj-iil" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leading" id="Rep-9y-xrU"/>
+                            <constraint firstItem="zeh-Uj-iil" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="top" id="SiB-wq-Pph"/>
+                            <constraint firstItem="xXJ-Qf-9hB" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leading" id="Ve9-oA-M8s"/>
+                            <constraint firstItem="Wdi-O5-Hgf" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="topMargin" constant="9" id="WC7-UD-0G2"/>
                             <constraint firstItem="6iv-Pd-7Im" firstAttribute="centerY" secondItem="TWA-aD-nQO" secondAttribute="centerY" id="c4T-Xy-rfr"/>
-                            <constraint firstItem="hbY-8c-wsd" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leadingMargin" constant="4" id="caJ-AP-Eac"/>
+                            <constraint firstItem="hbY-8c-wsd" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leadingMargin" id="caJ-AP-Eac"/>
                             <constraint firstItem="Wdi-O5-Hgf" firstAttribute="centerX" secondItem="6iv-Pd-7Im" secondAttribute="centerX" id="cy3-qJ-CVk"/>
+                            <constraint firstAttribute="bottom" secondItem="xXJ-Qf-9hB" secondAttribute="bottom" constant="41" id="foV-Ng-2Ad"/>
                             <constraint firstItem="6iv-Pd-7Im" firstAttribute="leading" secondItem="TWA-aD-nQO" secondAttribute="leadingMargin" constant="94" id="frB-vd-uHU"/>
+                            <constraint firstAttribute="trailing" secondItem="cWo-kz-WI4" secondAttribute="trailing" id="h6J-NO-bxL"/>
                             <constraint firstItem="6iv-Pd-7Im" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="top" constant="234" id="h6l-kQ-Gpn"/>
                             <constraint firstItem="Wdi-O5-Hgf" firstAttribute="centerX" secondItem="cWo-kz-WI4" secondAttribute="centerX" id="hxI-FT-b0J"/>
-                            <constraint firstItem="hbY-8c-wsd" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="topMargin" constant="13" id="ppv-QA-FlH"/>
+                            <constraint firstItem="hbY-8c-wsd" firstAttribute="top" secondItem="TWA-aD-nQO" secondAttribute="topMargin" constant="9" id="ppv-QA-FlH"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1050,7 +1085,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KbM-kf-7L2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="475"/>
+            <point key="canvasLocation" x="2626" y="475"/>
         </scene>
         <!--Launch View Controller-->
         <scene sceneID="vtO-cJ-pQB">
@@ -1092,14 +1127,14 @@ This Service and all data accessed through the Service are the  property of CMH 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-Qf-Fkq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomGrayBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-Qf-Fkq">
                                 <rect key="frame" x="0.0" y="515" width="320" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="4EN-eK-pcB"/>
                                     <constraint firstAttribute="width" constant="320" id="BUL-wS-swf"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhp-z6-QHV">
                                 <rect key="frame" x="212" y="515" width="108" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="AdO-m7-Iwy"/>
@@ -1112,7 +1147,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <action selector="logout:" destination="vo6-7G-XIw" eventType="touchUpInside" id="ZnE-c4-iWl"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-Ch-J5h">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-Ch-J5h">
                                 <rect key="frame" x="0.0" y="60" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1149,7 +1184,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <outlet property="delegate" destination="vo6-7G-XIw" id="7Gf-gA-YHR"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7yP-ou-J9o">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7yP-ou-J9o">
                                 <rect key="frame" x="0.0" y="16" width="320" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1160,11 +1195,15 @@ This Service and all data accessed through the Service are the  property of CMH 
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bhp-z6-QHV" firstAttribute="top" secondItem="8Mb-Ch-J5h" secondAttribute="bottom" id="MR6-g5-WNn"/>
-                            <constraint firstItem="8Mb-Ch-J5h" firstAttribute="top" secondItem="7yP-ou-J9o" secondAttribute="bottom" id="Rjd-2J-EYS"/>
+                            <constraint firstItem="8Mb-Ch-J5h" firstAttribute="top" secondItem="7F9-yG-2Qb" secondAttribute="top" constant="60" id="Ecr-v8-voJ"/>
+                            <constraint firstAttribute="trailing" secondItem="8Mb-Ch-J5h" secondAttribute="trailing" id="Lvo-FY-8Tw"/>
                             <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="TIf-Qf-Fkq" secondAttribute="bottom" id="RtE-zJ-I6s"/>
+                            <constraint firstAttribute="trailing" secondItem="bhp-z6-QHV" secondAttribute="trailing" id="SEh-r5-u3K"/>
+                            <constraint firstAttribute="bottom" secondItem="8Mb-Ch-J5h" secondAttribute="bottom" constant="53" id="XF5-Ij-w7O"/>
                             <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="bhp-z6-QHV" secondAttribute="bottom" id="Xcl-Ch-w8T"/>
                             <constraint firstItem="W43-lC-PV9" firstAttribute="top" secondItem="TIf-Qf-Fkq" secondAttribute="bottom" id="b97-cy-4tG"/>
+                            <constraint firstItem="8Mb-Ch-J5h" firstAttribute="leading" secondItem="7F9-yG-2Qb" secondAttribute="leading" id="lXg-SX-MJy"/>
+                            <constraint firstItem="TIf-Qf-Fkq" firstAttribute="leading" secondItem="7F9-yG-2Qb" secondAttribute="leading" id="mOp-6D-SAY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dealer Select" id="XV2-bv-Yja"/>
@@ -1286,7 +1325,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                                     <outlet property="delegate" destination="UDL-Dn-EVE" id="oeO-zL-j5Z"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-X4-k5Y">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-X4-k5Y">
                                 <rect key="frame" x="78" y="73" width="165" height="29"/>
                                 <segments>
                                     <segment title="New Leads"/>
@@ -1303,6 +1342,7 @@ This Service and all data accessed through the Service are the  property of CMH 
                             <constraint firstAttribute="bottom" secondItem="lJ6-lR-S3X" secondAttribute="bottom" constant="45" id="28y-P7-eeb"/>
                             <constraint firstItem="C9r-Oc-1WS" firstAttribute="top" secondItem="SPG-H8-KPi" secondAttribute="bottom" id="48h-sr-gCD"/>
                             <constraint firstItem="SPG-H8-KPi" firstAttribute="leading" secondItem="Bs1-xB-p03" secondAttribute="trailing" constant="1" id="7cy-hH-3GB"/>
+                            <constraint firstItem="XeK-X4-k5Y" firstAttribute="top" secondItem="Cyr-ND-ppE" secondAttribute="top" constant="73" id="DSJ-8P-cdp"/>
                             <constraint firstItem="SPG-H8-KPi" firstAttribute="leading" secondItem="Bs1-xB-p03" secondAttribute="trailing" constant="1" id="FM3-LK-Asj"/>
                             <constraint firstAttribute="trailing" secondItem="lJ6-lR-S3X" secondAttribute="trailing" id="IKo-bY-GPo"/>
                             <constraint firstItem="C9r-Oc-1WS" firstAttribute="top" secondItem="gQC-fQ-ejm" secondAttribute="bottom" id="KYo-wU-IK4"/>
@@ -1412,58 +1452,6 @@ This Service and all data accessed through the Service are the  property of CMH 
             </objects>
             <point key="canvasLocation" x="2235" y="1152"/>
         </scene>
-        <!--Email Lead View Controller-->
-        <scene sceneID="2FZ-j1-4q3">
-            <objects>
-                <viewController id="VWN-oQ-L5g" customClass="EmailLeadViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gK8-PE-p3w"/>
-                        <viewControllerLayoutGuide type="bottom" id="JOK-gN-7jD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oO6-wO-Muy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwx-LG-Bpp">
-                                <rect key="frame" x="0.0" y="60" width="320" height="284"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter message here..." translatesAutoresizingMaskIntoConstraints="NO" id="yAl-ms-0Uh">
-                                        <rect key="frame" x="20" y="39" width="280" height="206"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Email Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er3-oG-Zh1">
-                                        <rect key="frame" x="20" y="10" width="167" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXQ-PF-TPP">
-                                        <rect key="frame" x="222" y="253" width="78" height="30"/>
-                                        <state key="normal" title="Send Email">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="actionEmailComposer" destination="VWN-oQ-L5g" eventType="touchUpInside" id="dsc-P5-lFw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ia8-g8-wLL"/>
-                    <connections>
-                        <outlet property="tvMessageBody" destination="yAl-ms-0Uh" id="Maz-os-tA4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jZb-nY-M1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2950" y="1974"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="MHd-KY-X05">
             <objects>
@@ -1514,12 +1502,12 @@ This Service and all data accessed through the Service are the  property of CMH 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tUn-Ui-w9N"/>
-        <segue reference="yVG-si-1YU"/>
-        <segue reference="5yM-gN-tF0"/>
         <segue reference="0Hk-mZ-WEh"/>
+        <segue reference="kgZ-Z3-I4F"/>
+        <segue reference="BF5-Bq-G8l"/>
+        <segue reference="p8f-pg-d5p"/>
         <segue reference="Ayj-3O-0Xy"/>
-        <segue reference="RoM-BH-pTn"/>
+        <segue reference="tUn-Ui-w9N"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

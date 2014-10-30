@@ -573,12 +573,19 @@
         [UIView setAnimationDuration:0.3];
         // Shift the view to these coordinates
         
+        
+        // Calculating the distance that the picker needs to be from the top of the screen.
+        CGFloat sizeOfPicker = pickerViewContainer.frame.size.height;
+        CGFloat getDistanceFromTop = [UIScreen mainScreen].bounds.size.height - sizeOfPicker - 51;
+        pickerViewContainer.frame = CGRectMake(0, getDistanceFromTop, 320, 226);
+        
+        /* Performing this dynamicly - No longer needed
         if([UIScreen mainScreen].bounds.size.height == 568){
             pickerViewContainer.frame = CGRectMake(0, 232, 320, 226);
         } else{
             pickerViewContainer.frame = CGRectMake(0, 150, 320, 226);
         }
-        
+        */
         
         [UIView commitAnimations];
         return NO;
@@ -671,11 +678,11 @@
     [self basicAuthForRequest:request withUsername:@"dirty" andPassword:@"authentication"];
     
     // now lets make the connection to the web
-    //NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    //NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
     // Display the results that the service gives back.
-    //NSLog(@"%@",returnString);
+    NSLog(@"%@",returnString);
     
 }
 
