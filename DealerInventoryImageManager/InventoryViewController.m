@@ -150,6 +150,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    
+    // get data from the source.
 	[_inventoryListTable reloadData];
 	[self adjustHeightOfTableview];
     
