@@ -79,7 +79,7 @@
 	// Note needed if I am using DataHelper
 	id delegate = [[UIApplication sharedApplication] delegate];
 	self.managedObjectContext = [delegate managedObjectContext];
-	
+		
 	internetReachable = [[Reachability alloc] init];
 	[internetReachable checkOnlineConnection];
 	
