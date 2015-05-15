@@ -194,6 +194,8 @@
 
     // Get Get AccessToken from API
     NSString *postString = [NSString stringWithFormat:@"method=authenticate&format=JSONArray&linkonly=1&un=%@&pw=%@&at=%@", userName, password, appToken];
+
+    
     [request addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[postString length]] forHTTPHeaderField:@"Content-length"];
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -365,8 +367,10 @@
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil ];
 	
     // This might be nil.  If it is, then return no.
+    
+    //NSLog(@"%@", returnData);
     if (!returnData){
-        return NO;
+        return YES;
     }
     
     NSDictionary *jSON = [NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:nil];

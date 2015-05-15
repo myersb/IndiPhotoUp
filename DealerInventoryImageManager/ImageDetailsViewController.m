@@ -387,6 +387,10 @@
     
     // check that the user is still authorized.
     DealerModel *dealerModel = [[DealerModel alloc] init];
+    
+
+    //NSLog(@"BOOL = %@\n", ([dealerModel isDealerExpired] ? @"YES" : @"NO"));
+    
     if ([dealerModel isDealerExpired]) {
         //NSLog(@"Dealer IS expired");
         
